@@ -1,0 +1,17 @@
+# API-Schlüssel – niemals in Git!
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Logs
+logs/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
