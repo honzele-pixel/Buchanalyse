@@ -1,6 +1,9 @@
 """
 Buchanalyse-System – Hauptprogramm
-Honzele wählt ein Buch aus – alle 4 Agenten laufen automatisch durch.
+
+Zwei Modi:
+  1. Buch analysieren  – alle 4 Agenten laufen automatisch durch
+  2. Diskutieren       – mit dem Gesprächspartner über Bücher reden
 
 Verwendung: python main.py
 """
@@ -14,10 +17,11 @@ sys.stdout.reconfigure(encoding="utf-8")
 from dotenv import load_dotenv
 load_dotenv()
 
-from agents.lektor          import lektor_analysieren
-from agents.inhaltsanalyst  import inhaltsanalyst_analysieren
-from agents.vernetzer       import vernetzer_analysieren
-from agents.berichterstatter import berichterstatter_erstellen
+from agents.lektor            import lektor_analysieren
+from agents.inhaltsanalyst    import inhaltsanalyst_analysieren
+from agents.vernetzer         import vernetzer_analysieren
+from agents.berichterstatter  import berichterstatter_erstellen
+from agents.gespraechspartner import gespraechspartner_starten
 
 BUCHER_DIR   = r"E:\Bucher"
 ANALYSEN_DIR = r"E:\Claude_Projekte\Buchanalysen\analysen"
@@ -176,43 +180,62 @@ async def main() -> None:
         return
 
     while True:
-        # Bücher scannen und Menü anzeigen
-        buecher = buecher_scannen()
-        menu_anzeigen(buecher)
+        # Hauptmenü
+        print("\n" + "="*60)
+        print("  BUCHANALYSE-SYSTEM – HAUPTMENÜ")
+        print("="*60)
+        print("\n  Was möchtest du tun?\n")
+        print("    1.  Buch analysieren")
+        print("    2.  Über Bücher diskutieren")
+        print("    q.  Beenden")
+        print()
 
-        # Auswahl
         try:
-            eingabe = input("\n  Nummer eingeben (oder 'q' zum Beenden): ").strip()
+            modus = input("  Auswahl: ").strip().lower()
         except (EOFError, KeyboardInterrupt):
             print("\n\n  Auf Wiedersehen, Honzele!")
             break
 
-        if eingabe.lower() == "q":
+        if modus == "q":
             print("\n  Auf Wiedersehen, Honzele!\n")
             break
 
-        if not eingabe.isdigit() or not (1 <= int(eingabe) <= len(buecher)):
-            print(f"\n  Ungültige Eingabe. Bitte eine Zahl zwischen 1 und {len(buecher)} eingeben.")
-            continue
+        # MODUS 2: Diskutieren
+        elif modus == "2":
+            await gespraechspartner_starten()
 
-        buch = buecher[int(eingabe) - 1]
-        pfade = pfade_erstellen(buch)
-        vorhanden = bereits_analysiert(pfade)
+        # MODUS 1: Buch analysieren
+        elif modus == "1":
+            buecher = buecher_scannen()
+            menu_anzeigen(buecher)
 
-        # Neuanalyse-Flag setzen
-        if vorhanden:
-            antwort = input(f"\n  '{buch['titel']}' wurde bereits analysiert ({', '.join(vorhanden)}).\n  Alles neu analysieren? (j/n): ").strip().lower()
-            _neuanalyse = (antwort == "j")
+            try:
+                eingabe = input("\n  Nummer eingeben (oder 'q' für Hauptmenü): ").strip()
+            except (EOFError, KeyboardInterrupt):
+                print("\n\n  Auf Wiedersehen, Honzele!")
+                break
+
+            if eingabe.lower() == "q":
+                continue
+
+            if not eingabe.isdigit() or not (1 <= int(eingabe) <= len(buecher)):
+                print(f"\n  Ungültige Eingabe. Bitte eine Zahl zwischen 1 und {len(buecher)} eingeben.")
+                continue
+
+            buch = buecher[int(eingabe) - 1]
+            pfade = pfade_erstellen(buch)
+            vorhanden = bereits_analysiert(pfade)
+
+            if vorhanden:
+                antwort = input(f"\n  '{buch['titel']}' wurde bereits analysiert ({', '.join(vorhanden)}).\n  Alles neu analysieren? (j/n): ").strip().lower()
+                _neuanalyse = (antwort == "j")
+            else:
+                _neuanalyse = True
+
+            await buch_analysieren(buch)
+
         else:
-            _neuanalyse = True
-
-        await buch_analysieren(buch)
-
-        # Weiteres Buch?
-        weiter = input("  Weiteres Buch analysieren? (j/n): ").strip().lower()
-        if weiter != "j":
-            print("\n  Auf Wiedersehen, Honzele!\n")
-            break
+            print("\n  Bitte 1, 2 oder q eingeben.")
 
 
 if __name__ == "__main__":
