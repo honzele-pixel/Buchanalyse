@@ -8,9 +8,10 @@ Ergebnis: analysen/<Autor>/<Buch>/02_inhaltsanalyse.md
 import asyncio
 import os
 import sys
+import tempfile
 from dotenv import load_dotenv
 from claude_agent_sdk import query, ClaudeAgentOptions
-from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage
+from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage, SystemPromptFile
 
 sys.stdout.reconfigure(encoding="utf-8")
 load_dotenv()
@@ -77,15 +78,21 @@ async def inhaltsanalyst_analysieren(lektor_pfad: str, ausgabe_pfad: str) -> Non
         lektor_text = f.read()
     print(f"  {len(lektor_text):,} Zeichen geladen\n")
 
-    prompt = f"""Hier ist die vollständige Lektor-Aufbereitung des Buches "{buch_name}".
+    # System-Prompt + Lektor-Text als Datei (Windows-Limit umgehen)
+    system_prompt_inhalt = f"""{SYSTEM_PROMPT}
 
-{lektor_text}
+## LEKTOR-AUFBEREITUNG DES BUCHES "{buch_name}":
 
-Bitte erstelle nun die Tiefenanalyse gemäß deinen Anweisungen.
-Stütze dich auf konkrete Stellen aus der Aufbereitung – mit Seitenangaben wo vorhanden."""
+{lektor_text}"""
+
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8", suffix=".txt", delete=False
+    ) as tmp:
+        tmp.write(system_prompt_inhalt)
+        tmp_pfad = tmp.name
 
     options = ClaudeAgentOptions(
-        system_prompt=SYSTEM_PROMPT,
+        system_prompt=SystemPromptFile(type="file", path=tmp_pfad),
         allowed_tools=[],
         permission_mode="acceptEdits",
         max_turns=3,
@@ -97,7 +104,10 @@ Stütze dich auf konkrete Stellen aus der Aufbereitung – mit Seitenangaben wo 
     ergebnis_teile = []
     kosten = 0.0
 
-    async for message in query(prompt=prompt, options=options):
+    async for message in query(
+        prompt=f'Erstelle die Tiefenanalyse für "{buch_name}" gemäß deinen Anweisungen. Stütze dich auf konkrete Stellen mit Seitenangaben.',
+        options=options
+    ):
         if isinstance(message, AssistantMessage):
             for block in message.content:
                 if isinstance(block, TextBlock):
@@ -111,6 +121,7 @@ Stütze dich auf konkrete Stellen aus der Aufbereitung – mit Seitenangaben wo 
                 print(f"\n\n[Kosten: ${kosten:.4f} | Durchläufe: {message.num_turns}]")
 
     print("\n" + "-" * 60)
+    os.unlink(tmp_pfad)
 
     # Ergebnis speichern
     ergebnis = "".join(ergebnis_teile)
