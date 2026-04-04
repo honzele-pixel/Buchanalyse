@@ -34,6 +34,7 @@ wissen muss.
 ---
 
 ## STRUKTUR DES GESAMTDOSSIERS
+(Kein Bezug zur Website "Archiv der Souveränität" – das ist ein separates Projekt!)
 
 ### 1. STECKBRIEF
 Kompakte Übersicht: Autor, Titel, Verlag, Jahr, Kernthema, Bewertung in einem Satz.

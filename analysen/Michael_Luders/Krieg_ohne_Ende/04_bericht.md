@@ -6,8 +6,8 @@
 
 ---
 
-# GESAMTDOSSIER · ARCHIV DER SOUVERÄNITÄT
-## Akte Nr. 001 · Klassifizierung: VOLLANALYSE
+# GESAMTDOSSIER · BUCHANALYSE-ARCHIV
+## Analyse Nr. 001
 
 ---
 
@@ -192,5 +192,5 @@ Dieses Buch wird einen wütend machen. Manchmal auf Lüders, meistens auf die Wi
 
 ---
 
-*Gesamtdossier erstellt am 04.04.2026 · Archiv der Souveränität · Akte 001*
+*Gesamtdossier erstellt am 04.04.2026 · Buchanalyse-Archiv von Honzele · Analyse Nr. 001*
 *Grundlage: Lektor-Aufbereitung + Inhaltsanalyse + Vernetzungsanalyse*
