@@ -1,3 +1,12 @@
 {
-  "buecher": []
+  "buecher": [
+    {
+      "autor": "Michael Lüders",
+      "titel": "Krieg ohne Ende",
+      "analysiert_am": "2026-04-04",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Krieg_ohne_Ende\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Krieg_ohne_Ende\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n---\n\n### Einführung: *Trauer, Leid und Denkverbote* (S. 11–18)\n\nLüders eröffnet mit der Diagnose, dass in Deutschland nach dem 7. Oktober 2023 ein System von Denkverboten und faktischer Zensur entstanden ist, das freie Meinungsäußerung zum Nahost-Konflikt unterdrückt...."
+    }
+  ]
 }

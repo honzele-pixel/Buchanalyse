@@ -1,3 +1,267 @@
-# Agent 3: Der Vernetzer
-# Findet Verbindungen zu anderen Büchern der Bibliothek.
-# TODO: wird nach dem Inhaltsanalyst implementiert
+"""
+Agent 3: Der Vernetzer
+Findet Querverbindungen zwischen dem aktuellen Buch und allen anderen
+bereits analysierten Büchern in der Bibliothek.
+
+WICHTIG: Dieser Agent entfaltet sein volles Potenzial erst wenn mehrere
+Bücher analysiert wurden. Mit jedem neuen Buch wird er mächtiger.
+
+Ergebnis: analysen/<Autor>/<Buch>/03_vernetzung.md
+         + Update von bibliothek/index.json
+"""
+
+import asyncio
+import os
+import sys
+import json
+from datetime import date
+from dotenv import load_dotenv
+from claude_agent_sdk import query, ClaudeAgentOptions
+from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage
+
+sys.stdout.reconfigure(encoding="utf-8")
+load_dotenv()
+
+BIBLIOTHEK_INDEX = r"E:\Claude_Projekte\Buchanalysen\bibliothek\index.json"
+ANALYSEN_DIR     = r"E:\Claude_Projekte\Buchanalysen\analysen"
+
+
+SYSTEM_PROMPT = """Du bist ein hochspezialisierter Literaturwissenschaftler und Ideenhistoriker.
+
+Du bekommst:
+1. Die vollständige Analyse eines aktuellen Buches (Lektor + Inhaltsanalyse)
+2. Eine Übersicht aller bereits analysierten Bücher im Archiv (mit Kurzbeschreibungen)
+3. Wo vorhanden: die Analysen der anderen Bücher
+
+Deine Aufgabe: Vernetzungsanalyse
+
+---
+
+## 1. THEMATISCHE QUERVERBINDUNGEN
+Welche Themen, Konzepte oder historischen Ereignisse tauchen in mehreren Büchern auf?
+Format: Thema → Buch A sagt X, Buch B sagt Y → Gemeinsamkeit/Unterschied
+
+## 2. IDEOLOGISCHE VERWANDTSCHAFTEN
+Welche Autoren teilen dasselbe Weltbild? Wo ergänzen sie sich?
+Wo widersprechen sie sich – und warum ist das interessant?
+
+## 3. ARGUMENTATIVE BRÜCKEN
+Welche These aus Buch A wird durch Buch B bestätigt, erweitert oder widerlegt?
+Konkrete Beispiele mit Seitenangaben wo möglich.
+
+## 4. EMPFOHLENE LESEKOMBINATIONEN
+Welche Bücher sollte man gemeinsam lesen um ein Thema vollständig zu verstehen?
+Begründung: Was leistet jedes Buch das das andere nicht kann?
+
+## 5. WEISSE FLECKEN IM ARCHIV
+Welche Perspektiven fehlen noch im Archiv?
+Welche Bücher würden die Sammlung sinnvoll ergänzen?
+
+---
+
+HINWEIS: Wenn das Archiv noch wenige Bücher enthält, konzentriere dich auf
+die Verbindungen die bereits möglich sind – und skizziere welche Verbindungen
+mit zukünftigen Büchern entstehen könnten.
+
+Sprache: Deutsch. Ton: analytisch, präzise, intellektuell anspruchsvoll."""
+
+
+def bibliothek_laden() -> dict:
+    """Lädt den aktuellen Stand des Bibliotheksindex."""
+    with open(BIBLIOTHEK_INDEX, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def bibliothek_speichern(daten: dict) -> None:
+    """Speichert den aktualisierten Bibliotheksindex."""
+    with open(BIBLIOTHEK_INDEX, "w", encoding="utf-8") as f:
+        json.dump(daten, f, ensure_ascii=False, indent=2)
+
+
+def buch_in_bibliothek_registrieren(autor: str, titel: str, lektor_pfad: str, analyse_pfad: str) -> None:
+    """Trägt ein neues Buch in den Bibliotheksindex ein."""
+    bibliothek = bibliothek_laden()
+
+    # Prüfen ob bereits vorhanden
+    for buch in bibliothek["buecher"]:
+        if buch["autor"] == autor and buch["titel"] == titel:
+            print(f"  Buch bereits im Index: {autor} – {titel}")
+            return
+
+    # Kurzbeschreibung aus Lektor extrahieren (erste 500 Zeichen des Inhalts)
+    kurzbeschreibung = ""
+    if os.path.exists(lektor_pfad):
+        with open(lektor_pfad, "r", encoding="utf-8") as f:
+            inhalt = f.read()
+            # Erste Kapitelzusammenfassung als Kurzbeschreibung
+            start = inhalt.find("## 3. Kapitelzusammenfassungen")
+            if start > 0:
+                kurzbeschreibung = inhalt[start:start+400].strip()
+            else:
+                kurzbeschreibung = inhalt[:400].strip()
+
+    eintrag = {
+        "autor": autor,
+        "titel": titel,
+        "analysiert_am": str(date.today()),
+        "lektor_pfad": lektor_pfad,
+        "inhaltsanalyse_pfad": analyse_pfad,
+        "kurzbeschreibung": kurzbeschreibung[:300] + "..." if len(kurzbeschreibung) > 300 else kurzbeschreibung
+    }
+
+    bibliothek["buecher"].append(eintrag)
+    bibliothek_speichern(bibliothek)
+    print(f"  Buch im Index registriert: {autor} – {titel}")
+
+
+def andere_analysen_laden(aktueller_autor: str, aktueller_titel: str) -> list[dict]:
+    """Lädt alle anderen bereits analysierten Bücher."""
+    bibliothek = bibliothek_laden()
+    andere = []
+
+    for buch in bibliothek["buecher"]:
+        if buch["autor"] == aktueller_autor and buch["titel"] == aktueller_titel:
+            continue  # Aktuelles Buch überspringen
+
+        buch_info = {
+            "autor": buch["autor"],
+            "titel": buch["titel"],
+            "lektor": "",
+            "analyse": ""
+        }
+
+        # Lektor-Aufbereitung laden (gekürzt)
+        if os.path.exists(buch["lektor_pfad"]):
+            with open(buch["lektor_pfad"], "r", encoding="utf-8") as f:
+                inhalt = f.read()
+                buch_info["lektor"] = inhalt[:8000]  # Erste 8000 Zeichen
+
+        # Inhaltsanalyse laden (gekürzt)
+        if os.path.exists(buch.get("inhaltsanalyse_pfad", "")):
+            with open(buch["inhaltsanalyse_pfad"], "r", encoding="utf-8") as f:
+                inhalt = f.read()
+                buch_info["analyse"] = inhalt[:8000]
+
+        andere.append(buch_info)
+
+    return andere
+
+
+async def vernetzer_analysieren(
+    autor: str,
+    titel: str,
+    lektor_pfad: str,
+    inhaltsanalyse_pfad: str,
+    ausgabe_pfad: str
+) -> None:
+    """Vernetzt das aktuelle Buch mit dem bestehenden Archiv."""
+
+    print(f"\n{'='*60}")
+    print(f"VERNETZER startet: {autor} – {titel}")
+    print(f"{'='*60}\n")
+
+    # 1. Aktuelles Buch im Index registrieren
+    print("Schritt 1: Buch in Bibliothek registrieren...")
+    buch_in_bibliothek_registrieren(autor, titel, lektor_pfad, inhaltsanalyse_pfad)
+
+    # 2. Aktuelle Analysen laden
+    print("Schritt 2: Aktuelle Analysen laden...")
+    with open(lektor_pfad, "r", encoding="utf-8") as f:
+        lektor_text = f.read()
+    with open(inhaltsanalyse_pfad, "r", encoding="utf-8") as f:
+        analyse_text = f.read()
+    print(f"  Lektor: {len(lektor_text):,} Zeichen")
+    print(f"  Inhaltsanalyse: {len(analyse_text):,} Zeichen")
+
+    # 3. Andere Bücher aus dem Archiv laden
+    print("Schritt 3: Archiv durchsuchen...")
+    andere_buecher = andere_analysen_laden(autor, titel)
+    print(f"  {len(andere_buecher)} weitere Bücher im Archiv\n")
+
+    # Archiv-Übersicht für den Prompt erstellen
+    if andere_buecher:
+        archiv_text = "\n\n".join([
+            f"### {b['autor']}: {b['titel']}\n\n**Lektor-Auszug:**\n{b['lektor'][:3000]}\n\n**Analyse-Auszug:**\n{b['analyse'][:3000]}"
+            for b in andere_buecher
+        ])
+    else:
+        archiv_text = "Das Archiv enthält noch keine weiteren Bücher. Dies ist die erste Analyse.\nSkizziere welche Verbindungen mit zukünftigen Büchern zu erwarten sind, basierend auf den Themen dieses Buches."
+
+    bibliothek = bibliothek_laden()
+    archiv_uebersicht = "\n".join([
+        f"- {b['autor']}: {b['titel']} (analysiert: {b['analysiert_am']})"
+        for b in bibliothek["buecher"]
+    ])
+
+    prompt = f"""Aktuelles Buch zur Vernetzung:
+**{autor}: {titel}**
+
+--- LEKTOR-AUFBEREITUNG (aktuelles Buch) ---
+{lektor_text[:15000]}
+
+--- INHALTSANALYSE (aktuelles Buch) ---
+{analyse_text[:10000]}
+
+--- ARCHIV-ÜBERSICHT ---
+Bisher analysierte Bücher:
+{archiv_uebersicht}
+
+--- ANDERE BÜCHER IM ARCHIV ---
+{archiv_text}
+
+Bitte erstelle nun die Vernetzungsanalyse."""
+
+    options = ClaudeAgentOptions(
+        system_prompt=SYSTEM_PROMPT,
+        allowed_tools=[],
+        permission_mode="acceptEdits",
+        max_turns=3,
+    )
+
+    print("Vernetzer arbeitet...\n")
+    print("-" * 60)
+
+    ergebnis_teile = []
+    kosten = 0.0
+
+    async for message in query(prompt=prompt, options=options):
+        if isinstance(message, AssistantMessage):
+            for block in message.content:
+                if isinstance(block, TextBlock):
+                    print(block.text, end="", flush=True)
+                    ergebnis_teile.append(block.text)
+        elif isinstance(message, ResultMessage):
+            if message.is_error:
+                print(f"\n[Fehler]: {message.subtype}")
+            elif message.total_cost_usd is not None:
+                kosten = message.total_cost_usd
+                print(f"\n\n[Kosten: ${kosten:.4f} | Durchläufe: {message.num_turns}]")
+
+    print("\n" + "-" * 60)
+
+    # Ergebnis speichern
+    ergebnis = "".join(ergebnis_teile)
+    archiv_stand = f"{len(bibliothek['buecher'])} Buch/Bücher im Archiv"
+
+    os.makedirs(os.path.dirname(ausgabe_pfad), exist_ok=True)
+    with open(ausgabe_pfad, "w", encoding="utf-8") as f:
+        f.write(f"# Vernetzungsanalyse: {titel}\n\n")
+        f.write(f"**Autor:** {autor}  \n")
+        f.write(f"**Archivstand:** {archiv_stand}  \n")
+        f.write(f"**Analysiert am:** {date.today()}  \n\n")
+        f.write("> Hinweis: Diese Analyse wächst mit jedem neuen Buch im Archiv.\n\n")
+        f.write("---\n\n")
+        f.write(ergebnis)
+
+    print(f"\nGespeichert: {ausgabe_pfad}")
+    print(f"{'='*60}\n")
+
+
+if __name__ == "__main__":
+    asyncio.run(vernetzer_analysieren(
+        autor             = "Michael Lüders",
+        titel             = "Krieg ohne Ende",
+        lektor_pfad       = r"E:\Claude_Projekte\Buchanalysen\analysen\Michael_Luders\Krieg_ohne_Ende\01_lektor.md",
+        inhaltsanalyse_pfad = r"E:\Claude_Projekte\Buchanalysen\analysen\Michael_Luders\Krieg_ohne_Ende\02_inhaltsanalyse.md",
+        ausgabe_pfad      = r"E:\Claude_Projekte\Buchanalysen\analysen\Michael_Luders\Krieg_ohne_Ende\03_vernetzung.md",
+    ))
