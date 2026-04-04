@@ -17,14 +17,17 @@ sys.stdout.reconfigure(encoding="utf-8")
 from dotenv import load_dotenv
 load_dotenv()
 
+import json
+
 from agents.lektor            import lektor_analysieren
 from agents.inhaltsanalyst    import inhaltsanalyst_analysieren
 from agents.vernetzer         import vernetzer_analysieren
 from agents.berichterstatter  import berichterstatter_erstellen
 from agents.gespraechspartner import gespraechspartner_starten
 
-BUCHER_DIR   = r"E:\Bucher"
-ANALYSEN_DIR = r"E:\Claude_Projekte\Buchanalysen\analysen"
+BUCHER_DIR       = r"E:\Bucher"
+ANALYSEN_DIR     = r"E:\Claude_Projekte\Buchanalysen\analysen"
+BIBLIOTHEK_INDEX = r"E:\Claude_Projekte\Buchanalysen\bibliothek\index.json"
 
 
 def buecher_scannen() -> list[dict]:
@@ -99,6 +102,40 @@ def menu_anzeigen(buecher: list[dict]) -> None:
     print("\n" + "-"*60)
 
 
+async def vernetzungen_aktualisieren(neuer_autor: str, neuer_titel: str) -> None:
+    """Aktualisiert die Vernetzung aller anderen Bücher im Archiv."""
+    with open(BIBLIOTHEK_INDEX, "r", encoding="utf-8") as f:
+        bibliothek = json.load(f)
+
+    andere = [
+        b for b in bibliothek["buecher"]
+        if not (b["autor"] == neuer_autor and b["titel"] == neuer_titel)
+    ]
+
+    if not andere:
+        return
+
+    print(f"\n{'='*60}")
+    print(f"  VERNETZUNG AKTUALISIEREN")
+    print(f"  {len(andere)} andere Bücher werden neu vernetzt...")
+    print(f"{'='*60}")
+
+    for i, buch in enumerate(andere, start=1):
+        vernetzung_pfad = buch["lektor_pfad"].replace("01_lektor.md", "03_vernetzung.md")
+        print(f"\n  [{i}/{len(andere)}] {buch['autor']} – {buch['titel']}")
+        await vernetzer_analysieren(
+            autor               = buch["autor"],
+            titel               = buch["titel"],
+            lektor_pfad         = buch["lektor_pfad"],
+            inhaltsanalyse_pfad = buch["inhaltsanalyse_pfad"],
+            ausgabe_pfad        = vernetzung_pfad,
+        )
+
+    print(f"\n{'='*60}")
+    print(f"  ALLE VERNETZUNGEN AKTUALISIERT!")
+    print(f"{'='*60}\n")
+
+
 async def buch_analysieren(buch: dict) -> None:
     """Führt alle 4 Agenten für ein Buch aus."""
     pfade = pfade_erstellen(buch)
@@ -161,6 +198,9 @@ async def buch_analysieren(buch: dict) -> None:
     print(f"  ANALYSE ABGESCHLOSSEN!")
     print(f"  Ergebnis: {pfade['basis']}")
     print(f"{'='*60}\n")
+
+    # Vernetzung aller anderen Bücher aktualisieren
+    await vernetzungen_aktualisieren(buch["autor"], buch["titel"])
 
 
 # Hilfsvariable für Neuanalyse-Entscheidung
