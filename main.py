@@ -24,7 +24,7 @@ ANALYSEN_DIR = r"E:\Claude_Projekte\Buchanalysen\analysen"
 
 
 def buecher_scannen() -> list[dict]:
-    """Scannt E:\Bucher\ nach allen PDF-Dateien und gibt eine strukturierte Liste zurück."""
+    """Scannt E:\\Bucher\\ nach allen PDF-Dateien und gibt eine strukturierte Liste zurück."""
     buecher = []
 
     for eintrag in os.scandir(BUCHER_DIR):
