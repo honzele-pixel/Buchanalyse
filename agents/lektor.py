@@ -10,6 +10,7 @@ import os
 import sys
 import tempfile
 import fitz  # PyMuPDF
+import anthropic
 from dotenv import load_dotenv
 from claude_agent_sdk import query, ClaudeAgentOptions
 from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage, SystemPromptFile
@@ -126,52 +127,29 @@ Bitte aufbereiten gemäß deinen Anweisungen."""
     return ergebnis
 
 
-async def synthese_erstellen(alle_teile: list[str], buch_titel: str) -> str:
-    """Fasst alle Abschnitt-Analysen zu einem Gesamtdokument zusammen."""
+def synthese_erstellen(alle_teile: list[str], buch_titel: str) -> str:
+    """Fasst alle Abschnitt-Analysen zu einem Gesamtdokument zusammen (direkte API)."""
     teile_text = "\n\n---NEUER ABSCHNITT---\n\n".join(
         [f"## Teil {i+1}\n{t}" for i, t in enumerate(alle_teile)]
     )
 
-    # Vollständiger System-Prompt mit allen Chunk-Analysen als Datei (Windows-Limit umgehen)
-    system_prompt_inhalt = f"""{SYSTEM_PROMPT_SYNTHESE}
-
-## AUFBEREITETE ABSCHNITTE DES BUCHES "{buch_titel}":
-
-{teile_text}"""
-
-    with tempfile.NamedTemporaryFile(
-        mode="w", encoding="utf-8", suffix=".txt", delete=False
-    ) as tmp:
-        tmp.write(system_prompt_inhalt)
-        tmp_pfad = tmp.name
-
-    options = ClaudeAgentOptions(
-        system_prompt=SystemPromptFile(type="file", path=tmp_pfad),
-        allowed_tools=[],
-        permission_mode="acceptEdits",
-        max_turns=1,
-    )
-
+    client = anthropic.Anthropic()
     ergebnis_teile = []
-    kosten = 0.0
 
-    async for message in query(
-        prompt=f'Erstelle das einheitliche Gesamtdokument für "{buch_titel}".',
-        options=options
-    ):
-        if isinstance(message, AssistantMessage):
-            for block in message.content:
-                if isinstance(block, TextBlock):
-                    print(block.text, end="", flush=True)
-                    ergebnis_teile.append(block.text)
-        elif isinstance(message, ResultMessage):
-            if message.is_error:
-                print(f"\n[Fehler bei Synthese]")
-            elif message.total_cost_usd is not None:
-                kosten = message.total_cost_usd
-                print(f"\n\n[Synthese-Kosten: ${kosten:.4f}]")
+    with client.messages.stream(
+        model="claude-sonnet-4-6",
+        max_tokens=8192,
+        system=SYSTEM_PROMPT_SYNTHESE,
+        messages=[{
+            "role": "user",
+            "content": f'Hier sind alle {len(alle_teile)} aufbereiteten Abschnitte des Buches "{buch_titel}":\n\n{teile_text}\n\nBitte erstelle daraus ein einheitliches Gesamtdokument.'
+        }]
+    ) as stream:
+        for text in stream.text_stream:
+            print(text, end="", flush=True)
+            ergebnis_teile.append(text)
 
-    os.unlink(tmp_pfad)
+    print()
     return "".join(ergebnis_teile)
 
 
@@ -220,7 +198,7 @@ async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
     # 4. Synthese – alles zusammenführen
     print("Schritt 4: Synthese – Gesamtdokument wird erstellt...")
     print("-" * 60)
-    finale_analyse = await synthese_erstellen(abschnitt_analysen, buch_name)
+    finale_analyse = synthese_erstellen(abschnitt_analysen, buch_name)
     print("-" * 60)
 
     # 5. Speichern + Cache löschen
