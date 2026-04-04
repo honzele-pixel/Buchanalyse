@@ -29,7 +29,7 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 ```
 python main.py
 ```
-- **Modus 1:** Buch analysieren – alle 4 Agenten laufen automatisch nacheinander durch
+- **Modus 1:** Buch analysieren – alle 4 Agenten laufen automatisch nacheinander durch, danach werden die Vernetzungen **aller anderen Bücher automatisch aktualisiert**
 - **Modus 2:** Über ein Buch diskutieren – Buchauswahl, dann freies Gespräch
 **Wichtig:** Immer nur ein Terminal, nie parallel – wegen bibliothek/index.json
 
@@ -65,6 +65,9 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 ## Nächste Schritte
 - [ ] Weitere Bücher analysieren (z.B. Mausfeld – Warum schweigen die Lämmer?, Ganser – Illegale Kriege)
 - [ ] Ab 6-8 Büchern: Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen
+
+## Automatische Vernetzung (Kernmerkmal)
+Nach jeder neuen Buchanalyse werden die Vernetzungen **aller** bereits analysierten Bücher automatisch neu erstellt. Das Wissensnetz wächst mit jedem Buch vollständig – keine manuelle Nacharbeit nötig.
 
 ## Zukunftsidee
 Die Buchanalysen könnten später als Wissensbasis für den KI-Experten im
