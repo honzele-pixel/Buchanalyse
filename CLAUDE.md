@@ -43,6 +43,7 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 ## Bereits analysierte Bücher
 - Michael Lüders: Krieg ohne Ende (04.04.2026)
 - Hannah Arendt: Die Freiheit frei zu sein (04.04.2026)
+- Rainer Mausfeld: Hegemonie oder Untergang (04.04.2026)
 
 ## Technische Basis
 - `claude-agent-sdk` installiert
@@ -50,6 +51,8 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - API-Schlüssel in `.env`
 - Git-Versionskontrolle aktiv
 - **Wichtig:** System-Prompt wird via `SystemPromptFile` als Datei übergeben (nicht als Argument) – notwendig wegen Windows-Limit für Befehlszeilen-Argumente
+- **Wichtig:** Lektor-Synthese verwendet direkte `anthropic`-API (nicht SDK) – claude CLI bricht bei langen Streaming-Antworten auf Windows ab
+- **Wichtig:** Lektor speichert Chunks sofort in `.chunk_cache/` – bei Abbruch werden fertige Chunks beim nächsten Start wiederverwendet (kein Doppelzahlen)
 
 ## KRITISCHE REGELN (aus gescheiterten Vorprojekten gelernt)
 
@@ -60,8 +63,8 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 5. **Kein Bezug zur Website "Archiv der Souveränität"** – das sind zwei völlig separate Projekte
 
 ## Nächste Schritte
-- [ ] Weitere Bücher analysieren (Empfehlung: Mausfeld – Warum schweigen die Lämmer?)
-- [ ] Ab 6-8 Büchern: Agent 5 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen
+- [ ] Weitere Bücher analysieren (z.B. Mausfeld – Warum schweigen die Lämmer?, Ganser – Illegale Kriege)
+- [ ] Ab 6-8 Büchern: Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen
 
 ## Zukunftsidee
 Die Buchanalysen könnten später als Wissensbasis für den KI-Experten im
