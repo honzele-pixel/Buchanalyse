@@ -44,6 +44,7 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - Michael Lüders: Krieg ohne Ende (04.04.2026)
 - Hannah Arendt: Die Freiheit frei zu sein (04.04.2026)
 - Rainer Mausfeld: Hegemonie oder Untergang (04.04.2026)
+- Daniele Ganser: Illegale Kriege (04.04.2026)
 
 ## Technische Basis
 - `claude-agent-sdk` installiert
