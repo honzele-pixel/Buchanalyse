@@ -24,6 +24,13 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 | 3 – Vernetzer | `agents/vernetzer.py` | Querverbindungen zur Bibliothek, Archiv-Index pflegen |
 | 4 – Berichterstatter | `agents/berichterstatter.py` | Finales Gesamtdossier aus allen 3 Analysen |
 
+## Starten
+```
+python main.py
+```
+Buch aus dem Menü wählen – alle 4 Agenten laufen automatisch nacheinander durch.
+**Wichtig:** Immer nur ein Terminal, nie parallel – wegen bibliothek/index.json
+
 ## Analyse-Ausgabe
 Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - `01_lektor.md` – Rohaufbereitung
@@ -33,12 +40,13 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 
 ## Bereits analysierte Bücher
 - Michael Lüders: Krieg ohne Ende (04.04.2026)
+- Hannah Arendt: Die Freiheit frei zu sein (04.04.2026)
 
 ## Technische Basis
 - `claude-agent-sdk` installiert
 - Python + dotenv vorhanden
 - API-Schlüssel in `.env`
-- Git-Versionskontrolle aktiv
+- Git-Versionskontrolle aktiv (8 Commits)
 
 ## KRITISCHE REGELN (aus gescheiterten Vorprojekten gelernt)
 
@@ -49,9 +57,8 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 5. **Kein Bezug zur Website "Archiv der Souveränität"** – das sind zwei völlig separate Projekte
 
 ## Nächste Schritte
-- [ ] `main.py` – zentraler Einstiegspunkt mit Buchauswahl-Menü (alle 4 Agenten automatisch nacheinander)
-- [ ] Nächstes Buch analysieren (Empfehlung Vernetzer: Mausfeld – Warum schweigen die Lämmer?)
-- [ ] Agent 5: Beobachter – wöchentliche Web-Suche zu Buchthemen (geplant)
+- [ ] Weitere Bücher analysieren (Empfehlung: Mausfeld – Warum schweigen die Lämmer?)
+- [ ] Ab 6-8 Büchern: Agent 5 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen
 
 ## Zukunftsidee
 Die Buchanalysen könnten später als Wissensbasis für den KI-Experten im
