@@ -149,7 +149,7 @@ async def synthese_erstellen(alle_teile: list[str], buch_titel: str) -> str:
         system_prompt=SystemPromptFile(type="file", path=tmp_pfad),
         allowed_tools=[],
         permission_mode="acceptEdits",
-        max_turns=2,
+        max_turns=1,
     )
 
     ergebnis_teile = []
@@ -195,14 +195,25 @@ async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
         print(f"  Abschnitt {i+1}: {len(a):,} Zeichen")
     print()
 
-    # 3. Jeden Abschnitt einzeln analysieren
+    # 3. Jeden Abschnitt einzeln analysieren (mit Zwischenspeicherung)
+    cache_dir = os.path.join(os.path.dirname(ausgabe_pfad), ".chunk_cache")
+    os.makedirs(cache_dir, exist_ok=True)
+
     print(f"Schritt 3: Analyse der {len(abschnitte)} Abschnitte...")
     abschnitt_analysen = []
-    gesamtkosten = 0.0
 
     for i, abschnitt in enumerate(abschnitte):
-        analyse = await abschnitt_analysieren(abschnitt, i + 1, len(abschnitte))
-        abschnitt_analysen.append(analyse)
+        cache_pfad = os.path.join(cache_dir, f"chunk_{i+1:02d}.md")
+
+        if os.path.exists(cache_pfad):
+            print(f"  Abschnitt {i+1}/{len(abschnitte)} – aus Cache geladen")
+            with open(cache_pfad, "r", encoding="utf-8") as f:
+                abschnitt_analysen.append(f.read())
+        else:
+            analyse = await abschnitt_analysieren(abschnitt, i + 1, len(abschnitte))
+            abschnitt_analysen.append(analyse)
+            with open(cache_pfad, "w", encoding="utf-8") as f:
+                f.write(analyse)
 
     print()
 
@@ -212,7 +223,7 @@ async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
     finale_analyse = await synthese_erstellen(abschnitt_analysen, buch_name)
     print("-" * 60)
 
-    # 5. Speichern
+    # 5. Speichern + Cache löschen
     os.makedirs(os.path.dirname(ausgabe_pfad), exist_ok=True)
     with open(ausgabe_pfad, "w", encoding="utf-8") as f:
         f.write(f"# Lektor-Aufbereitung: {buch_name}\n\n")
@@ -221,6 +232,10 @@ async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
         f.write(f"**Abschnitte verarbeitet:** {len(abschnitte)}  \n\n")
         f.write("---\n\n")
         f.write(finale_analyse)
+
+    # Cache aufräumen
+    import shutil
+    shutil.rmtree(cache_dir, ignore_errors=True)
 
     print(f"\nGespeichert: {ausgabe_pfad}")
     print(f"{'='*60}\n")
