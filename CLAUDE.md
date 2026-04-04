@@ -49,6 +49,11 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 5. **Kein Bezug zur Website "Archiv der Souveränität"** – das sind zwei völlig separate Projekte
 
 ## Nächste Schritte
-- [ ] `main.py` – zentraler Einstiegspunkt mit Buchauswahl-Menü
-- [ ] Nächstes Buch analysieren (Empfehlung: Mausfeld – Warum schweigen die Lämmer?)
+- [ ] `main.py` – zentraler Einstiegspunkt mit Buchauswahl-Menü (alle 4 Agenten automatisch nacheinander)
+- [ ] Nächstes Buch analysieren (Empfehlung Vernetzer: Mausfeld – Warum schweigen die Lämmer?)
 - [ ] Agent 5: Beobachter – wöchentliche Web-Suche zu Buchthemen (geplant)
+
+## Zukunftsidee
+Die Buchanalysen könnten später als Wissensbasis für den KI-Experten im
+Forensik-Labor der Website "Archiv der Souveränität" dienen.
+Status: Idee – erst wenn Website steht und Buchbasis gewachsen ist.
