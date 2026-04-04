@@ -8,10 +8,11 @@ Ergebnis: analysen/<Autor>/<Buch>/01_lektor.md
 import asyncio
 import os
 import sys
+import tempfile
 import fitz  # PyMuPDF
 from dotenv import load_dotenv
 from claude_agent_sdk import query, ClaudeAgentOptions
-from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage
+from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage, SystemPromptFile
 
 # Windows-Konsole auf UTF-8 stellen
 sys.stdout.reconfigure(encoding="utf-8")
@@ -131,14 +132,21 @@ async def synthese_erstellen(alle_teile: list[str], buch_titel: str) -> str:
         [f"## Teil {i+1}\n{t}" for i, t in enumerate(alle_teile)]
     )
 
-    prompt = f"""Hier sind die aufbereiteten Analysen aller {len(alle_teile)} Abschnitte des Buches "{buch_titel}".
+    # Vollständiger System-Prompt mit allen Chunk-Analysen als Datei (Windows-Limit umgehen)
+    system_prompt_inhalt = f"""{SYSTEM_PROMPT_SYNTHESE}
 
-{teile_text}
+## AUFBEREITETE ABSCHNITTE DES BUCHES "{buch_titel}":
 
-Bitte erstelle daraus ein einheitliches Gesamtdokument."""
+{teile_text}"""
+
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8", suffix=".txt", delete=False
+    ) as tmp:
+        tmp.write(system_prompt_inhalt)
+        tmp_pfad = tmp.name
 
     options = ClaudeAgentOptions(
-        system_prompt=SYSTEM_PROMPT_SYNTHESE,
+        system_prompt=SystemPromptFile(type="file", path=tmp_pfad),
         allowed_tools=[],
         permission_mode="acceptEdits",
         max_turns=2,
@@ -147,7 +155,10 @@ Bitte erstelle daraus ein einheitliches Gesamtdokument."""
     ergebnis_teile = []
     kosten = 0.0
 
-    async for message in query(prompt=prompt, options=options):
+    async for message in query(
+        prompt=f'Erstelle das einheitliche Gesamtdokument für "{buch_titel}".',
+        options=options
+    ):
         if isinstance(message, AssistantMessage):
             for block in message.content:
                 if isinstance(block, TextBlock):
@@ -160,6 +171,7 @@ Bitte erstelle daraus ein einheitliches Gesamtdokument."""
                 kosten = message.total_cost_usd
                 print(f"\n\n[Synthese-Kosten: ${kosten:.4f}]")
 
+    os.unlink(tmp_pfad)
     return "".join(ergebnis_teile)
 
 
