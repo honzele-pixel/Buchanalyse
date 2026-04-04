@@ -10,9 +10,10 @@ import asyncio
 import os
 import sys
 import json
+import tempfile
 from dotenv import load_dotenv
 from claude_agent_sdk import query, ClaudeAgentOptions
-from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage, UserMessage
+from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage, UserMessage, SystemPromptFile
 
 sys.stdout.reconfigure(encoding="utf-8")
 load_dotenv()
@@ -21,56 +22,53 @@ BIBLIOTHEK_INDEX  = r"E:\Claude_Projekte\Buchanalysen\bibliothek\index.json"
 ANALYSEN_DIR      = r"E:\Claude_Projekte\Buchanalysen\analysen"
 
 
-def archiv_laden() -> str:
-    """Lädt alle verfügbaren Analysen und bereitet sie als Wissensgrundlage auf."""
-
+def bibliothek_laden() -> list[dict]:
+    """Lädt die Buchliste aus dem Index."""
     with open(BIBLIOTHEK_INDEX, "r", encoding="utf-8") as f:
         bibliothek = json.load(f)
-
-    if not bibliothek["buecher"]:
-        return "", []
-
-    buecher_liste = []
-    archiv_texte = []
-
-    for buch in bibliothek["buecher"]:
-        autor = buch["autor"]
-        titel = buch["titel"]
-        buecher_liste.append(f"{autor}: {titel}")
-
-        buch_text = f"\n{'='*60}\n"
-        buch_text += f"BUCH: {autor} – {titel}\n"
-        buch_text += f"{'='*60}\n"
-
-        # Lektor laden
-        if os.path.exists(buch["lektor_pfad"]):
-            with open(buch["lektor_pfad"], "r", encoding="utf-8") as f:
-                buch_text += f"\n--- LEKTOR-AUFBEREITUNG ---\n{f.read()}\n"
-
-        # Inhaltsanalyse laden
-        if os.path.exists(buch.get("inhaltsanalyse_pfad", "")):
-            with open(buch["inhaltsanalyse_pfad"], "r", encoding="utf-8") as f:
-                buch_text += f"\n--- INHALTSANALYSE ---\n{f.read()}\n"
-
-        # Vernetzung laden
-        vernetzung_pfad = buch["lektor_pfad"].replace("01_lektor.md", "03_vernetzung.md")
-        if os.path.exists(vernetzung_pfad):
-            with open(vernetzung_pfad, "r", encoding="utf-8") as f:
-                buch_text += f"\n--- VERNETZUNGSANALYSE ---\n{f.read()}\n"
-
-        archiv_texte.append(buch_text)
-
-    return "\n".join(archiv_texte), buecher_liste
+    return bibliothek.get("buecher", [])
 
 
-def system_prompt_erstellen(archiv: str, buecher_liste: list[str]) -> str:
-    """Erstellt den System-Prompt mit dem vollständigen Archiv als Wissensgrundlage."""
+def buch_laden(buch: dict) -> str:
+    """Lädt die Analysen eines einzelnen Buches (ohne Lektor)."""
+    autor = buch["autor"]
+    titel = buch["titel"]
 
-    buecher_aufzaehlung = "\n".join([f"- {b}" for b in buecher_liste])
+    buch_text = f"\n{'='*60}\n"
+    buch_text += f"BUCH: {autor} – {titel}\n"
+    buch_text += f"{'='*60}\n"
+
+    # Lektor laden
+    if os.path.exists(buch.get("lektor_pfad", "")):
+        with open(buch["lektor_pfad"], "r", encoding="utf-8") as f:
+            buch_text += f"\n--- LEKTOR-AUFBEREITUNG ---\n{f.read()}\n"
+
+    # Inhaltsanalyse laden
+    if os.path.exists(buch.get("inhaltsanalyse_pfad", "")):
+        with open(buch["inhaltsanalyse_pfad"], "r", encoding="utf-8") as f:
+            buch_text += f"\n--- INHALTSANALYSE ---\n{f.read()}\n"
+
+    # Vernetzung laden
+    vernetzung_pfad = buch["lektor_pfad"].replace("01_lektor.md", "03_vernetzung.md")
+    if os.path.exists(vernetzung_pfad):
+        with open(vernetzung_pfad, "r", encoding="utf-8") as f:
+            buch_text += f"\n--- VERNETZUNGSANALYSE ---\n{f.read()}\n"
+
+    # Bericht laden
+    bericht_pfad = buch["lektor_pfad"].replace("01_lektor.md", "04_bericht.md")
+    if os.path.exists(bericht_pfad):
+        with open(bericht_pfad, "r", encoding="utf-8") as f:
+            buch_text += f"\n--- GESAMTBERICHT ---\n{f.read()}\n"
+
+    return buch_text
+
+
+def system_prompt_erstellen(buch_text: str, autor: str, titel: str) -> str:
+    """Erstellt den System-Prompt für ein einzelnes Buch."""
 
     return f"""Du bist ein hochgebildeter, leidenschaftlicher Gesprächspartner und Buchexperte.
 
-Du diskutierst mit Honzele über die Bücher in seinem persönlichen Archiv.
+Du diskutierst mit Honzele über das Buch "{titel}" von {autor}.
 
 ## DEINE WICHTIGSTE REGEL – EISERN EINHALTEN:
 
@@ -78,28 +76,22 @@ Du stützt dich AUSSCHLIESSLICH auf die Analysen die dir unten zur Verfügung st
 Du erfindest NICHTS. Du halluzinierst KEINE Zitate, KEINE Seitenzahlen, KEINE Thesen.
 
 Wenn Honzele nach etwas fragt das NICHT in den Analysen steht, sagst du klar:
-"Das steht nicht in meinen Analysen. Dafür müsste [Buch X] erst analysiert werden."
+"Das steht nicht in meinen Analysen."
 
 Wenn du ein Zitat nennst, muss es WÖRTLICH aus den Analysen stammen – mit Seitenangabe.
 Wenn du unsicher bist ob ein Zitat stimmt, sagst du es offen.
-
-## DEINE BÜCHER IM ARCHIV:
-
-{buecher_aufzaehlung}
 
 ## WIE DU ANTWORTEST:
 
 - Direkt, klar, auf den Punkt – kein akademisches Geschwafel
 - Intellektuell auf Augenhöhe – Honzele ist sehr belesen und analytisch denkend
 - Wenn Honzele eine These aufstellt, geh darauf ein – stimm zu, widersprich, ergänze
-- Verbinde Bücher miteinander wenn es Sinn macht – aber nur wenn die Verbindung in den Analysen belegt ist
 - Gib Seitenangaben wo immer möglich
-- Wenn eine Frage mehrere Bücher berührt, zeige die Verbindung auf
 - Antworte auf Deutsch
 
 ## DEINE WISSENSGRUNDLAGE – NUR DIESE, NICHTS ANDERES:
 
-{archiv}"""
+{buch_text}"""
 
 
 async def gespraechspartner_starten() -> None:
@@ -110,24 +102,41 @@ async def gespraechspartner_starten() -> None:
     print("  Dein persönlicher Buchexperte")
     print(f"{'='*60}\n")
 
-    # Archiv laden
-    print("Archiv wird geladen...")
-    archiv, buecher_liste = archiv_laden()
+    # Buchliste laden
+    buecher = bibliothek_laden()
 
-    if not buecher_liste:
+    if not buecher:
         print("  Das Archiv ist noch leer. Bitte zuerst Bücher analysieren.")
         return
 
-    print(f"  {len(buecher_liste)} Bücher geladen:\n")
-    for b in buecher_liste:
-        print(f"    • {b}")
+    # Buchauswahl
+    print("  Welches Buch möchtest du besprechen?\n")
+    for i, b in enumerate(buecher, start=1):
+        print(f"    {i}. {b['autor']}: {b['titel']}")
+    print()
 
-    print(f"\n{'='*60}")
+    while True:
+        try:
+            eingabe = input("  Nummer eingeben: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\n\nAuf Wiedersehen, Honzele!")
+            return
+
+        if eingabe.isdigit() and 1 <= int(eingabe) <= len(buecher):
+            buch = buecher[int(eingabe) - 1]
+            break
+        print(f"  Bitte eine Zahl zwischen 1 und {len(buecher)} eingeben.")
+
+    print(f"\n  Analysen werden geladen für: {buch['autor']} – {buch['titel']}...")
+    buch_text = buch_laden(buch)
+    print(f"  Bereit! ({len(buch_text):,} Zeichen geladen)\n")
+
+    print(f"{'='*60}")
     print("  Du kannst jetzt Fragen stellen oder diskutieren.")
     print("  Tippe 'exit' zum Beenden.")
     print(f"{'='*60}\n")
 
-    system_prompt = system_prompt_erstellen(archiv, buecher_liste)
+    system_prompt = system_prompt_erstellen(buch_text, buch["autor"], buch["titel"])
 
     # Gesprächsverlauf für Kontext
     gespraech = []
@@ -156,8 +165,14 @@ async def gespraechspartner_starten() -> None:
 
         prompt = f"{kontext}Honzele fragt jetzt: {frage}"
 
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", suffix=".txt", delete=False
+        ) as tmp:
+            tmp.write(system_prompt)
+            tmp_pfad = tmp.name
+
         options = ClaudeAgentOptions(
-            system_prompt=system_prompt,
+            system_prompt=SystemPromptFile(type="file", path=tmp_pfad),
             allowed_tools=[],
             permission_mode="acceptEdits",
             max_turns=2,
@@ -176,6 +191,7 @@ async def gespraechspartner_starten() -> None:
                 if message.is_error:
                     print(f"\n[Fehler]: {message.subtype}")
 
+        os.unlink(tmp_pfad)
         antwort = "".join(antwort_teile)
         gespraech.append({"frage": frage, "antwort": antwort})
         print("\n")

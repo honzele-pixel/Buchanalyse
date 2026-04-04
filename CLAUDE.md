@@ -23,12 +23,14 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 | 2 – Inhaltsanalyst | `agents/inhaltsanalyst.py` | Kernthesen, Argumentation, Methodik, blinde Flecken |
 | 3 – Vernetzer | `agents/vernetzer.py` | Querverbindungen zur Bibliothek, Archiv-Index pflegen |
 | 4 – Berichterstatter | `agents/berichterstatter.py` | Finales Gesamtdossier aus allen 3 Analysen |
+| 5 – Gesprächspartner | `agents/gespraechspartner.py` | Interaktive Buchdiskussion auf Basis aller 4 Analysen |
 
 ## Starten
 ```
 python main.py
 ```
-Buch aus dem Menü wählen – alle 4 Agenten laufen automatisch nacheinander durch.
+- **Modus 1:** Buch analysieren – alle 4 Agenten laufen automatisch nacheinander durch
+- **Modus 2:** Über ein Buch diskutieren – Buchauswahl, dann freies Gespräch
 **Wichtig:** Immer nur ein Terminal, nie parallel – wegen bibliothek/index.json
 
 ## Analyse-Ausgabe
@@ -46,7 +48,8 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - `claude-agent-sdk` installiert
 - Python + dotenv vorhanden
 - API-Schlüssel in `.env`
-- Git-Versionskontrolle aktiv (8 Commits)
+- Git-Versionskontrolle aktiv
+- **Wichtig:** System-Prompt wird via `SystemPromptFile` als Datei übergeben (nicht als Argument) – notwendig wegen Windows-Limit für Befehlszeilen-Argumente
 
 ## KRITISCHE REGELN (aus gescheiterten Vorprojekten gelernt)
 
