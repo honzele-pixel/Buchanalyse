@@ -70,6 +70,16 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - [ ] Ab 6-8 Büchern: Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen ← JETZT MÖGLICH (6 Bücher im Archiv)
 - [ ] Website-Projekt gestartet: `E:\Claude_Projekte\Buchanalyse_Webseite\`
 
+## Kostensenkung (geplant – verschoben auf später)
+Aktuell läuft alles mit Claude Sonnet – bewusste Entscheidung wegen Qualität in der Aufbauphase.
+Geplanter Umbau wenn System stabil läuft:
+- **Lektor:** Ollama (lokales Modell, gratis) – nur strukturieren, keine Denkarbeit
+- **Vernetzer:** Claude Haiku (günstiger) – Verbindungen finden reicht mit kleinerem Modell
+- **Inhaltsanalyst + Berichterstatter:** Claude Sonnet bleibt – Herzstück der Qualität
+- **Vernetzung:** Nur thematisch verwandte Bücher neu vernetzen statt alle
+- Honzele hat Ollama + Docker + OpenWebUI bereits installiert – Grundlage ist vorhanden
+- Geschätzte Ersparnis: 50-70% ohne spürbaren Qualitätsverlust
+
 ## Automatische Vernetzung (Kernmerkmal)
 Nach jeder neuen Buchanalyse werden die Vernetzungen **aller** bereits analysierten Bücher automatisch neu erstellt. Das Wissensnetz wächst mit jedem Buch vollständig – keine manuelle Nacharbeit nötig.
 
