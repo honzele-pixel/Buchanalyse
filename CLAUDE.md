@@ -15,7 +15,7 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 ## PDF-Bibliothek
 `E:\Bucher\` – mit Unterordnern: Michael_Luders, Daniele_Ganser, Hannah_Arendt, Ukraine, u.a.
 
-## Fertige Agenten (Stand 04.04.2026)
+## Fertige Agenten (Stand 05.04.2026)
 
 | Agent | Datei | Aufgabe |
 |---|---|---|
@@ -45,6 +45,8 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - Hannah Arendt: Die Freiheit frei zu sein (04.04.2026)
 - Rainer Mausfeld: Hegemonie oder Untergang (04.04.2026)
 - Daniele Ganser: Illegale Kriege (04.04.2026)
+- Rainer Mausfeld: Warum schweigen die Lämmer? (05.04.2026)
+- Rainer Mausfeld: Hybris und Nemesis (05.04.2026)
 
 ## Technische Basis
 - `claude-agent-sdk` installiert
@@ -64,8 +66,9 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 5. **Kein Bezug zur Website "Archiv der Souveränität"** – das sind zwei völlig separate Projekte
 
 ## Nächste Schritte
-- [ ] Weitere Bücher analysieren (z.B. Mausfeld – Warum schweigen die Lämmer?, Ganser – Illegale Kriege)
-- [ ] Ab 6-8 Büchern: Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen
+- [ ] Weitere Bücher analysieren (z.B. Honzeles Vorträge: Frieden_und_Krieg, Projekt Demokratie)
+- [ ] Ab 6-8 Büchern: Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen ← JETZT MÖGLICH (6 Bücher im Archiv)
+- [ ] Website-Projekt gestartet: `E:\Claude_Projekte\Buchanalyse_Webseite\`
 
 ## Automatische Vernetzung (Kernmerkmal)
 Nach jeder neuen Buchanalyse werden die Vernetzungen **aller** bereits analysierten Bücher automatisch neu erstellt. Das Wissensnetz wächst mit jedem Buch vollständig – keine manuelle Nacharbeit nötig.
