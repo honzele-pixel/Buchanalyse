@@ -70,15 +70,22 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - [ ] Ab 6-8 Büchern: Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen ← JETZT MÖGLICH (6 Bücher im Archiv)
 - [ ] Website-Projekt gestartet: `E:\Claude_Projekte\Buchanalyse_Webseite\`
 
-## Kostensenkung (geplant – verschoben auf später)
-Aktuell läuft alles mit Claude Sonnet – bewusste Entscheidung wegen Qualität in der Aufbauphase.
-Geplanter Umbau wenn System stabil läuft:
-- **Lektor:** Ollama (lokales Modell, gratis) – nur strukturieren, keine Denkarbeit
-- **Vernetzer:** Claude Haiku (günstiger) – Verbindungen finden reicht mit kleinerem Modell
-- **Inhaltsanalyst + Berichterstatter:** Claude Sonnet bleibt – Herzstück der Qualität
-- **Vernetzung:** Nur thematisch verwandte Bücher neu vernetzen statt alle
+## Modell-Strategie (geplant – verschoben auf später)
+
+Aktuell: `settings.py` definiert `claude-opus-4-6` global, aber Lektor-Synthese nutzt hardcodiert `claude-sonnet-4-6` (direkte API). → Inkonsistenz, die beim nächsten Umbau bereinigt werden soll.
+
+**Geplante Zuweisung je Agent:**
+
+| Agent | Modell | Begründung |
+|---|---|---|
+| Lektor | Ollama lokal (gratis) | Nur Text strukturieren – kein tiefes Denken nötig |
+| Inhaltsanalyst | Claude Opus | Herzstück der Analyse – hier lohnt das Stärkste |
+| Vernetzer | Claude Haiku | Verbindungen finden – einfachere Aufgabe |
+| Berichterstatter | Claude Sonnet | Strukturiertes Schreiben – Sonnet reicht vollständig |
+| Gesprächspartner | Claude Opus | Interaktiv, unvorhersehbar – braucht das Stärkste |
+
 - Honzele hat Ollama + Docker + OpenWebUI bereits installiert – Grundlage ist vorhanden
-- Geschätzte Ersparnis: 50-70% ohne spürbaren Qualitätsverlust
+- Geschätzte Ersparnis: 50–70% ohne spürbaren Qualitätsverlust
 
 ## Automatische Vernetzung (Kernmerkmal)
 Nach jeder neuen Buchanalyse werden die Vernetzungen **aller** bereits analysierten Bücher automatisch neu erstellt. Das Wissensnetz wächst mit jedem Buch vollständig – keine manuelle Nacharbeit nötig.
