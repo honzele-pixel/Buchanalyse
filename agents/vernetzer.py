@@ -12,18 +12,21 @@ Ergebnis: analysen/<Autor>/<Buch>/03_vernetzung.md
 
 import asyncio
 import os
+import re
 import sys
 import json
 from datetime import date
 from dotenv import load_dotenv
+import anthropic
 from claude_agent_sdk import query, ClaudeAgentOptions
 from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage
 
 sys.stdout.reconfigure(encoding="utf-8")
 load_dotenv()
 
-BIBLIOTHEK_INDEX = r"E:\Claude_Projekte\Buchanalysen\bibliothek\index.json"
-ANALYSEN_DIR     = r"E:\Claude_Projekte\Buchanalysen\analysen"
+BIBLIOTHEK_INDEX      = r"E:\Claude_Projekte\Buchanalysen\bibliothek\index.json"
+QUERVERBINDUNGEN_JSON = r"E:\Claude_Projekte\Buchanalysen\bibliothek\querverbindungen.json"
+ANALYSEN_DIR          = r"E:\Claude_Projekte\Buchanalysen\analysen"
 
 
 SYSTEM_PROMPT = """Du bist ein hochspezialisierter Literaturwissenschaftler und Ideenhistoriker.
@@ -64,6 +67,85 @@ die Verbindungen die bereits möglich sind – und skizziere welche Verbindungen
 mit zukünftigen Büchern entstehen könnten.
 
 Sprache: Deutsch. Ton: analytisch, präzise, intellektuell anspruchsvoll."""
+
+
+def buch_netz_id(autor: str, titel: str) -> str:
+    """Konsistente Netz-ID aus Autor-Nachname + erstem Titel-Wort (>3 Zeichen)."""
+    def slug(s):
+        for a, b in [('ü','u'),('ä','a'),('ö','o'),('ß','ss')]:
+            s = s.replace(a, b)
+        return re.sub(r'[^a-z0-9]', '', s.lower())
+    nachname = slug(autor.split()[-1])
+    woerter = [w for w in titel.split() if len(w) > 3]
+    titelwort = slug(woerter[0]) if woerter else slug(titel.split()[0])
+    return f"{nachname}_{titelwort}"
+
+
+def verbindungen_aktualisieren(autor: str, titel: str, vernetzung_text: str) -> None:
+    """Extrahiert strukturierte Verbindungen aus dem Vernetzungstext und aktualisiert querverbindungen.json."""
+    bibliothek = bibliothek_laden()
+    aktuelle_id = buch_netz_id(autor, titel)
+
+    id_liste = "\n".join([
+        f"- {buch_netz_id(b['autor'], b['titel'])}: {b['autor']} – {b['titel']}"
+        for b in bibliothek["buecher"]
+        if not (b["autor"] == autor and b["titel"] == titel)
+    ])
+
+    prompt = f"""Du hast gerade eine Vernetzungsanalyse für "{autor}: {titel}" erstellt.
+Extrahiere alle Verbindungen zu anderen Büchern als strukturiertes JSON.
+
+Aktuelle Buch-ID: {aktuelle_id}
+
+Verfügbare andere Buch-IDs:
+{id_liste}
+
+Gib NUR ein gültiges JSON-Objekt zurück, absolut kein anderer Text:
+{{
+  "verbindungen": [
+    {{"von": "{aktuelle_id}", "zu": "<andere_buch_id>", "themen": ["Thema 1", "Thema 2"], "staerke": 2}}
+  ]
+}}
+
+Stärke-Skala: 1=schwach (1 Thema), 2=mittel (2 Themen), 3=stark (3+ Themen oder enger inhaltlicher Bezug)
+
+Vernetzungsanalyse:
+{vernetzung_text[:8000]}"""
+
+    client = anthropic.Anthropic()
+    response = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=2000,
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    antwort = response.content[0].text.strip()
+
+    # JSON aus Markdown-Block extrahieren falls nötig
+    if "```" in antwort:
+        match = re.search(r'```(?:json)?\s*([\s\S]*?)\s*```', antwort)
+        if match:
+            antwort = match.group(1)
+
+    neue_verbindungen = json.loads(antwort)["verbindungen"]
+
+    # Existierende Verbindungen laden
+    with open(QUERVERBINDUNGEN_JSON, "r", encoding="utf-8") as f:
+        querverbindungen = json.load(f)
+
+    # Alte Verbindungen dieses Buches entfernen (sauber ersetzen)
+    querverbindungen["verbindungen"] = [
+        v for v in querverbindungen["verbindungen"]
+        if v["von"] != aktuelle_id and v["zu"] != aktuelle_id
+    ]
+
+    # Neue Verbindungen eintragen
+    querverbindungen["verbindungen"].extend(neue_verbindungen)
+
+    with open(QUERVERBINDUNGEN_JSON, "w", encoding="utf-8") as f:
+        json.dump(querverbindungen, f, ensure_ascii=False, indent=2)
+
+    print(f"  Querverbindungen aktualisiert: {len(neue_verbindungen)} Verbindungen für '{aktuelle_id}'")
 
 
 def bibliothek_laden() -> dict:
@@ -254,6 +336,14 @@ Bitte erstelle nun die Vernetzungsanalyse."""
         f.write(ergebnis)
 
     print(f"\nGespeichert: {ausgabe_pfad}")
+
+    # Strukturierte Verbindungen für das Wissensnetz extrahieren
+    print("Extrahiere strukturierte Verbindungen für Wissensnetz...")
+    try:
+        verbindungen_aktualisieren(autor, titel, ergebnis)
+    except Exception as e:
+        print(f"  [Warnung] Verbindungen konnten nicht extrahiert werden: {e}")
+
     print(f"{'='*60}\n")
 
 
