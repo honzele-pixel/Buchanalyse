@@ -99,7 +99,15 @@ Nach jeder neuen Buchanalyse werden die Vernetzungen **aller** bereits analysier
 - Buchanalysen: https://github.com/honzele-pixel/Buchanalyse.git (Branch: master)
 - Buchanalyse_Webseite: noch kein GitHub-Remote (nur lokal)
 
-## Zukunftsidee
+## Zukunftsidee: Themenmappe-Modus (geplant)
+Erweiterung des Systems für Honzeles Nachdenkseiten-Sammlung (`E:\Nachdenkseiten\`):
+- ~25 Themenordner mit PDFs (Israel, Ukraine, Iran, NATO, China, Jacques Baud, Ulrike Guerot u.a.)
+- **Idee:** Lektor liest alle PDFs eines Ordners → Gesprächspartner diskutiert die ganze Themenmappe
+- Vereinfachter Workflow ohne Inhaltsanalyst/Vernetzer/Berichterstatter (schneller, günstiger)
+- Offene Fragen: Ordner = Themenmappe? Einzelartikel oder gebündelt? Wo landen die Ergebnisse?
+- Status: Geplant – beim nächsten Gespräch angehen
+
+## Zukunftsidee: Website-Verbindung
 Die Buchanalysen könnten später als Wissensbasis für den KI-Experten im
 Forensik-Labor der Website "Archiv der Souveränität" dienen.
 Status: Idee – erst wenn Website steht und Buchbasis gewachsen ist.
