@@ -15,7 +15,7 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 ## PDF-Bibliothek
 `E:\Bucher\` – mit Unterordnern: Michael_Luders, Daniele_Ganser, Hannah_Arendt, Ukraine, u.a.
 
-## Fertige Agenten (Stand 05.04.2026)
+## Fertige Agenten (Stand 10.04.2026)
 
 | Agent | Datei | Aufgabe |
 |---|---|---|
@@ -47,6 +47,7 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - Daniele Ganser: Illegale Kriege (04.04.2026)
 - Rainer Mausfeld: Warum schweigen die Lämmer? (05.04.2026)
 - Rainer Mausfeld: Hybris und Nemesis (05.04.2026)
+- Michael Lüders: Drecksarbeit (10.04.2026)
 
 ## Technische Basis
 - `claude-agent-sdk` installiert
@@ -67,8 +68,8 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 
 ## Nächste Schritte
 - [ ] Weitere Bücher analysieren (z.B. Honzeles Vorträge: Frieden_und_Krieg, Projekt Demokratie)
-- [ ] Ab 6-8 Büchern: Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen ← JETZT MÖGLICH (6 Bücher im Archiv)
-- [ ] Website-Projekt gestartet: `E:\Claude_Projekte\Buchanalyse_Webseite\`
+- [ ] Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen ← JETZT MÖGLICH (7 Bücher im Archiv)
+- [x] Website-Projekt gestartet: `E:\Claude_Projekte\Buchanalyse_Webseite\`
 
 ## Modell-Strategie (geplant – verschoben auf später)
 
@@ -89,6 +90,14 @@ Aktuell: `settings.py` definiert `claude-opus-4-6` global, aber Lektor-Synthese 
 
 ## Automatische Vernetzung (Kernmerkmal)
 Nach jeder neuen Buchanalyse werden die Vernetzungen **aller** bereits analysierten Bücher automatisch neu erstellt. Das Wissensnetz wächst mit jedem Buch vollständig – keine manuelle Nacharbeit nötig.
+
+- Der Vernetzer schreibt strukturierte Verbindungen automatisch in `bibliothek/querverbindungen.json`
+- Der Generator der Webseite liest Knoten und Verbindungen dynamisch aus den JSON-Dateien
+- Kein manueller Eingriff in `generator.py` mehr nötig bei neuen Büchern
+
+## GitHub
+- Buchanalysen: https://github.com/honzele-pixel/Buchanalyse.git (Branch: master)
+- Buchanalyse_Webseite: noch kein GitHub-Remote (nur lokal)
 
 ## Zukunftsidee
 Die Buchanalysen könnten später als Wissensbasis für den KI-Experten im
