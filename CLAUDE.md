@@ -65,6 +65,7 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 3. **Schritt für Schritt** – mit dem Einfachsten beginnen
 4. **Honzele ist Anfänger** – jeden Schritt verständlich erklären, keine Programmierkenntnisse voraussetzen
 5. **Kein Bezug zur Website "Archiv der Souveränität"** – das sind zwei völlig separate Projekte
+6. **NIEMALS "fertig" oder "Test bestanden" sagen ohne vollständige Verifikation** – beim Buchanalyse-System bedeutet das: Agenten durchgelaufen UND generator.py der Webseite erfolgreich ausgeführt UND neues Buch korrekt sichtbar. Erst dann gilt ein Test als bestanden.
 
 ## Nächste Schritte
 - [ ] Weitere Bücher analysieren (z.B. Honzeles Vorträge: Frieden_und_Krieg, Projekt Demokratie)

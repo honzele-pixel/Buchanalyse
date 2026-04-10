@@ -1,24 +1,271 @@
 {
   "verbindungen": [
-    {"von": "luders_krieg", "zu": "mausfeld_warum", "themen": ["Unsichtbarmachung von Verbrechen", "Medien-Propaganda"], "staerke": 2},
-    {"von": "luders_krieg", "zu": "ganser_illegale", "themen": ["Illegale Kriege", "Ressourcen & Macht", "Medien-Schweigen"], "staerke": 3},
-    {"von": "luders_krieg", "zu": "mausfeld_hegemonie", "themen": ["Westliche Hegemonie", "Ressourcen & Kapital"], "staerke": 2},
-    {"von": "luders_krieg", "zu": "mausfeld_hybris", "themen": ["Demokratie als Fassade", "Pleonexie"], "staerke": 2},
-    {"von": "luders_krieg", "zu": "arendt_freiheit", "themen": ["Freiheit & politische Verantwortung"], "staerke": 1},
-    {"von": "ganser_illegale", "zu": "mausfeld_warum", "themen": ["Unsichtbarmachung von Verbrechen", "Propaganda"], "staerke": 2},
-    {"von": "ganser_illegale", "zu": "mausfeld_hegemonie", "themen": ["US-Hegemonie", "Ressourcen & Kapital", "Illegale Kriege"], "staerke": 3},
-    {"von": "ganser_illegale", "zu": "mausfeld_hybris", "themen": ["Elitenmacht", "Demokratie als Fassade"], "staerke": 2},
-    {"von": "ganser_illegale", "zu": "arendt_freiheit", "themen": ["Staatsgewalt & Freiheit"], "staerke": 1},
-    {"von": "mausfeld_warum", "zu": "mausfeld_hegemonie", "themen": ["Demokratie als Fassade", "Bewusstseinskontrolle", "Elitenmacht"], "staerke": 3},
-    {"von": "mausfeld_warum", "zu": "mausfeld_hybris", "themen": ["Demokratie als Fassade", "Propaganda", "Pleonexie"], "staerke": 3},
-    {"von": "mausfeld_hegemonie", "zu": "mausfeld_hybris", "themen": ["Westliche Hegemonie", "Hybris der Macht", "Demokratiebetrug"], "staerke": 3},
-    {"von": "mausfeld_hegemonie", "zu": "arendt_freiheit", "themen": ["Freiheit & politische Macht", "Revolutionstheorie"], "staerke": 2},
-    {"von": "mausfeld_warum", "zu": "arendt_freiheit", "themen": ["Bewusstseinskontrolle vs. Freiheit"], "staerke": 2},
-    {"von": "luders_drecksarbeit", "zu": "luders_krieg", "themen": ["Israelisch-palästinensischer Konflikt", "Deutsche Komplizenschaft", "Großisrael-Projekt"], "staerke": 3},
-    {"von": "luders_drecksarbeit", "zu": "ganser_illegale", "themen": ["Konstruierte Bedrohung", "Iran-Putsch 1953", "Doppelstandards des Westens"], "staerke": 3},
-    {"von": "luders_drecksarbeit", "zu": "mausfeld_hegemonie", "themen": ["Westliche Hegemoniallogik", "Medien als Herrschaftsinstrument", "Völkermord-Begriff"], "staerke": 3},
-    {"von": "luders_drecksarbeit", "zu": "mausfeld_warum", "themen": ["Hasbara & Propaganda", "Moralische Unsichtbarmachung", "Feindbildkonstruktion"], "staerke": 3},
-    {"von": "luders_drecksarbeit", "zu": "mausfeld_hybris", "themen": ["Elitenmacht", "Pleonexie", "Demokratie als Fassade"], "staerke": 2},
-    {"von": "luders_drecksarbeit", "zu": "arendt_freiheit", "themen": ["Freiheit & politische Verantwortung", "Arendts Warnung 1944"], "staerke": 2}
+    {
+      "von": "luders_krieg",
+      "zu": "kant_metaphysik",
+      "themen": [
+        "Autonomie und Menschenwürde als normativer Maßstab"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "arendt_freiheit",
+      "zu": "kant_metaphysik",
+      "themen": [
+        "Freiheit als Autonomie und Selbstgesetzgebung",
+        "Philosophische Grundlagen des Freiheitsbegriffs"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "arendt_freiheit",
+      "zu": "luders_krieg",
+      "themen": [
+        "Soziale Frage und politische Selbstbestimmung verwoben",
+        "Nahost-Konflikt als Fallstudie revolutionären Scheiterns"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "luders_krieg",
+      "themen": [
+        "Westliche Hegemoniestrategie in aktuellen Konflikten",
+        "Ressourcenkontrolle als Kriegsgrund",
+        "Moralische Normensysteme und Kriegsjustifizierung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "arendt_freiheit",
+      "themen": [
+        "Demokratie vs. echte politische Freiheit",
+        "Befreiung und ihre Grenzen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "kant_metaphysik",
+      "themen": [
+        "Moralische Normensysteme und Rechtfertigung"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "mausfeld_hegemonie",
+      "themen": [
+        "US-Imperium und Oligarchie",
+        "Ressourcen als Kriegsmotiv",
+        "parasitäre Struktur des Westens"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "luders_krieg",
+      "themen": [
+        "Ressourceninteressen in Nahostpolitik",
+        "illegale Kriege und Völkerrecht",
+        "westliche Kriegsbegründungen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "kant_metaphysik",
+      "themen": [
+        "kategorischer Imperativ",
+        "Behandlung von Bevölkerungen als Mittel",
+        "Autonomie und Würde"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "arendt_freiheit",
+      "themen": [
+        "Demokratie und echte Freiheit",
+        "Befreiung vs. Freiheit",
+        "westliche Gründungsideale"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "mausfeld_hegemonie",
+      "themen": [
+        "Demokratie als Konstrukt",
+        "Kapitalismus und politische Gleichheit",
+        "Kennan-Memo und Ausbeutung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "ganser_illegale",
+      "themen": [
+        "Meinungsmanagement und Unsichtbarmachung",
+        "USA als Oligarchie",
+        "Illegale Außenpolitik und mediale Verschleierung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "arendt_freiheit",
+      "themen": [
+        "Befreiung versus Freiheit",
+        "Politische Partizipation",
+        "Warum Systeme echte Freiheit verhindern"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "luders_krieg",
+      "themen": [
+        "Meinungsmanagement",
+        "Denkverbote und Zensur",
+        "Konstruktion von Bedrohungsnarrationen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "kant_metaphysik",
+      "themen": [
+        "Folter und Menschenwürde",
+        "Kategorischer Imperativ",
+        "Mensch als Zweck an sich"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "mausfeld_warum",
+      "themen": [
+        "Demokratie als Täuschung",
+        "Ideologische Macht und Bewusstseinskontrolle",
+        "Elitendemokratie"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "mausfeld_hegemonie",
+      "themen": [
+        "Ideologische Machtstrukturen",
+        "Westliche Hegemonialpolitik",
+        "Pseudorealität und Propaganda"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "arendt_freiheit",
+      "themen": [
+        "Substanzverlust des Freiheitsbegriffs",
+        "Kritik der repräsentativen Demokratie",
+        "Spannung zwischen Systemlogik und Elitenkabale"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "ganser_illegale",
+      "themen": [
+        "Pleonexia und institutionalisiertes Mehrhabenwollen",
+        "Imperialistische Expansion",
+        "Ressourcenkontrolle als Triebkraft"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "luders_krieg",
+      "themen": [
+        "Imperialer Größenwahn",
+        "Geopolitische Pleonexia",
+        "Westliche Hegemonie im Nahen Osten"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "kant_metaphysik",
+      "themen": [
+        "Spannung zwischen normativer Moral und politischer Realität",
+        "Autonomer Wille vs. ideologische Domestizierung",
+        "Menschenrechte und ihre Unterlaufung"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "luders_krieg",
+      "themen": [
+        "Staatsräson und Israel-Politik",
+        "Doppelstandards im Völkerrecht",
+        "Gaza und Völkerrechtsbruch"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "ganser_illegale",
+      "themen": [
+        "CIA-Putsch Iran 1953",
+        "Westliche Doppelstandards im Völkerrecht",
+        "Dokumentarisch-empirische Methode"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "mausfeld_warum",
+      "themen": [
+        "Bilderwelten und Pseudorealitäten",
+        "Bewusstseinskontrolle",
+        "Ideologische Herrschaft"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "mausfeld_hegemonie",
+      "themen": [
+        "CIA-Putsch Iran 1953",
+        "Westliche Doppelstandards",
+        "Parasitäre Lebensform des Westens"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "mausfeld_hybris",
+      "themen": [
+        "Ideologische Herrschaft über physische",
+        "Historische Wiederholung von Machtmustern"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "kant_metaphysik",
+      "themen": [
+        "Kategorischer Imperativ und Universalisierungsprinzip",
+        "Menschheit als Zweck an sich"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "arendt_freiheit",
+      "themen": [],
+      "staerke": 1
+    }
   ]
 }
