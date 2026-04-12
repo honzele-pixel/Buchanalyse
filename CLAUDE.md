@@ -29,7 +29,7 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 ```
 python main.py
 ```
-- **Modus 1:** Buch analysieren – alle 4 Agenten laufen automatisch nacheinander durch, danach werden die Vernetzungen **aller anderen Bücher automatisch aktualisiert**
+- **Modus 1:** Buch analysieren – alle 4 Agenten laufen automatisch nacheinander durch, danach werden die Vernetzungen **aller anderen Bücher automatisch aktualisiert**, danach startet automatisch der **Wiki-Kurator** (Entscheidung ob das Buch ins Wiki kommt)
 - **Modus 2:** Über ein Buch diskutieren – Buchauswahl, dann freies Gespräch
 **Wichtig:** Immer nur ein Terminal, nie parallel – wegen bibliothek/index.json
 

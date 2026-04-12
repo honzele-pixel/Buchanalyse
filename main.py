@@ -274,6 +274,15 @@ async def main() -> None:
 
             await buch_analysieren(buch)
 
+            # Wiki-Kurator startet automatisch
+            import subprocess
+            wiki_dir = r"E:\Claude_Projekte\Wiki_Honzele"
+            nachricht = f"Kuratiere {buch['titel']} von {buch['autor']}"
+            print(f"\n{'='*60}")
+            print(f"  WIKI-KURATOR startet...")
+            print(f"{'='*60}\n")
+            subprocess.run(["claude", nachricht], cwd=wiki_dir)
+
         else:
             print("\n  Bitte 1, 2 oder q eingeben.")
 
