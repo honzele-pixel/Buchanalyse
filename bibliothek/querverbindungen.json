@@ -2,64 +2,68 @@
   "verbindungen": [
     {
       "von": "luders_krieg",
-      "zu": "kant_metaphysik",
+      "zu": "kant_ewigen",
       "themen": [
-        "Autonomie und Menschenwürde als normativer Maßstab"
-      ],
-      "staerke": 1
-    },
-    {
-      "von": "arendt_freiheit",
-      "zu": "kant_metaphysik",
-      "themen": [
-        "Freiheit als Autonomie und Selbstgesetzgebung",
-        "Philosophische Grundlagen des Freiheitsbegriffs"
+        "Völkerrecht als normative Grundlage",
+        "Verbot gewaltsamer Einmischung in innere Verfassungen",
+        "Architektur der Friedenssicherung"
       ],
       "staerke": 2
     },
     {
       "von": "arendt_freiheit",
-      "zu": "luders_krieg",
+      "zu": "kant_ewigen",
       "themen": [
-        "Soziale Frage und politische Selbstbestimmung verwoben",
-        "Nahost-Konflikt als Fallstudie revolutionären Scheiterns"
-      ],
-      "staerke": 2
-    },
-    {
-      "von": "mausfeld_hegemonie",
-      "zu": "luders_krieg",
-      "themen": [
-        "Westliche Hegemoniestrategie in aktuellen Konflikten",
-        "Ressourcenkontrolle als Kriegsgrund",
-        "Moralische Normensysteme und Kriegsjustifizierung"
+        "Republikanische Verfassung",
+        "Institutionelle Struktur von Freiheit",
+        "Friedenslogik"
       ],
       "staerke": 3
+    },
+    {
+      "von": "arendt_freiheit",
+      "zu": "luders_krieg",
+      "themen": [
+        "Soziale Frage in Krisenregionen",
+        "Externe Intervention und Freiheit",
+        "Nahostkonflikt"
+      ],
+      "staerke": 2
     },
     {
       "von": "mausfeld_hegemonie",
       "zu": "arendt_freiheit",
       "themen": [
-        "Demokratie vs. echte politische Freiheit",
-        "Befreiung und ihre Grenzen"
+        "Strategischer Wortbetrug 'Demokratie'",
+        "Strukturelles Scheitern von Befreiung und echter Freiheit"
       ],
       "staerke": 2
     },
     {
       "von": "mausfeld_hegemonie",
-      "zu": "kant_metaphysik",
+      "zu": "luders_krieg",
       "themen": [
-        "Moralische Normensysteme und Rechtfertigung"
+        "Parasitäre Struktur westlicher Hegemonie",
+        "Regionaler Flächenbrand im Nahen Osten"
       ],
-      "staerke": 1
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "kant_ewigen",
+      "themen": [
+        "Demokratie und Friedensstrukturen",
+        "Institutionelle Lösungen vs. außerinstitutioneller Druck"
+      ],
+      "staerke": 2
     },
     {
       "von": "ganser_illegale",
       "zu": "mausfeld_hegemonie",
       "themen": [
-        "US-Imperium und Oligarchie",
-        "Ressourcen als Kriegsmotiv",
-        "parasitäre Struktur des Westens"
+        "US-Imperialismus und Ressourcenraub",
+        "Systematische Verletzung von Völkerrecht",
+        "Institutionelle Lähmung multilateraler Systeme"
       ],
       "staerke": 3
     },
@@ -67,39 +71,28 @@
       "von": "ganser_illegale",
       "zu": "luders_krieg",
       "themen": [
-        "Ressourceninteressen in Nahostpolitik",
-        "illegale Kriege und Völkerrecht",
-        "westliche Kriegsbegründungen"
+        "Iran-Putsch 1953 als Nahost-Ursprung",
+        "US-israelische Achse und Ressourceninteressen"
       ],
       "staerke": 2
     },
     {
       "von": "ganser_illegale",
-      "zu": "kant_metaphysik",
+      "zu": "kant_ewigen",
       "themen": [
-        "kategorischer Imperativ",
-        "Behandlung von Bevölkerungen als Mittel",
-        "Autonomie und Würde"
+        "Völkerrecht und Friedensordnung",
+        "Republikanism als Friedensbedingung",
+        "Verbot von Heeren und ehrenloser Kriegsmittel"
       ],
-      "staerke": 2
-    },
-    {
-      "von": "ganser_illegale",
-      "zu": "arendt_freiheit",
-      "themen": [
-        "Demokratie und echte Freiheit",
-        "Befreiung vs. Freiheit",
-        "westliche Gründungsideale"
-      ],
-      "staerke": 1
+      "staerke": 3
     },
     {
       "von": "mausfeld_warum",
       "zu": "mausfeld_hegemonie",
       "themen": [
-        "Demokratie als Konstrukt",
-        "Kapitalismus und politische Gleichheit",
-        "Kennan-Memo und Ausbeutung"
+        "Demokratie als Wahloligarchie",
+        "Meinungsmanagement und Tiefenindoktrination",
+        "westlicher Imperialismus"
       ],
       "staerke": 3
     },
@@ -107,9 +100,28 @@
       "von": "mausfeld_warum",
       "zu": "ganser_illegale",
       "themen": [
-        "Meinungsmanagement und Unsichtbarmachung",
-        "USA als Oligarchie",
-        "Illegale Außenpolitik und mediale Verschleierung"
+        "westliche Außenpolitik als strukturelle Gewalt",
+        "Ressourceninteressen hinter Interventionen",
+        "mediale Unsichtbarkeit von Völkerrechtsbrüchen"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "luders_krieg",
+      "themen": [
+        "westlicher Imperialismus im Nahen Osten",
+        "Ressourcenkontrolle als Kriegstreiber"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "kant_ewigen",
+      "themen": [
+        "republikanische Verfassung vs. oligarchische Realität",
+        "Universalismus und Völkerrecht",
+        "Friedensbedingungen"
       ],
       "staerke": 3
     },
@@ -117,29 +129,9 @@
       "von": "mausfeld_warum",
       "zu": "arendt_freiheit",
       "themen": [
-        "Befreiung versus Freiheit",
-        "Politische Partizipation",
-        "Warum Systeme echte Freiheit verhindern"
-      ],
-      "staerke": 2
-    },
-    {
-      "von": "mausfeld_warum",
-      "zu": "luders_krieg",
-      "themen": [
-        "Meinungsmanagement",
-        "Denkverbote und Zensur",
-        "Konstruktion von Bedrohungsnarrationen"
-      ],
-      "staerke": 2
-    },
-    {
-      "von": "mausfeld_warum",
-      "zu": "kant_metaphysik",
-      "themen": [
-        "Folter und Menschenwürde",
-        "Kategorischer Imperativ",
-        "Mensch als Zweck an sich"
+        "Befreiung vs. echte Freiheit",
+        "politische Selbstbestimmung",
+        "Revolution und Neuanfang"
       ],
       "staerke": 2
     },
@@ -147,9 +139,9 @@
       "von": "mausfeld_hybris",
       "zu": "mausfeld_warum",
       "themen": [
-        "Demokratie als Täuschung",
+        "Demokratie als strategischer Wortbetrug",
         "Ideologische Macht und Bewusstseinskontrolle",
-        "Elitendemokratie"
+        "Pleonexia und anthropologische Konstanten"
       ],
       "staerke": 3
     },
@@ -157,9 +149,19 @@
       "von": "mausfeld_hybris",
       "zu": "mausfeld_hegemonie",
       "themen": [
-        "Ideologische Machtstrukturen",
-        "Westliche Hegemonialpolitik",
-        "Pseudorealität und Propaganda"
+        "Demokratie als Wahloligarchie",
+        "Ideologische Hegemonie und Bedeutungsverschiebung",
+        "Pleonexia als systemische Organisationsform"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "kant_ewigen",
+      "themen": [
+        "Republikanische Verfassung und Elitenkontrolle",
+        "Rechtliche Bindung von Herrschaft",
+        "Institutionentheoretische Gegenentwürfe"
       ],
       "staerke": 3
     },
@@ -167,19 +169,18 @@
       "von": "mausfeld_hybris",
       "zu": "arendt_freiheit",
       "themen": [
-        "Substanzverlust des Freiheitsbegriffs",
-        "Kritik der repräsentativen Demokratie",
-        "Spannung zwischen Systemlogik und Elitenkabale"
+        "Befreiung versus echte politische Freiheit",
+        "Kritik des Demokratiebetrugs",
+        "Phänomenologie der Unfreiheit"
       ],
-      "staerke": 3
+      "staerke": 2
     },
     {
       "von": "mausfeld_hybris",
       "zu": "ganser_illegale",
       "themen": [
-        "Pleonexia und institutionalisiertes Mehrhabenwollen",
-        "Imperialistische Expansion",
-        "Ressourcenkontrolle als Triebkraft"
+        "Ideologische Macht und kognitive Unsichtbarkeit",
+        "Völkerrechtsverletzungen und mediale Verschleierung"
       ],
       "staerke": 2
     },
@@ -187,19 +188,8 @@
       "von": "mausfeld_hybris",
       "zu": "luders_krieg",
       "themen": [
-        "Imperialer Größenwahn",
-        "Geopolitische Pleonexia",
-        "Westliche Hegemonie im Nahen Osten"
-      ],
-      "staerke": 2
-    },
-    {
-      "von": "mausfeld_hybris",
-      "zu": "kant_metaphysik",
-      "themen": [
-        "Spannung zwischen normativer Moral und politischer Realität",
-        "Autonomer Wille vs. ideologische Domestizierung",
-        "Menschenrechte und ihre Unterlaufung"
+        "Ideologische Kontrolle und Diskurspolizei",
+        "Empirische Falldokumentation von Machtstrukturen"
       ],
       "staerke": 2
     },
@@ -207,9 +197,9 @@
       "von": "luders_drecksarbeit",
       "zu": "luders_krieg",
       "themen": [
-        "Staatsräson und Israel-Politik",
-        "Doppelstandards im Völkerrecht",
-        "Gaza und Völkerrechtsbruch"
+        "Doppelstandards in der Außenpolitik",
+        "Völkerrechtsbrüche",
+        "Geopolitische Interessen vs. Werterhetorik"
       ],
       "staerke": 3
     },
@@ -218,18 +208,8 @@
       "zu": "ganser_illegale",
       "themen": [
         "CIA-Putsch Iran 1953",
-        "Westliche Doppelstandards im Völkerrecht",
-        "Dokumentarisch-empirische Methode"
-      ],
-      "staerke": 3
-    },
-    {
-      "von": "luders_drecksarbeit",
-      "zu": "mausfeld_warum",
-      "themen": [
-        "Bilderwelten und Pseudorealitäten",
-        "Bewusstseinskontrolle",
-        "Ideologische Herrschaft"
+        "Völkerrechtsbrüche",
+        "Illegale Kriegseinsätze"
       ],
       "staerke": 3
     },
@@ -237,9 +217,19 @@
       "von": "luders_drecksarbeit",
       "zu": "mausfeld_hegemonie",
       "themen": [
-        "CIA-Putsch Iran 1953",
-        "Westliche Doppelstandards",
-        "Parasitäre Lebensform des Westens"
+        "Ideologische Verschleierung von Ausbeutungsinteressen",
+        "Zivilisationsbrüche und Völkermord",
+        "Hegemoniale Strukturen"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "mausfeld_warum",
+      "themen": [
+        "Feindbildkonstruktion",
+        "Kognitive und moralische Unsichtbarkeit von Verbrechen",
+        "Mediale Propaganda"
       ],
       "staerke": 3
     },
@@ -247,24 +237,91 @@
       "von": "luders_drecksarbeit",
       "zu": "mausfeld_hybris",
       "themen": [
-        "Ideologische Herrschaft über physische",
-        "Historische Wiederholung von Machtmustern"
+        "Zivilisationsbrüche",
+        "Weltuntergangsuhr und Kipppunkte"
       ],
       "staerke": 2
     },
     {
       "von": "luders_drecksarbeit",
-      "zu": "kant_metaphysik",
+      "zu": "kant_ewigen",
       "themen": [
-        "Kategorischer Imperativ und Universalisierungsprinzip",
-        "Menschheit als Zweck an sich"
+        "Völkerrecht und universelle Rechtsprinzipien",
+        "Publizitätsprinzip als Prüfstein für Legitimität",
+        "Verbot gewaltsamer Einmischung in innere Angelegenheiten"
       ],
-      "staerke": 2
+      "staerke": 3
     },
     {
       "von": "luders_drecksarbeit",
       "zu": "arendt_freiheit",
-      "themen": [],
+      "themen": [
+        "Strukturelle Gewalt durch Entpolitisierung",
+        "Zusammenhang zwischen Massenentrechtung und Terror"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "kant_grundlegung",
+      "zu": "kant_ewigen",
+      "themen": [
+        "Freiheit und republikanische Verfassung",
+        "Autonomie und Selbstgesetzgebung",
+        "Reich der Zwecke und institutionelle Realisierung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "kant_grundlegung",
+      "zu": "arendt_freiheit",
+      "themen": [
+        "Freiheitsbegriff",
+        "Autonomie und politisches Handeln"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "kant_grundlegung",
+      "zu": "mausfeld_hybris",
+      "themen": [
+        "Autonomie und Heteronomie",
+        "Freiheit und Instrumentalisierung",
+        "Demokratie und Selbstgesetzgebung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "kant_grundlegung",
+      "zu": "mausfeld_warum",
+      "themen": [
+        "Autonomie und Heteronomie",
+        "Kritik der Indoktrination"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "kant_grundlegung",
+      "zu": "ganser_illegale",
+      "themen": [
+        "Menschenwürde als Zweck an sich",
+        "Verletzung der Zweck-an-sich-Formel"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "kant_grundlegung",
+      "zu": "luders_krieg",
+      "themen": [
+        "Menschenwürde und Instrumentalisierung"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "kant_grundlegung",
+      "zu": "luders_drecksarbeit",
+      "themen": [
+        "Menschenwürde und Instrumentalisierung"
+      ],
       "staerke": 1
     }
   ]

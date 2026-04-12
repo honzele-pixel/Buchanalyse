@@ -92,6 +92,10 @@ Aktuell: `settings.py` definiert `claude-opus-4-6` global, aber Lektor-Synthese 
 ## Automatische Vernetzung (Kernmerkmal)
 Nach jeder neuen Buchanalyse werden die Vernetzungen **aller** bereits analysierten Bücher automatisch neu erstellt. Das Wissensnetz wächst mit jedem Buch vollständig – keine manuelle Nacharbeit nötig.
 
+- **Delta-Vernetzer (Usage-Optimierung):** Um API-Kosten zu sparen und Zeitlimits zu umgehen, nutzt das System einen inkrementellen Workflow:
+  1. **Haiku 4.5 (Relevanz-Check):** Prüft blitzschnell, ob das neue Buch für ein bestehendes Buch überhaupt relevant ist (Stärke 0-3).
+  2. **Sonnet 4.6 (Delta-Content):** Nur bei Relevanz (Stärke > 0) schreibt Sonnet einen gezielten neuen Abschnitt und hängt ihn an die bestehende `03_vernetzung.md` an.
+  3. **Vorteil:** Skaliert linear statt quadratisch (bei 50 Büchern: ~20 Min statt ~2 Std).
 - Der Vernetzer schreibt strukturierte Verbindungen automatisch in `bibliothek/querverbindungen.json`
 - Der Generator der Webseite liest Knoten und Verbindungen dynamisch aus den JSON-Dateien
 - Kein manueller Eingriff in `generator.py` mehr nötig bei neuen Büchern
