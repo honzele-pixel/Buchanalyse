@@ -347,6 +347,214 @@ Bitte erstelle nun die Vernetzungsanalyse."""
     print(f"{'='*60}\n")
 
 
+def relevanz_check(
+    buch_a_autor: str,
+    buch_a_titel: str,
+    buch_a_lektor: str,
+    buch_x_autor: str,
+    buch_x_titel: str,
+    buch_x_lektor: str,
+) -> dict:
+    """Haiku prüft ob Buch X für Buch A relevant ist.
+
+    Gibt zurück: {"staerke": 0-3, "themen": ["Thema 1", ...]}
+    Stärke 0 = keine Verbindung → Delta-Abschnitt wird nicht geschrieben.
+    """
+    prompt = f"""Du vergleichst zwei Bücher auf thematische Verbindungen.
+
+Buch A: {buch_a_autor} – {buch_a_titel}
+{buch_a_lektor[:2000]}
+
+Buch X (neu hinzugefügt): {buch_x_autor} – {buch_x_titel}
+{buch_x_lektor[:2000]}
+
+Wie stark sind die inhaltlichen Verbindungen zwischen diesen beiden Büchern?
+
+Gib NUR ein gültiges JSON-Objekt zurück – kein anderer Text:
+{{"staerke": 0, "themen": []}}
+
+Stärke-Skala:
+0 = keine relevante Verbindung
+1 = schwache Verbindung (1 gemeinsames Thema)
+2 = mittlere Verbindung (2 Themen oder ein enger inhaltlicher Bezug)
+3 = starke Verbindung (3+ Themen oder sehr enger inhaltlicher Bezug)
+
+Themen: Liste der konkreten gemeinsamen Themen/Begriffe (leer wenn Stärke 0)."""
+
+    client = anthropic.Anthropic()
+    response = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=300,
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    antwort = response.content[0].text.strip()
+
+    if "```" in antwort:
+        match = re.search(r'```(?:json)?\s*([\s\S]*?)\s*```', antwort)
+        if match:
+            antwort = match.group(1)
+
+    return json.loads(antwort)
+
+
+DELTA_SYSTEM_PROMPT = """Du bist ein hochspezialisierter Literaturwissenschaftler und Ideenhistoriker.
+Du ergänzt bestehende Vernetzungsanalysen um neue Buchverbindungen.
+Deine Analysen sind präzise, tiefgründig und intellektuell anspruchsvoll.
+Du schreibst ausschließlich den Inhalt des neuen Abschnitts – keine Überschrift, keine Einleitung."""
+
+
+async def vernetzer_delta_aktualisieren(
+    bestehendes_buch: dict,
+    neuer_autor: str,
+    neuer_titel: str,
+    neuer_lektor_pfad: str,
+    neue_inhaltsanalyse_pfad: str,
+) -> None:
+    """Ergänzt 03_vernetzung.md eines bestehenden Buches um eine neue Verbindung.
+
+    Phase 1 (Haiku): Relevanz-Check – bei Stärke 0 wird nichts geschrieben.
+    Phase 2 (Sonnet): Delta-Abschnitt schreiben und anhängen.
+    """
+    buch_a_autor = bestehendes_buch["autor"]
+    buch_a_titel = bestehendes_buch["titel"]
+
+    # Texte laden
+    try:
+        with open(bestehendes_buch["lektor_pfad"], "r", encoding="utf-8") as f:
+            buch_a_lektor = f.read()
+        inhaltsanalyse_pfad = bestehendes_buch.get("inhaltsanalyse_pfad", "")
+        if inhaltsanalyse_pfad and os.path.exists(inhaltsanalyse_pfad):
+            with open(inhaltsanalyse_pfad, "r", encoding="utf-8") as f:
+                buch_a_analyse = f.read()
+        else:
+            buch_a_analyse = ""
+        with open(neuer_lektor_pfad, "r", encoding="utf-8") as f:
+            buch_x_lektor = f.read()
+        with open(neue_inhaltsanalyse_pfad, "r", encoding="utf-8") as f:
+            buch_x_analyse = f.read()
+    except FileNotFoundError as e:
+        print(f"    [Warnung] Datei nicht gefunden: {e} – wird übersprungen.")
+        return
+
+    # Phase 1: Relevanz-Check (Haiku – schnell & günstig)
+    print(f"    Relevanz-Check (Haiku): {buch_a_autor} – {buch_a_titel}...")
+    try:
+        relevanz = relevanz_check(
+            buch_a_autor, buch_a_titel, buch_a_lektor,
+            neuer_autor, neuer_titel, buch_x_lektor,
+        )
+    except Exception as e:
+        print(f"    [Warnung] Relevanz-Check fehlgeschlagen: {e} – wird übersprungen.")
+        return
+
+    if relevanz["staerke"] == 0:
+        print(f"    → Keine relevante Verbindung – wird übersprungen.")
+        return
+
+    print(f"    → Stärke {relevanz['staerke']} | Themen: {', '.join(relevanz['themen'])}")
+    print(f"    Delta-Abschnitt wird geschrieben (Sonnet)...")
+
+    # Phase 2: Delta-Abschnitt schreiben (Sonnet – hohe Qualität)
+    delta_prompt = f"""Du ergänzt die Vernetzungsanalyse von "{buch_a_autor}: {buch_a_titel}"
+um eine neue Verbindung zum soeben analysierten Buch "{neuer_autor}: {neuer_titel}".
+
+--- BUCH A: {buch_a_autor} – {buch_a_titel} ---
+Lektor-Auszug:
+{buch_a_lektor[:8000]}
+
+Inhaltsanalyse-Auszug:
+{buch_a_analyse[:8000]}
+
+--- NEUES BUCH X: {neuer_autor} – {neuer_titel} ---
+Lektor-Auszug:
+{buch_x_lektor[:8000]}
+
+Inhaltsanalyse-Auszug:
+{buch_x_analyse[:8000]}
+
+Bekannte Verbindungsthemen (aus Vorprüfung): {', '.join(relevanz['themen'])}
+
+Schreibe einen präzisen Abschnitt der folgende Punkte behandelt:
+
+### Thematische Querverbindungen
+Welche Themen, Konzepte oder historischen Ereignisse tauchen in beiden Büchern auf?
+Konkret, mit Beispielen aus beiden Büchern.
+
+### Argumentative Brücken
+Welche These aus Buch A wird durch Buch X bestätigt, erweitert oder widerlegt?
+Wo ergänzen sich die Argumente, wo widersprechen sie sich?
+
+### Empfohlene Lesekombination
+Warum sollte man beide Bücher gemeinsam lesen?
+Was leistet jedes Buch das das andere nicht kann?
+
+Sprache: Deutsch. Ton: analytisch, präzise, intellektuell anspruchsvoll.
+Schreibe NUR den Inhalt der drei Unterabschnitte – die Überschriften (###) einschließen."""
+
+    options = ClaudeAgentOptions(
+        system_prompt=DELTA_SYSTEM_PROMPT,
+        allowed_tools=[],
+        permission_mode="acceptEdits",
+        max_turns=2,
+    )
+
+    delta_teile = []
+    async for message in query(prompt=delta_prompt, options=options):
+        if isinstance(message, AssistantMessage):
+            for block in message.content:
+                if isinstance(block, TextBlock):
+                    print(block.text, end="", flush=True)
+                    delta_teile.append(block.text)
+
+    print()
+    delta_text = "".join(delta_teile)
+
+    if not delta_text.strip():
+        print(f"    [Warnung] Kein Inhalt vom Sonnet erhalten – wird übersprungen.")
+        return
+
+    # An 03_vernetzung.md anhängen
+    vernetzung_pfad = os.path.join(os.path.dirname(bestehendes_buch["lektor_pfad"]), "03_vernetzung.md")
+
+    if not os.path.exists(vernetzung_pfad):
+        print(f"    [Warnung] 03_vernetzung.md nicht gefunden: {vernetzung_pfad} – wird übersprungen.")
+        return
+
+    with open(vernetzung_pfad, "a", encoding="utf-8") as f:
+        f.write(f"\n\n---\n\n")
+        f.write(f"## Neue Verbindung: {neuer_autor} – {neuer_titel} (ergänzt {date.today()})\n\n")
+        f.write(delta_text)
+
+    print(f"    → Abschnitt angehängt: {vernetzung_pfad}")
+
+    # querverbindungen.json aktualisieren
+    aktuelle_id = buch_netz_id(buch_a_autor, buch_a_titel)
+    neue_id = buch_netz_id(neuer_autor, neuer_titel)
+
+    with open(QUERVERBINDUNGEN_JSON, "r", encoding="utf-8") as f:
+        querverbindungen = json.load(f)
+
+    # Alte Verbindung zwischen diesen beiden entfernen (verhindert Duplikate)
+    querverbindungen["verbindungen"] = [
+        v for v in querverbindungen["verbindungen"]
+        if not (v["von"] == aktuelle_id and v["zu"] == neue_id)
+        and not (v["von"] == neue_id and v["zu"] == aktuelle_id)
+    ]
+
+    querverbindungen["verbindungen"].append({
+        "von": aktuelle_id,
+        "zu": neue_id,
+        "themen": relevanz["themen"],
+        "staerke": relevanz["staerke"]
+    })
+
+    with open(QUERVERBINDUNGEN_JSON, "w", encoding="utf-8") as f:
+        json.dump(querverbindungen, f, ensure_ascii=False, indent=2)
+
+    print(f"    → Querverbindung: {aktuelle_id} ↔ {neue_id} (Stärke {relevanz['staerke']})")
+
+
 if __name__ == "__main__":
     asyncio.run(vernetzer_analysieren(
         autor             = "Michael Lüders",

@@ -21,7 +21,7 @@ import json
 
 from agents.lektor            import lektor_analysieren
 from agents.inhaltsanalyst    import inhaltsanalyst_analysieren
-from agents.vernetzer         import vernetzer_analysieren
+from agents.vernetzer         import vernetzer_analysieren, vernetzer_delta_aktualisieren
 from agents.berichterstatter  import berichterstatter_erstellen
 from agents.gespraechspartner import gespraechspartner_starten
 
@@ -103,36 +103,65 @@ def menu_anzeigen(buecher: list[dict]) -> None:
 
 
 async def vernetzungen_aktualisieren(neuer_autor: str, neuer_titel: str) -> None:
-    """Aktualisiert die Vernetzung aller anderen Bücher im Archiv."""
+    """Aktualisiert die Vernetzung aller anderen Bücher im Archiv (Delta-Modus).
+
+    Für jedes bestehende Buch:
+    - Haiku prüft ob eine Verbindung zum neuen Buch besteht
+    - Sonnet schreibt nur wenn relevant einen neuen Abschnitt (kein Neuschreiben)
+    """
     with open(BIBLIOTHEK_INDEX, "r", encoding="utf-8") as f:
         bibliothek = json.load(f)
 
-    andere = [
-        b for b in bibliothek["buecher"]
-        if not (b["autor"] == neuer_autor and b["titel"] == neuer_titel)
-    ]
+    andere = [b for b in bibliothek["buecher"]
+              if not (b["autor"] == neuer_autor and b["titel"] == neuer_titel)]
 
     if not andere:
+        print("  Keine anderen Bücher im Archiv – Delta-Vernetzung nicht nötig.")
+        return
+
+    # Pfade des neuen Buches aus dem Index holen
+    neuer_lektor_pfad = None
+    neue_inhaltsanalyse_pfad = None
+    for b in bibliothek["buecher"]:
+        if b["autor"] == neuer_autor and b["titel"] == neuer_titel:
+            neuer_lektor_pfad = b["lektor_pfad"]
+            neue_inhaltsanalyse_pfad = b["inhaltsanalyse_pfad"]
+            break
+
+    if not neuer_lektor_pfad:
+        print("  [Fehler] Neues Buch nicht im Index gefunden – Delta-Vernetzung abgebrochen.")
         return
 
     print(f"\n{'='*60}")
-    print(f"  VERNETZUNG AKTUALISIEREN")
-    print(f"  {len(andere)} andere Bücher werden neu vernetzt...")
+    print(f"  DELTA-VERNETZUNG: {len(andere)} Bücher werden geprüft...")
+    print(f"  (Haiku-Check → nur bei Verbindung wird Sonnet geschrieben)")
     print(f"{'='*60}")
 
+    uebersprungen = 0
+    ergaenzt = 0
+
     for i, buch in enumerate(andere, start=1):
-        vernetzung_pfad = buch["lektor_pfad"].replace("01_lektor.md", "03_vernetzung.md")
         print(f"\n  [{i}/{len(andere)}] {buch['autor']} – {buch['titel']}")
-        await vernetzer_analysieren(
-            autor               = buch["autor"],
-            titel               = buch["titel"],
-            lektor_pfad         = buch["lektor_pfad"],
-            inhaltsanalyse_pfad = buch["inhaltsanalyse_pfad"],
-            ausgabe_pfad        = vernetzung_pfad,
+        vernetzung_pfad = os.path.join(os.path.dirname(buch["lektor_pfad"]), "03_vernetzung.md")
+        vorher_groesse = os.path.getsize(vernetzung_pfad) if os.path.exists(vernetzung_pfad) else 0
+
+        await vernetzer_delta_aktualisieren(
+            bestehendes_buch=buch,
+            neuer_autor=neuer_autor,
+            neuer_titel=neuer_titel,
+            neuer_lektor_pfad=neuer_lektor_pfad,
+            neue_inhaltsanalyse_pfad=neue_inhaltsanalyse_pfad,
         )
 
+        nachher_groesse = os.path.getsize(vernetzung_pfad) if os.path.exists(vernetzung_pfad) else 0
+        if nachher_groesse > vorher_groesse:
+            ergaenzt += 1
+        else:
+            uebersprungen += 1
+
     print(f"\n{'='*60}")
-    print(f"  ALLE VERNETZUNGEN AKTUALISIERT!")
+    print(f"  DELTA-VERNETZUNG ABGESCHLOSSEN!")
+    print(f"  Ergänzt: {ergaenzt} Bücher | Übersprungen: {uebersprungen} Bücher")
     print(f"{'='*60}\n")
 
 
