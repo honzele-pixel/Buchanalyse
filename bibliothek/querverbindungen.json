@@ -323,6 +323,102 @@
         "Menschenwürde und Instrumentalisierung"
       ],
       "staerke": 1
+    },
+    {
+      "von": "luders_krieg",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Kritik an westlicher Außenpolitik und ihrer Narrativkonstruktion",
+        "Hintergründe von Konflikten jenseits dominanter Emotionalisierungsdiskurse",
+        "Rolle Deutschlands in geopolitischen Krisen",
+        "Historische Kontextualisierung von gegenwärtigen Kriegen",
+        "Ablehnung von Denkverboten und ideologischer Bequemlichkeit",
+        "Analyse von Eskalationsmechanismen statt Diplomatie",
+        "Kritik an bedingungslosen Solidaritätsprinzipien in der Außenpolitik"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "arendt_freiheit",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Politische Entscheidungsfindung und staatliches Handeln",
+        "Kritische Analyse von Machtverhältnissen und deren Legitimation"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Westliche Hegemonie und deren Krise",
+        "Ideologische Manipulation und Narrative-Kontrolle durch Massenmedien",
+        "Geschichtsrevisionismus und Umschreiben von Narrativen",
+        "Feindbild-Konstruktion (Russland/Putin)",
+        "Geopolitische Machtkämpfe und multipolares Weltsystem",
+        "Kritik an westlicher Außenpolitik und Expansionismus",
+        "Emotionalisierung und Dämonisierung als politisches Instrument",
+        "Analyse von Ursachen statt bloße Symptombeschreibung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Illegale/völkerrechtswidrige Kriege und Interventionen",
+        "Kritik an US- und NATO-Außenpolitik",
+        "Ukraine-Konflikt (2014 und 2022) als Fallbeispiel",
+        "Verletzung der UNO-Charta und internationales Recht",
+        "Geopolitische Eskalation und Machtpolitik",
+        "Westliche Außenpolitik und ihre Rechtfertigung",
+        "Historische Kontextualisierung von Kriegen seit 1945"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Kriegslegitimation und öffentliche Meinungsmache",
+        "Rolle von Eliten in der Verschleierung von Kriegsverbrechen und politischen Entscheidungen",
+        "Massenmediale Indoktrination und Kontrolle des öffentlichen Debattenraumes",
+        "Kritik an westlicher Außenpolitik und Geopolitik",
+        "Unterschwellige Manipulation von Bevölkerung durch Medien und Eliten",
+        "Analyse von Demokratievermeidung durch institutionelle Strukturen",
+        "Diffamierung von kritischer Analyse als Disloyalität"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Macht und ihre Kontrolle/Begrenzung",
+        "Westliche Geopolitik und Außenpolitik",
+        "Zivilisatorische Leitideen und ihre Erosion"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Westliche Außenpolitik und imperiale Machtpolitik",
+        "Kritik an US-geführter Hegemonialordnung und Eskalationsdynamiken",
+        "Geopolitische Großmachtkonflikte und ihre Folgen für kleinere Staaten"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "kant_ewigen",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Völkerrecht und internationale Ordnung",
+        "Krieg vs. Frieden als politisches Phänomen",
+        "Rationalität in der Außenpolitik"
+      ],
+      "staerke": 2
     }
   ]
 }
