@@ -410,7 +410,7 @@ async def vernetzer_delta_aktualisieren(
     neuer_titel: str,
     neuer_lektor_pfad: str,
     neue_inhaltsanalyse_pfad: str,
-) -> None:
+) -> bool:
     """Ergänzt 03_vernetzung.md eines bestehenden Buches um eine neue Verbindung.
 
     Phase 1 (Haiku): Relevanz-Check – bei Stärke 0 wird nichts geschrieben.
@@ -435,7 +435,7 @@ async def vernetzer_delta_aktualisieren(
             buch_x_analyse = f.read()
     except FileNotFoundError as e:
         print(f"    [Warnung] Datei nicht gefunden: {e} – wird übersprungen.")
-        return
+        return False
 
     # Phase 1: Relevanz-Check (Haiku – schnell & günstig)
     print(f"    Relevanz-Check (Haiku): {buch_a_autor} – {buch_a_titel}...")
@@ -446,11 +446,11 @@ async def vernetzer_delta_aktualisieren(
         )
     except Exception as e:
         print(f"    [Warnung] Relevanz-Check fehlgeschlagen: {e} – wird übersprungen.")
-        return
+        return False
 
     if relevanz["staerke"] == 0:
         print(f"    → Keine relevante Verbindung – wird übersprungen.")
-        return
+        return False
 
     print(f"    → Stärke {relevanz['staerke']} | Themen: {', '.join(relevanz['themen'])}")
     print(f"    Delta-Abschnitt wird geschrieben (Sonnet)...")
@@ -512,14 +512,14 @@ Schreibe NUR den Inhalt der drei Unterabschnitte – die Überschriften (###) ei
 
     if not delta_text.strip():
         print(f"    [Warnung] Kein Inhalt vom Sonnet erhalten – wird übersprungen.")
-        return
+        return False
 
     # An 03_vernetzung.md anhängen
     vernetzung_pfad = os.path.join(os.path.dirname(bestehendes_buch["lektor_pfad"]), "03_vernetzung.md")
 
     if not os.path.exists(vernetzung_pfad):
         print(f"    [Warnung] 03_vernetzung.md nicht gefunden: {vernetzung_pfad} – wird übersprungen.")
-        return
+        return False
 
     with open(vernetzung_pfad, "a", encoding="utf-8") as f:
         f.write(f"\n\n---\n\n")
@@ -529,30 +529,34 @@ Schreibe NUR den Inhalt der drei Unterabschnitte – die Überschriften (###) ei
     print(f"    → Abschnitt angehängt: {vernetzung_pfad}")
 
     # querverbindungen.json aktualisieren
-    aktuelle_id = buch_netz_id(buch_a_autor, buch_a_titel)
-    neue_id = buch_netz_id(neuer_autor, neuer_titel)
+    try:
+        aktuelle_id = buch_netz_id(buch_a_autor, buch_a_titel)
+        neue_id = buch_netz_id(neuer_autor, neuer_titel)
 
-    with open(QUERVERBINDUNGEN_JSON, "r", encoding="utf-8") as f:
-        querverbindungen = json.load(f)
+        with open(QUERVERBINDUNGEN_JSON, "r", encoding="utf-8") as f:
+            querverbindungen = json.load(f)
 
-    # Alte Verbindung zwischen diesen beiden entfernen (verhindert Duplikate)
-    querverbindungen["verbindungen"] = [
-        v for v in querverbindungen["verbindungen"]
-        if not (v["von"] == aktuelle_id and v["zu"] == neue_id)
-        and not (v["von"] == neue_id and v["zu"] == aktuelle_id)
-    ]
+        querverbindungen["verbindungen"] = [
+            v for v in querverbindungen["verbindungen"]
+            if not (v["von"] == aktuelle_id and v["zu"] == neue_id)
+            and not (v["von"] == neue_id and v["zu"] == aktuelle_id)
+        ]
 
-    querverbindungen["verbindungen"].append({
-        "von": aktuelle_id,
-        "zu": neue_id,
-        "themen": relevanz["themen"],
-        "staerke": relevanz["staerke"]
-    })
+        querverbindungen["verbindungen"].append({
+            "von": aktuelle_id,
+            "zu": neue_id,
+            "themen": relevanz["themen"],
+            "staerke": relevanz["staerke"]
+        })
 
-    with open(QUERVERBINDUNGEN_JSON, "w", encoding="utf-8") as f:
-        json.dump(querverbindungen, f, ensure_ascii=False, indent=2)
+        with open(QUERVERBINDUNGEN_JSON, "w", encoding="utf-8") as f:
+            json.dump(querverbindungen, f, ensure_ascii=False, indent=2)
 
-    print(f"    → Querverbindung: {aktuelle_id} ↔ {neue_id} (Stärke {relevanz['staerke']})")
+        print(f"    → Querverbindung: {aktuelle_id} ↔ {neue_id} (Stärke {relevanz['staerke']})")
+    except Exception as e:
+        print(f"    [Warnung] Querverbindungen konnten nicht aktualisiert werden: {e}")
+
+    return True
 
 
 if __name__ == "__main__":

@@ -125,7 +125,7 @@ async def vernetzungen_aktualisieren(neuer_autor: str, neuer_titel: str) -> None
     for b in bibliothek["buecher"]:
         if b["autor"] == neuer_autor and b["titel"] == neuer_titel:
             neuer_lektor_pfad = b["lektor_pfad"]
-            neue_inhaltsanalyse_pfad = b["inhaltsanalyse_pfad"]
+            neue_inhaltsanalyse_pfad = b.get("inhaltsanalyse_pfad", "")
             break
 
     if not neuer_lektor_pfad:
@@ -142,19 +142,15 @@ async def vernetzungen_aktualisieren(neuer_autor: str, neuer_titel: str) -> None
 
     for i, buch in enumerate(andere, start=1):
         print(f"\n  [{i}/{len(andere)}] {buch['autor']} – {buch['titel']}")
-        vernetzung_pfad = os.path.join(os.path.dirname(buch["lektor_pfad"]), "03_vernetzung.md")
-        vorher_groesse = os.path.getsize(vernetzung_pfad) if os.path.exists(vernetzung_pfad) else 0
 
-        await vernetzer_delta_aktualisieren(
+        wurde_ergaenzt = await vernetzer_delta_aktualisieren(
             bestehendes_buch=buch,
             neuer_autor=neuer_autor,
             neuer_titel=neuer_titel,
             neuer_lektor_pfad=neuer_lektor_pfad,
             neue_inhaltsanalyse_pfad=neue_inhaltsanalyse_pfad,
         )
-
-        nachher_groesse = os.path.getsize(vernetzung_pfad) if os.path.exists(vernetzung_pfad) else 0
-        if nachher_groesse > vorher_groesse:
+        if wurde_ergaenzt:
             ergaenzt += 1
         else:
             uebersprungen += 1
