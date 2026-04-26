@@ -19,11 +19,12 @@ load_dotenv()
 
 import json
 
-from agents.lektor            import lektor_analysieren
-from agents.inhaltsanalyst    import inhaltsanalyst_analysieren
-from agents.vernetzer         import vernetzer_analysieren, vernetzer_delta_aktualisieren
-from agents.berichterstatter  import berichterstatter_erstellen
-from agents.gespraechspartner import gespraechspartner_starten
+from agents.lektor                     import lektor_analysieren
+from agents.inhaltsanalyst             import inhaltsanalyst_analysieren
+from agents.vernetzer                  import vernetzer_analysieren, vernetzer_delta_aktualisieren
+from agents.berichterstatter           import berichterstatter_erstellen
+from agents.gespraechspartner          import gespraechspartner_starten
+from agents.sekundaerquellen_analyst   import sekundaerquellen_analyst_starten
 
 BUCHER_DIR       = r"E:\Bucher"
 ANALYSEN_DIR     = r"E:\Claude_Projekte\Buchanalysen\analysen"
@@ -252,6 +253,7 @@ async def main() -> None:
         print("\n  Was möchtest du tun?\n")
         print("    1.  Buch analysieren")
         print("    2.  Über Bücher diskutieren")
+        print("    3.  Quellen erkunden (Sekundärquellen-Analyst)")
         print("    q.  Beenden")
         print()
 
@@ -268,6 +270,10 @@ async def main() -> None:
         # MODUS 2: Diskutieren
         elif modus == "2":
             await gespraechspartner_starten()
+
+        # MODUS 3: Quellen erkunden
+        elif modus == "3":
+            await sekundaerquellen_analyst_starten()
 
         # MODUS 1: Buch analysieren
         elif modus == "1":
