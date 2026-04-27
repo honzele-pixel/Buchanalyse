@@ -10,7 +10,7 @@
 | Quelle | Priorität | Status | Wiki-Potenzial | Notiz |
 |---|---|---|---|---|
 | Mirowski (2015) | ★★★★★ | ✓ analysiert | 2 neue Seiten | Weißer Fleck 2: Neoliberalismus als Gedankenkollektiv |
-| Reich (1933/1971) | ★★★★★ | → offen | hoch | Weißer Fleck 3: Massenpsychologie / Gehorsam |
+| Reich (1933/1971) | ★★★★★ | ✓ analysiert | hoch – Wiki-Übergabe ausstehend | Hume-Reich-Mausfeld-Kette, Autoritärer Charakter, Hesiod-Verbindung |
 | Fanon (1969) | ★★★★☆ | → offen | hoch | Weißer Fleck 1: Nicht-westliche Perspektive |
 | Harvey (2004) | ★★★★☆ | → offen | mittel | Brückenthese: "Accumulation by Dispossession" |
 | Todd (2024) | ★★★★☆ | → offen | mittel | Westlicher Niedergang: demographisch-ökonomisch |
