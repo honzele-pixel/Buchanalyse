@@ -15,7 +15,7 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 ## PDF-Bibliothek
 `E:\Bucher\` – mit Unterordnern: Michael_Luders, Daniele_Ganser, Hannah_Arendt, Ukraine, u.a.
 
-## Fertige Agenten (Stand 10.04.2026)
+## Fertige Agenten (Stand 27.04.2026)
 
 | Agent | Datei | Aufgabe |
 |---|---|---|
@@ -24,6 +24,7 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 | 3 – Vernetzer | `agents/vernetzer.py` | Querverbindungen zur Bibliothek, Archiv-Index pflegen |
 | 4 – Berichterstatter | `agents/berichterstatter.py` | Finales Gesamtdossier aus allen 3 Analysen |
 | 5 – Gesprächspartner | `agents/gespraechspartner.py` | Interaktive Buchdiskussion auf Basis aller 4 Analysen |
+| 6 – Sekundärquellen-Analyst | `agents/sekundaerquellen_analyst.py` | Index-gestützte Tiefenanalyse von Sekundärquellen + Diskussion + Wiki-Injektion |
 
 ## Starten
 ```
@@ -48,6 +49,9 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - Rainer Mausfeld: Warum schweigen die Lämmer? (05.04.2026)
 - Rainer Mausfeld: Hybris und Nemesis (05.04.2026)
 - Michael Lüders: Drecksarbeit (10.04.2026)
+- Immanuel Kant: Grundlegung zur Metaphysik der Sitten (11.04.2026)
+- Immanuel Kant: Zum ewigen Frieden (12.04.2026)
+- Verheugen/Erler: Der lange Weg zum Krieg (12.04.2026)
 
 ## Technische Basis
 - `claude-agent-sdk` installiert
@@ -69,7 +73,11 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 
 ## Nächste Schritte
 - [ ] Weitere Bücher analysieren (z.B. Honzeles Vorträge: Frieden_und_Krieg, Projekt Demokratie)
-- [ ] Agent 6 (Beobachter) bauen – wöchentliche Web-Suche zu Buchthemen ← JETZT MÖGLICH (7 Bücher im Archiv)
+- [ ] Agent 6 in main.py als Modus 3 einbinden (derzeit nur direkt startbar)
+- [ ] 06_index.md für Mausfeld: Hybris & Nemesis erstellen (556 Quellen, noch kein Index)
+- [ ] 05_quellen.md + 06_index.md für restliche Bücher nachziehen (Lüders, Arendt, Kant, Ganser)
+- [ ] Nächste ★★★★★-Sekundärquelle: Reich (1933/1971) – Massenpsychologie des Faschismus
+- [x] Agent 6 (Sekundärquellen-Analyst) fertig – index-gestützt, Diskussion + Wiki-Injektion (27.04.2026)
 - [x] Website-Projekt gestartet: `E:\Claude_Projekte\Buchanalyse_Webseite\`
 
 ## Modell-Strategie (geplant – verschoben auf später)
