@@ -419,6 +419,125 @@
         "Rationalität in der Außenpolitik"
       ],
       "staerke": 2
+    },
+    {
+      "von": "luders_krieg",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Kritik an westlicher Außenpolitik und ideologischer Einseitigkeit",
+        "Ablehnung von militärischen Lösungen zugunsten von Diplomatie",
+        "Hinterfragung offizieller Narrative und staatlicher Legitimationen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "arendt_freiheit",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Freiheit und ihre politische Bedeutung",
+        "Revolutionen und politische Neuanfänge",
+        "Rolle des Staates und internationale Ordnung",
+        "Ethische Dimensionen politischen Handelns"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Krise des Westens und seiner Hegemonie",
+        "US-amerikanische Außenpolitik und Neokonservatismus",
+        "Ideologische Manipulation und Kontrolle des öffentlichen Bewusstseins",
+        "Medienmanipulation und Umschreiben von Narrativen",
+        "Russland-Ukraine-Konflikt als Symptom westlicher Krise",
+        "Diplomatie versus militärische Eskalation",
+        "Feindbildkonstruktion und Propaganda",
+        "Westliche Interventionspolitik und deren Folgen"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Illegale Kriege und völkerrechtswidrige Militärinterventionen",
+        "US-Außenpolitik und NATO-Rolle",
+        "Ukraine-Konflikt 2014 und 2022",
+        "Kritik an neokonservativer Kriegspolitik",
+        "Diplomatische Lösungen vs. militärische Eskalation",
+        "Internationale Rechtsordnung und UNO-Prinzipien",
+        "Russland-Westen-Konflikt"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Kritik an westlicher Außenpolitik und Hegemonialmacht",
+        "Rolle von Eliten in der Gestaltung von Narrativen und öffentlicher Meinung",
+        "Manipulation durch Massenmedien und Informationskontrolle",
+        "Kriegslegitimation und moralische Normen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Macht und ihre Kontrolle",
+        "Demokratie als Leitidee und deren Gefährdung",
+        "Eliten und Elitenkontrolle",
+        "Zivilisatorische Ordnungssysteme"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "US-amerikanische Außenpolitik und imperiale Interessenspolitik",
+        "Eskalation militärischer Konflikte und Kriegslogik vs. Diplomatie",
+        "Kritik an neokonservativen Strategien und Großmachtdenken"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "kant_grundlegung",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Ethische Begründung von politischem Handeln",
+        "Moralische Prinzipien als Grundlage für internationale Beziehungen"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "kant_ewigen",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Friedenstheorie und Friedenspraxis",
+        "Internationale Beziehungen und Völkerrecht",
+        "Diplomatie als Instrument zur Konfliktlösung",
+        "Föderalismus und überstaatliche Ordnung",
+        "Kritik an militärischen Lösungen",
+        "Philosophische vs. praktisch-politische Perspektive auf Frieden",
+        "Ukraine-Konflikt als Testfall für Friedensprinzipien"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "ukraine_lange",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Ukraine-Konflikt und dessen Ursachen",
+        "Rolle des Westens und der NATO in der Eskalation",
+        "Diplomatie vs. militärische Konfrontation",
+        "Russland-West-Beziehungen und deren historische Entwicklung",
+        "Kritische Analyse dominierender westlicher Narratives",
+        "Friedenslösungen und Verhandlungsmöglichkeiten",
+        "Geopolitische Neuordnung und multipolare Weltordnung"
+      ],
+      "staerke": 3
     }
   ]
 }

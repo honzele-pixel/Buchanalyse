@@ -241,3 +241,47 @@ Die produktivste Funktion von V/E im Archiv ist die **Brückenfunktion**: Es ver
 ---
 
 *Vernetzungsanalyse erstellt auf Basis von Lektor-Aufbereitung und Inhaltsanalyse | Analysestand: 10 Bücher | Nächste Vernetzungsaktualisierung empfohlen bei: Gorbatschow/Perestroika*
+
+---
+
+## Neue Verbindung: Jeffrey Sachs – Diplomatie oder Desaster (ergänzt 2026-04-27)
+
+### Thematische Querverbindungen
+
+Beide Bücher teilen ein analytisches Fundament, das trotz unterschiedlicher Autorschaft und geografisch-biographischer Ausgangslage bemerkenswert deckungsgleich ist: die These, dass der Krieg in der Ukraine kein Bruch mit der Vergangenheit, sondern deren konsequente Zuspitzung darstellt.
+
+**Der NATO-Gipfel Bukarest 2008** erscheint in beiden Werken als zentraler Scharnierpunkt. Verheugen/Erler rekonstruieren detailliert, wie William Burns in seinem Botschaftervermerk „Njet means Njet" präzise vor genau jenen Eskalationsfolgen warnte, die eintraten – und wie dieser Vermerk im Westen folgenlos blieb (S. 61). Sachs zieht dieselbe Linie: Bukarest 2008 habe den Beitrittsprozess formal geöffnet und damit eine Provokation institutionalisiert, die Russland als existentielle Bedrohung wahrnehmen musste (S. 20–24). Beide Bücher verwenden Burns nicht als Randnotiz, sondern als Kronzeugen – ein diplomatischer Funktionsträger des US-Apparats selbst hatte das Desaster vorhergesehen.
+
+**Die Wolfowitz-Doktrin (1992)** wird von Sachs als Gründungsdokument einer dreißigjährigen Hegemonialstrategie eingeführt, die die Ukraine als Endpunkt einer langen Expansionslinie erscheinen lässt (S. 21). Verheugen/Erler folgen demselben historischen Pfad, ergänzen ihn jedoch durch Brzezińskis *Grand Chessboard* (1997), der die Ukraine explizit als „Achillesferse Russlands" markiert hatte (S. 47–48). Beide Bücher konstruieren damit eine intellektuelle Genealogie der US-Außenpolitik, die den Krieg nicht als Unfall, sondern als Programmresultat erscheinen lässt.
+
+**Die Verhandlungen im Frühjahr 2022** und ihr Scheitern bilden ein weiteres Deckungsfeld. Verheugen/Erler stützen sich auf Aussagen von Bennett, Arachamija, Tschalyj und Schröder, um zu belegen, dass westliche Intervention den Verhandlungsabbruch herbeiführte (S. 24–28). Sachs kommt über dieselbe Quellenlage – er nennt Naftali Bennett und das Nuland-Pyatt-Telefonat – zu identischen Schlussfolgerungen (S. 72). Beide Bücher teilen die Deutung, dass der Krieg im Frühjahr 2022 hätte enden können und bewusst nicht beendet wurde.
+
+**Deutschland und Nord Stream** bilden ein gemeinsames Kapitel beider Werke. Während Verheugen/Erler die Sabotage der Nord-Stream-Pipelines als Symbol der deutschen Selbstunterwerfung unter US-Interessen interpretieren (S. 240–241), geht Sachs im Gespräch mit Lafontaine noch weiter und bezeichnet den Anschlag explizit als „Terrorakt und Kriegserklärung an Deutschland" (S. 113). Beide Bücher beschreiben Deutschlands historische Entspannungskultur – von Brandt bis Merkel – als zerstörtes Erbe, das unter Scholz widerstandslos preisgegeben wurde.
+
+**Die Minsk-Abkommen als strategische Täuschung**: Verheugen/Erler dokumentieren Merkels und Poroschenkos nachträgliche Geständnisse, Minsk habe nie der Friedenssicherung gedient, sondern der ukrainischen Aufrüstungszeit (S. 82–83). Sachs konvergiert mit dieser Einschätzung in seinem Dreipunkteplan (S. 45–49) und weist auf das Strukturmuster hin: Wer Minsk als Zeitkauf konzipierte, hat Verhandlungen von Anfang an als Mittel zum Krieg, nicht zum Frieden verwendet.
+
+---
+
+### Argumentative Brücken
+
+Die stärkste argumentative Brücke zwischen beiden Büchern liegt in der **These vom Stellvertreterkrieg**, die Verheugen/Erler explizit entwickeln und Sachs strukturell voraussetzt. Verheugen/Erler benennen die strategische Logik präzise: Die USA tragen keine Gefallenen, die Ukraine trägt Verluste und Verwüstung; David Ignatius' *Washington Post*-Einschätzung – ein „strategischer Glücksfall mit relativ geringen Kosten" für die USA – dient als westliches Selbstzeugnis (S. 38). Sachs fügt diesem Bild eine institutionelle Erklärung hinzu, die bei Verheugen/Erler fehlt: Der Krieg ist für den militärisch-industriellen Komplex kein Versagen, sondern ein Erfolgsmodell – Rüstungsfinanzierung, Drehtürsystem, Think-Tank-Propagandadeckung sorgen dafür, dass das scheinbar Irrationale einer sehr rationalen Interessenlogik folgt (S. 79–86). Sachs' Systemkritik erweitert damit die These des Stellvertreterkriegs von einer geopolitischen Beobachtung zu einer strukturellen Analyse.
+
+**Verheugen/Erlers These 4** – die Minsk-Abkommen waren von Anfang an zur Umsetzung nicht beabsichtigt – wird durch Sachs' historisches Muster bestätigt und kontextualisiert: Sachs zeigt, dass US-Außenpolitik systematisch Verhandlungsoptionen als taktische Instrumente einsetzt, nicht als ernstgemeinte Friedenspfade. Die Kubakrise dient ihm dabei als positives Gegenmodell: Kennedy war bereit, einen geheimen Kompromiss einzugehen, der öffentlich als Sieg inszeniert wurde (S. 75). Der implizite Umkehrschluss ist scharf: Wer bei Minsk und den Verhandlungen von 2022 so handelte wie die Rüstungsinteressen es verlangten, verhielt sich als Anti-Kennedy.
+
+An einem Punkt entsteht eine **produktive Akzentverschiebung**: Verheugen/Erler operieren methodisch im Rahmen eines klassischen europäischen Realismus – Staaten haben legitime Sicherheitsinteressen, die unabhängig von ihrer Regierungsform anzuerkennen sind. Sachs hingegen verbindet die Systemkritik am militärisch-industriellen Komplex mit einem normativen Programm – den „10 Prinzipien für den ewigen Frieden" (S. 91–97) und dem expliziten Verweis auf Kant, die UN-Charta und Roosevelt. Wo Verheugen/Erler deskriptiv und analytisch bleiben, wechselt Sachs in den präskriptiven Modus: Er beschreibt nicht nur, was geschah, sondern leitet daraus ein Handlungsmandat ab. Dies ist kein Widerspruch, sondern eine Erweiterung: Verheugen/Erlers nüchterner Realismus liefert die Diagnose, Sachs' Programmatik den Therapievorschlag.
+
+Eine **partielle Spannung** ergibt sich im Umgang mit Russland. Verheugen/Erler räumen Putins Münchner Rede 2007 explizit als inhaltlich begründete Kritik ein, die im Westen als Provokation abgetan wurde (S. 89–123), und betten den Konflikt tiefer in die russische Innenperspektive ein. Sachs bleibt stärker auf die US-Seite fokussiert und analysiert russische Entscheidungen vorwiegend als Reaktionen auf US-Provokationen. Verheugen/Erler liefern damit eine differenziertere Dialektik; Sachs eine schärfere, aber zugespitztere Anklage.
+
+---
+
+### Empfohlene Lesekombination
+
+Beide Bücher kreisen um dieselbe Frage – wie kam es zu diesem Krieg, und wer trägt Verantwortung? –, aber sie beantworten sie mit verschiedenen Instrumentarien, und diese Komplementarität macht die gemeinsame Lektüre zu einem intellektuellen Gewinn, den keines der Bücher allein erbringen könnte.
+
+**Verheugen/Erler liefern die historische Tiefenbohrung.** Ihr Buch ist ein quellengesättigtes Dokumentenwerk: Es rekonstruiert Jaltas Erbe, Brzezińskis strategische Schriften, die Sowjetunion als Vielvölkerstaat, die EU-Assoziierungspolitik, die KSZE-Tradition, Deutschlands historische Schuld und seine diplomatische Erbschaft. Wer den Krieg in seine volle geschichtliche Dimension einbetten will – von 1945 bis 2022 –, findet hier das nötige Fundament. Das Buch ist europäisch in seiner Perspektive und behält auch die innereuropäische Dynamik im Blick: EU-Versagen, deutsches Zögern, osteuropäische Sicherheitsinteressen.
+
+**Sachs liefert die institutionelle und systemische Erklärung.** Wo Verheugen/Erler fragen: *Wie entstand dieser Krieg historisch?*, fragt Sachs: *Warum hört er nicht auf, obwohl seine Irrationalität offensichtlich ist?* Seine Antwort – das rationale Eigeninteresse des militärisch-industriellen Komplexes – gibt dem Rätsel eine Struktur. Sachs' Buch ist außerdem das einzige, das konkrete Handlungsoptionen benennt: einen verhandelbaren Dreipunkteplan, einen JFK-Vergleich, zehn Prinzipien. Es verwandelt Analyse in Appell.
+
+**Die gemeinsame Lektüre in empfohlener Reihenfolge**: Verheugen/Erler zuerst – als Fundament. Dann Sachs – als Vertiefung und Radikalisierung. Wer Verheugen/Erlers europäisch-realistischen Rahmen verinnerlicht hat, wird Sachs' US-zentrierte Systemkritik nicht als Polemik, sondern als konsequente Verlängerung lesen. Umgekehrt bleibt Sachs für jene, die den europäischen Kontext nicht kennen, stellenweise flach: Er analysiert die NATO-Expansion präzise, aber die innereuropäische Geschichte – die KSZE, Brandt, die Charta von Paris – fehlt ihm. Verheugen/Erler schließen diese Lücke.
+
+Beide Bücher teilen schließlich eine intellektuelle Haltung, die über ihre geopolitischen Inhalte hinausgeht: die Weigerung, Komplexität dem Emotionalisierungsdruck zu opfern. Sie sind in diesem Sinn mehr als Kriegsanalysen – sie sind Plädoyers für die Rückkehr zum analytischen Denken in einer Zeit, in der Zustimmung zur dominanten Erzählung mit Loyalität, und Fragen mit Verrat gleichgesetzt werden.
