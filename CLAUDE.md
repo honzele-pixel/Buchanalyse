@@ -52,6 +52,7 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - Immanuel Kant: Grundlegung zur Metaphysik der Sitten (11.04.2026)
 - Immanuel Kant: Zum ewigen Frieden (12.04.2026)
 - Verheugen/Erler: Der lange Weg zum Krieg (12.04.2026)
+- Jeffrey Sachs: Diplomatie oder Desaster (27.04.2026)
 
 ## Technische Basis
 - `claude-agent-sdk` installiert
