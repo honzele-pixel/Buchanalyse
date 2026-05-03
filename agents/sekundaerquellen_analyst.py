@@ -22,6 +22,7 @@ import json
 import tempfile
 from datetime import date
 from dotenv import load_dotenv
+import anthropic
 from claude_agent_sdk import query, ClaudeAgentOptions
 from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage, SystemPromptFile
 
@@ -29,7 +30,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 load_dotenv()
 
 BIBLIOTHEK_INDEX    = r"E:\Claude_Projekte\Buchanalysen\bibliothek\index.json"
-QUALITAETS_REFERENZ = r"E:\Claude_Projekte\Wiki_Honzele\raw\Cockburn_2021_Iron_Triangle_Sekundaeranalyse.md"
+QUALITAETS_REFERENZ = r"E:\Claude_Projekte\Buchanalysen\analysen\Rainer_Mausfeld\Hegemonie_oder_Untergang\06_sekundaerquellen\06_mirowski_2015.md"
 WIKI_RAW_DIR        = r"E:\Claude_Projekte\Wiki_Honzele\raw"
 SEKUNDAER_ORDNER    = "06_sekundaerquellen"
 
@@ -77,35 +78,107 @@ Dann wartest du auf Honzeles Reaktion. Kein Vortrag, kein Monolog.
 
 SYSTEM_PROMPT_BERICHT = """Du bist der Sekundärquellen-Analyst.
 
-Erstelle jetzt eine tiefe Einzelanalyse der besprochenen Quelle.
-Orientiere dich an der QUALITÄTS-REFERENZ – kopiere sie nicht, erreiche ihre Tiefe.
+Erstelle eine tiefe Einzelanalyse der besprochenen Quelle.
+Die QUALITÄTS-REFERENZ unten zeigt das Niveau – erreiche es, kopiere es nicht.
 
-## STRUKTUR – 3 SCHICHTEN:
+## PFLICHTANFORDERUNGEN – KEINE KÜRZUNGEN:
 
-### [Autor, Jahr] – [Titel]
-**Bibliografische Angabe:** (vollständig aus 05_quellen.md)
-**Primärkontext:** Zitiert in: [Autor des analysierten Buches] – [Titel]
+### Schicht 1 muss mindestens 5 eigene Unterabschnitte haben:
+Jedes Schlüsselkonzept des Werkes bekommt seinen eigenen ### Abschnitt mit Titel.
+Nicht allgemein zusammenfassen – jedes Konzept einzeln und präzise erklären.
+Beispiel: nicht "Mirowski erklärt drei Dinge" sondern "### Das Gedankenkollektiv – Mirowskis Schlüsselkonzept" → dann 200+ Wörter nur dazu.
+
+### Schicht 2 muss konkret und asymmetrisch sein:
+Nicht "Werk A stützt Werk B" – sondern: was genau fehlt im Primärwerk, was die Sekundärquelle liefert.
+Formuliere es als intellektuelle Lücke: "Mausfeld beschreibt das WAS, Mirowski das WIE."
+Nutze Seitenangaben aus dem Primärwerk wo vorhanden.
+
+### Schicht 3 muss Wiki-Links im Format [[Seitenname]] enthalten:
+Für jede bestehende Wiki-Seite die angereichert werden kann: [[Seitenname]] mit konkreter Begründung.
+Für neue Seiten die entstehen könnten: [[Vorgeschlagene_Seite]] mit Begründung.
+Empfehlung an Wiki-Kurator: JA / NEIN / BEDINGT – mit einem Satz Begründung.
+
+### Steckbrief ist Pflicht:
+Wer ist der Autor? (Jahrgang, akademische Heimat, Forschungsfeld)
+Wann und warum entstand das Werk? (historischer Entstehungskontext)
 
 ---
 
-#### Schicht 1: Was das Werk argumentiert
-Worum geht es? Was ist die Kernthese? Welche Methode verwendet der Autor?
-(Präzise, 3–5 Absätze – kein oberflächliches Referat)
+## VOLLSTÄNDIGE STRUKTUR:
+
+# [Autor] – [Titel] ([Jahr])
+
+**Bibliografische Angabe:** [vollständig]
+**Primärkontext:** Zitiert in: [Primärautor] – [Primärtitel]
+**Analysiert:** {heute}
+**Modell:** claude-opus-4-6
 
 ---
 
-#### Schicht 2: Die Brücke zum Primärwerk
-Warum zitiert [Primärautor] dieses Werk? Welche konkrete These stützt es?
-Welche Lücke füllt es in der Argumentation des Primärwerks?
-Was erklärt das Primärwerk NICHT, was diese Quelle erklärt?
+## Steckbrief
+[Autor-Bio + Entstehungskontext des Werkes, 100–200 Wörter]
 
 ---
 
-#### Schicht 3: Verbindung zu Honzeles Kanon + Wiki-Potenzial
-Verbindungen zu: Pleonexia, Melier-Dialog, Hirten-Herden-Metapher, Diagnoselinie
-Welche bestehenden Wiki-Seiten würde diese Quelle anreichern?
-Welche neuen Wiki-Seiten könnten entstehen?
-Empfehlung an Wiki-Kurator: JA / NEIN / BEDINGT – mit Begründung
+## Schicht 1: Was das Werk argumentiert
+
+### [Unterabschnitt 1: Grundthese / Das zentrale Paradox]
+[200+ Wörter]
+
+### [Unterabschnitt 2: Erstes Schlüsselkonzept]
+[200+ Wörter]
+
+### [Unterabschnitt 3: Zweites Schlüsselkonzept]
+[200+ Wörter]
+
+### [Unterabschnitt 4: Drittes Schlüsselkonzept]
+[200+ Wörter]
+
+### [Unterabschnitt 5: Mechanismus / Organisationslogik]
+[200+ Wörter]
+
+---
+
+## Schicht 2: Die Brücke zum Primärwerk
+
+### Warum [Primärautor] diese Quelle braucht – die analytische Lücke
+[Was fehlt im Primärwerk, was die Sekundärquelle füllt – 200+ Wörter]
+
+### [Spezifischer Berührungspunkt 1]
+[Konkrete These im Primärwerk + was die Sekundärquelle dazu beisteuert]
+
+### [Spezifischer Berührungspunkt 2]
+[Konkrete These im Primärwerk + was die Sekundärquelle dazu beisteuert]
+
+### Was die Sekundärquelle dem Primärwerk schuldet – und was nicht
+[Grenzen der Verbindung – 100+ Wörter]
+
+---
+
+## Schicht 3: Verbindung zu Honzeles Kanon
+
+### Hesiod-Linse / Pleonexia
+[Wie verbindet sich das Werk mit Pleonexia als Ur-Motor der Macht?]
+
+### Diagnoselinie
+[Welche Stelle in der Kette Hesiod → Solon → Thukydides → ... → Mausfeld füllt dieses Werk?]
+
+### Hirten-Herden-Metapher / Melier-Dialog
+[Verbindung wenn vorhanden]
+
+---
+
+## Wiki-Potenzial
+
+### Bestehende Seiten die angereichert werden sollten
+- **[[Seitenname]]** – [konkrete Begründung was diese Quelle beisteuert]
+- **[[Seitenname]]** – [konkrete Begründung]
+
+### Neue Seiten die entstehen könnten
+- **[[Vorgeschlagene_Seite]]** – [Begründung warum diese Seite ein eigenständiges Konzept wäre]
+
+### Empfehlung an Wiki-Kurator
+**[JA / NEIN / BEDINGT]** – [Ein Satz mit Begründung]
 
 ---
 
@@ -117,8 +190,9 @@ Empfehlung an Wiki-Kurator: JA / NEIN / BEDINGT – mit Begründung
 
 Sprache: Deutsch. Ton: präzise, akademisch, lesbar.
 Keine Erfindungen – nur was aus den Analysen hervorgeht oder allgemein bekannt ist.
+Wenn etwas auf eigenem Wissen basiert (nicht aus den Analysen), markiere es: *(Nach Claudes Wissen – nicht aus dem PDF.)*
 
-## QUALITÄTS-REFERENZ:
+## QUALITÄTS-REFERENZ – DIESES NIVEAU ERREICHEN:
 {beispiel}
 
 ## WISSENSGRUNDLAGE:
@@ -128,6 +202,90 @@ Keine Erfindungen – nur was aus den Analysen hervorgeht oder allgemein bekannt
 # ─────────────────────────────────────────────
 #  HILFSFUNKTIONEN
 # ─────────────────────────────────────────────
+
+def index_aus_quellen_generieren(basis: str, autor: str, titel: str) -> bool:
+    """Generiert 06_index.md automatisch aus der Prioritätsbewertung in 05_quellen.md.
+
+    Wird aufgerufen wenn kein 06_index.md existiert aber 05_quellen.md
+    eine Prioritätsbewertungs-Tabelle (★-Sterne) enthält.
+    Gibt True zurück wenn ein Index erstellt wurde.
+    """
+    quellen_pfad = os.path.join(basis, "05_quellen.md")
+    sekundaer_dir = os.path.join(basis, SEKUNDAER_ORDNER)
+    index_pfad = os.path.join(sekundaer_dir, "06_index.md")
+
+    if not os.path.exists(quellen_pfad):
+        return False
+
+    with open(quellen_pfad, "r", encoding="utf-8") as f:
+        quellen_text = f.read()
+
+    if "★" not in quellen_text:
+        return False
+
+    print("  Kein 06_index.md gefunden – wird aus Prioritätsbewertung generiert...")
+
+    client = anthropic.Anthropic()
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=2048,
+        messages=[{
+            "role": "user",
+            "content": f"""Hier ist die 05_quellen.md für "{autor}: {titel}":
+
+{quellen_text}
+
+Erstelle daraus einen 06_index.md in exakt diesem Format:
+
+# Sekundärquellen-Index: {titel}
+**Primärautor:** {autor}
+**Erstellt:** {date.today()}
+**Stand:** {date.today()}
+
+---
+
+## Prioritätsliste
+
+| Quelle | Priorität | Status | Wiki-Potenzial | Notiz |
+|---|---|---|---|---|
+[alle Quellen aus der Prioritätsbewertungs-Tabelle, eine pro Zeile]
+
+## Legende
+★★★★★ = Höchste Priorität
+★★★★☆ = Hohe Priorität
+★★★☆☆ = Mittlere Priorität
+★★☆☆☆ = Niedrige Priorität
+★☆☆☆☆ = Minimal
+
+REGELN:
+- Übernimm alle Quellen aus der Prioritätsbewertungs-Tabelle
+- Status immer "→ offen" (nichts ist noch analysiert)
+- ★★★★★ bleibt ★★★★★ | ★★★★ wird ★★★★☆ | ★★★ wird ★★★☆☆ | ★★ wird ★★☆☆☆ | ★ wird ★☆☆☆☆
+- Wiki-Potenzial: "hoch" / "mittel" / "niedrig" – einschätzen
+- Notiz: 1 kurzer Satz aus der Begründungsspalte
+- Nur die Tabellen-Inhalte ausgeben – kein erklärender Text drumherum"""
+        }]
+    )
+
+    index_text = response.content[0].text
+    os.makedirs(sekundaer_dir, exist_ok=True)
+
+    with open(index_pfad, "w", encoding="utf-8") as f:
+        f.write(index_text)
+
+    print(f"  06_index.md erstellt: {index_pfad}")
+    return True
+
+
+def eingabe(prompt: str) -> str:
+    """Ersatz für input() – garantiert sauberen Cursor auf Windows nach Streaming."""
+    sys.stdout.write(prompt)
+    sys.stdout.flush()
+    try:
+        return sys.stdin.readline().rstrip("\n").rstrip("\r")
+    except (EOFError, KeyboardInterrupt):
+        raise KeyboardInterrupt
+
 
 def bibliothek_laden() -> list[dict]:
     with open(BIBLIOTHEK_INDEX, "r", encoding="utf-8") as f:
@@ -226,22 +384,35 @@ async def _agent_fragen(prompt: str, system_prompt: str) -> str:
         system_prompt=SystemPromptFile(type="file", path=tmp_pfad),
         allowed_tools=[],
         permission_mode="acceptEdits",
-        max_turns=2,
+        max_turns=10,
     )
 
     antwort_teile = []
-    async for message in query(prompt=prompt, options=options):
-        if isinstance(message, AssistantMessage):
-            for block in message.content:
-                if isinstance(block, TextBlock):
-                    print(block.text, end="", flush=True)
-                    antwort_teile.append(block.text)
-        elif isinstance(message, ResultMessage):
-            if message.is_error:
-                print(f"\n[Fehler]: {message.subtype}")
+    try:
+        async for message in query(prompt=prompt, options=options):
+            if isinstance(message, AssistantMessage):
+                for block in message.content:
+                    if isinstance(block, TextBlock):
+                        print(block.text, end="", flush=True)
+                        antwort_teile.append(block.text)
+            elif isinstance(message, ResultMessage):
+                if message.is_error:
+                    print(f"\n[SDK-Fehler]: {message.subtype}")
+    except Exception as e:
+        print(f"\n[Verbindungsfehler]: {e}")
+    finally:
+        if os.path.exists(tmp_pfad):
+            os.unlink(tmp_pfad)
 
-    os.unlink(tmp_pfad)
-    return "".join(antwort_teile)
+    antwort = "".join(antwort_teile)
+
+    # Cursor sauber positionieren nach dem Streaming (Windows-Problem)
+    if antwort and not antwort.endswith("\n"):
+        sys.stdout.write("\n")
+    sys.stdout.write("\n")
+    sys.stdout.flush()
+
+    return antwort
 
 
 async def einzelanalyse_erstellen(
@@ -257,8 +428,8 @@ async def einzelanalyse_erstellen(
     print("\n  Welche Quelle soll analysiert werden?")
     print("  Beispiel: 'Reich 1933' oder 'Fanon 1969'")
     try:
-        quellen_name = input("  Quelle: ").strip()
-    except (EOFError, KeyboardInterrupt):
+        quellen_name = eingabe("  Quelle: ").strip()
+    except KeyboardInterrupt:
         print("\n  Abgebrochen.")
         return
 
@@ -273,8 +444,8 @@ async def einzelanalyse_erstellen(
 
     print(f"\n  Analyse wird gespeichert als: {dateiname}")
     try:
-        bestaetigung = input("  Jetzt erstellen? (j/n): ").strip().lower()
-    except (EOFError, KeyboardInterrupt):
+        bestaetigung = eingabe("  Jetzt erstellen? (j/n): ").strip().lower()
+    except KeyboardInterrupt:
         return
 
     if bestaetigung != "j":
@@ -327,8 +498,8 @@ async def einzelanalyse_erstellen(
     print(f"  Soll diese Analyse nach wiki/raw/ kopiert werden?")
     print(f"  (Danach im Wiki-Projekt injizieren)")
     try:
-        wiki_antwort = input("  Ins Wiki? (j/n): ").strip().lower()
-    except (EOFError, KeyboardInterrupt):
+        wiki_antwort = eingabe("  Ins Wiki? (j/n): ").strip().lower()
+    except KeyboardInterrupt:
         return
 
     if wiki_antwort == "j":
@@ -338,8 +509,8 @@ async def einzelanalyse_erstellen(
         print(f"  Vorgeschlagener Dateiname: {vorschlag}")
         print(f"  Enter = übernehmen, oder eigenen Namen eingeben:")
         try:
-            wiki_name = input("  Dateiname: ").strip()
-        except (EOFError, KeyboardInterrupt):
+            wiki_name = eingabe("  Dateiname: ").strip()
+        except KeyboardInterrupt:
             wiki_name = ""
         if not wiki_name:
             wiki_name = vorschlag
@@ -400,14 +571,24 @@ async def sekundaerquellen_analyst_starten() -> None:
 
     while True:
         try:
-            eingabe = input("  Nummer eingeben: ").strip()
-        except (EOFError, KeyboardInterrupt):
+            auswahl = eingabe("  Nummer eingeben: ").strip()
+        except KeyboardInterrupt:
             print("\n\nAuf Wiedersehen, Honzele!")
             return
-        if eingabe.isdigit() and 1 <= int(eingabe) <= len(buecher_mit_quellen):
-            buch = buecher_mit_quellen[int(eingabe) - 1]
+        if auswahl.isdigit() and 1 <= int(auswahl) <= len(buecher_mit_quellen):
+            buch = buecher_mit_quellen[int(auswahl) - 1]
             break
         print(f"  Bitte eine Zahl zwischen 1 und {len(buecher_mit_quellen)} eingeben.")
+
+    # Index automatisch generieren wenn noch keiner existiert
+    basis = os.path.dirname(buch["lektor_pfad"])
+    sekundaer_dir_check = os.path.join(basis, SEKUNDAER_ORDNER)
+    hat_index = os.path.exists(os.path.join(sekundaer_dir_check, "06_index.md"))
+    if not hat_index:
+        index_generiert = index_aus_quellen_generieren(basis, buch["autor"], buch["titel"])
+        if not index_generiert:
+            print("  Kein Index und keine Prioritätsbewertung in 05_quellen.md gefunden.")
+            print("  Bitte zuerst den Quellenextraktor (Modus 4) ausführen.")
 
     print(f"\n  Lade Kontext für: {buch['autor']} – {buch['titel']}...")
     kontext = kontext_laden(buch)
@@ -436,26 +617,25 @@ async def sekundaerquellen_analyst_starten() -> None:
         f"Falls kein Index vorhanden: analysiere die 05_quellen.md und schlage die wichtigsten vor.",
         system_prompt_diskussion
     )
-    print("\n")
 
     gespraech = [{"frage": "[Eröffnung]", "antwort": eroeffnung}]
 
     while True:
         try:
-            eingabe = input("Du: ").strip()
-        except (EOFError, KeyboardInterrupt):
+            benutzer_eingabe = eingabe("Du: ").strip()
+        except KeyboardInterrupt:
             print("\n\nAuf Wiedersehen, Honzele!")
             break
 
-        if not eingabe:
+        if not benutzer_eingabe:
             continue
 
-        if eingabe.lower() in ("exit", "quit", "beenden"):
+        if benutzer_eingabe.lower() in ("exit", "quit", "beenden"):
             print("\nAuf Wiedersehen, Honzele!")
             break
 
         # Analyse-Trigger
-        if eingabe.upper() == "B":
+        if benutzer_eingabe.upper() == "B":
             await einzelanalyse_erstellen(
                 gespraech, kontext, basis, buch["autor"], buch["titel"]
             )
@@ -472,12 +652,11 @@ async def sekundaerquellen_analyst_starten() -> None:
                 kontext_verlauf += f"Honzele: {eintrag['frage']}\n"
                 kontext_verlauf += f"Analyst: {eintrag['antwort'][:500]}\n\n"
 
-        prompt = f"{kontext_verlauf}Honzele sagt jetzt: {eingabe}"
+        prompt = f"{kontext_verlauf}Honzele sagt jetzt: {benutzer_eingabe}"
 
         print("\nAnalyst: ", end="", flush=True)
         antwort = await _agent_fragen(prompt, system_prompt_diskussion)
-        gespraech.append({"frage": eingabe, "antwort": antwort})
-        print("\n")
+        gespraech.append({"frage": benutzer_eingabe, "antwort": antwort})
 
 
 if __name__ == "__main__":

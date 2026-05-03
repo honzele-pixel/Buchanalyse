@@ -25,6 +25,7 @@ from agents.vernetzer                  import vernetzer_analysieren, vernetzer_d
 from agents.berichterstatter           import berichterstatter_erstellen
 from agents.gespraechspartner          import gespraechspartner_starten
 from agents.sekundaerquellen_analyst   import sekundaerquellen_analyst_starten
+from agents.quellenextraktor           import quellenextraktor_starten
 
 BUCHER_DIR       = r"E:\Bucher"
 ANALYSEN_DIR     = r"E:\Claude_Projekte\Buchanalysen\analysen"
@@ -236,6 +237,60 @@ def antwort_ist_ja(vorhanden: list) -> bool:
     return _neuanalyse
 
 
+async def quellen_extrahieren_modus() -> None:
+    """Modus 4: Quellenextraktor – extrahiert Quellen aus einem PDF → 05_quellen.md."""
+    buecher = buecher_scannen()
+
+    # Status je Buch ermitteln
+    buecher_info = []
+    for b in buecher:
+        pfade = pfade_erstellen(b)
+        hat_quellen = os.path.exists(os.path.join(pfade["basis"], "05_quellen.md"))
+        buecher_info.append((b, pfade, hat_quellen))
+
+    print(f"\n{'='*60}")
+    print(f"  QUELLENEXTRAKTOR – Buchauswahl")
+    print(f"{'='*60}")
+    print(f"\n  Alle Bücher in E:\\Bucher\\ ({len(buecher)} PDFs):\n")
+
+    aktueller_autor = ""
+    for i, (b, pfade, hat_quellen) in enumerate(buecher_info, start=1):
+        if b["autor"] != aktueller_autor:
+            print(f"\n  [{b['autor']}]")
+            aktueller_autor = b["autor"]
+        status = "✓ hat 05_quellen.md" if hat_quellen else "→ noch keine Quellen"
+        print(f"    {i:2}. {b['titel']}  [{status}]")
+
+    print()
+
+    try:
+        eingabe = input("  Nummer eingeben (oder 'q' für Hauptmenü): ").strip()
+    except (EOFError, KeyboardInterrupt):
+        print("\n\n  Auf Wiedersehen, Honzele!")
+        return
+
+    if eingabe.lower() == "q":
+        return
+
+    if not eingabe.isdigit() or not (1 <= int(eingabe) <= len(buecher_info)):
+        print(f"\n  Ungültige Eingabe.")
+        return
+
+    buch, pfade, hat_quellen = buecher_info[int(eingabe) - 1]
+    ausgabe_pfad = os.path.join(pfade["basis"], "05_quellen.md")
+
+    if hat_quellen:
+        try:
+            antwort = input(f"\n  '{buch['titel']}' hat bereits eine 05_quellen.md.\n  Neu extrahieren und überschreiben? (j/n): ").strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            return
+        if antwort != "j":
+            print("  Abgebrochen.")
+            return
+
+    quellenextraktor_starten(buch, ausgabe_pfad)
+
+
 async def main() -> None:
     global _neuanalyse
 
@@ -254,6 +309,7 @@ async def main() -> None:
         print("    1.  Buch analysieren")
         print("    2.  Über Bücher diskutieren")
         print("    3.  Quellen erkunden (Sekundärquellen-Analyst)")
+        print("    4.  Quellen extrahieren (aus PDF → 05_quellen.md)")
         print("    q.  Beenden")
         print()
 
@@ -274,6 +330,10 @@ async def main() -> None:
         # MODUS 3: Quellen erkunden
         elif modus == "3":
             await sekundaerquellen_analyst_starten()
+
+        # MODUS 4: Quellen extrahieren
+        elif modus == "4":
+            await quellen_extrahieren_modus()
 
         # MODUS 1: Buch analysieren
         elif modus == "1":
