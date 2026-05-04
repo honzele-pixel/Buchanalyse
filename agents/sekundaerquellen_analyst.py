@@ -13,18 +13,14 @@ EISERNE REGEL: Nichts wird automatisch gespeichert.
 Nur Honzeles explizites 'B' + Bestätigung löst eine Analyse aus.
 """
 
-import asyncio
 import os
 import re
 import shutil
 import sys
 import json
-import tempfile
 from datetime import date
 from dotenv import load_dotenv
 import anthropic
-from claude_agent_sdk import query, ClaudeAgentOptions
-from claude_agent_sdk.types import AssistantMessage, TextBlock, ResultMessage, SystemPromptFile
 
 sys.stdout.reconfigure(encoding="utf-8")
 load_dotenv()
@@ -33,6 +29,8 @@ BIBLIOTHEK_INDEX    = r"E:\Claude_Projekte\Buchanalysen\bibliothek\index.json"
 QUALITAETS_REFERENZ = r"E:\Claude_Projekte\Buchanalysen\analysen\Rainer_Mausfeld\Hegemonie_oder_Untergang\06_sekundaerquellen\06_mirowski_2015.md"
 WIKI_RAW_DIR        = r"E:\Claude_Projekte\Wiki_Honzele\raw"
 SEKUNDAER_ORDNER    = "06_sekundaerquellen"
+
+CLIENT = anthropic.Anthropic()
 
 
 # ─────────────────────────────────────────────
@@ -204,12 +202,7 @@ Wenn etwas auf eigenem Wissen basiert (nicht aus den Analysen), markiere es: *(N
 # ─────────────────────────────────────────────
 
 def index_aus_quellen_generieren(basis: str, autor: str, titel: str) -> bool:
-    """Generiert 06_index.md automatisch aus der Prioritätsbewertung in 05_quellen.md.
-
-    Wird aufgerufen wenn kein 06_index.md existiert aber 05_quellen.md
-    eine Prioritätsbewertungs-Tabelle (★-Sterne) enthält.
-    Gibt True zurück wenn ein Index erstellt wurde.
-    """
+    """Generiert 06_index.md automatisch aus der Prioritätsbewertung in 05_quellen.md."""
     quellen_pfad = os.path.join(basis, "05_quellen.md")
     sekundaer_dir = os.path.join(basis, SEKUNDAER_ORDNER)
     index_pfad = os.path.join(sekundaer_dir, "06_index.md")
@@ -225,8 +218,7 @@ def index_aus_quellen_generieren(basis: str, autor: str, titel: str) -> bool:
 
     print("  Kein 06_index.md gefunden – wird aus Prioritätsbewertung generiert...")
 
-    client = anthropic.Anthropic()
-    response = client.messages.create(
+    response = CLIENT.messages.create(
         model="claude-sonnet-4-6",
         max_tokens=2048,
         messages=[{
@@ -307,12 +299,10 @@ def kontext_laden(buch: dict) -> str:
 
     kontext = f"BUCH: {buch['autor']} – {buch['titel']}\n\n"
 
-    # Prioritäts-Index zuerst – das ist der Startpunkt
     if os.path.exists(index_pfad):
         with open(index_pfad, "r", encoding="utf-8") as f:
             kontext += f"=== PRIORITÄTS-INDEX (06_index.md) ===\n{f.read()}\n\n"
 
-    # Bereits fertige Einzelanalysen
     if os.path.exists(sekundaer_dir):
         for fname in sorted(os.listdir(sekundaer_dir)):
             if fname.startswith("06_") and fname != "06_index.md" and fname.endswith(".md"):
@@ -320,11 +310,9 @@ def kontext_laden(buch: dict) -> str:
                 with open(pfad, "r", encoding="utf-8") as f:
                     kontext += f"=== BEREITS ANALYSIERT: {fname} ===\n{f.read()}\n\n"
 
-    # Rohe Quellenliste
     with open(quellen_pfad, "r", encoding="utf-8") as f:
         kontext += f"=== QUELLENLISTE (05_quellen.md) ===\n{f.read()}\n\n"
 
-    # Inhaltsanalyse und Bericht als Hintergrundwissen
     if os.path.exists(analyse_pfad):
         with open(analyse_pfad, "r", encoding="utf-8") as f:
             kontext += f"=== INHALTSANALYSE ===\n{f.read()}\n\n"
@@ -345,8 +333,6 @@ def index_aktualisieren(basis: str, quellen_name: str, dateiname: str) -> None:
     with open(index_pfad, "r", encoding="utf-8") as f:
         inhalt = f.read()
 
-    # Versuche "→ offen" für diese Quelle auf "✓ analysiert" zu setzen
-    # Sucht nach dem Quellennamen in der Zeile und ersetzt den Status
     zeilen = inhalt.splitlines()
     aktualisiert = False
     for i, zeile in enumerate(zeilen):
@@ -372,51 +358,34 @@ def nach_wiki_kopieren(analyse_pfad: str, wiki_dateiname: str) -> bool:
     return True
 
 
-async def _agent_fragen(prompt: str, system_prompt: str) -> str:
-    """Sendet einen Prompt an den Agenten, gibt Antwort zurück."""
-    with tempfile.NamedTemporaryFile(
-        mode="w", encoding="utf-8", suffix=".txt", delete=False
-    ) as tmp:
-        tmp.write(system_prompt)
-        tmp_pfad = tmp.name
-
-    options = ClaudeAgentOptions(
-        system_prompt=SystemPromptFile(type="file", path=tmp_pfad),
-        allowed_tools=[],
-        permission_mode="acceptEdits",
-        max_turns=10,
-    )
-
+def api_antwort(
+    messages: list[dict],
+    system: str,
+    model: str = "claude-sonnet-4-6",
+    max_tokens: int = 2048,
+) -> str:
+    """Direkte Anthropic-API mit Streaming. Gibt den vollständigen Antworttext zurück."""
     antwort_teile = []
-    try:
-        async for message in query(prompt=prompt, options=options):
-            if isinstance(message, AssistantMessage):
-                for block in message.content:
-                    if isinstance(block, TextBlock):
-                        print(block.text, end="", flush=True)
-                        antwort_teile.append(block.text)
-            elif isinstance(message, ResultMessage):
-                if message.is_error:
-                    print(f"\n[SDK-Fehler]: {message.subtype}")
-    except Exception as e:
-        print(f"\n[Verbindungsfehler]: {e}")
-    finally:
-        if os.path.exists(tmp_pfad):
-            os.unlink(tmp_pfad)
+    with CLIENT.messages.stream(
+        model=model,
+        max_tokens=max_tokens,
+        system=system,
+        messages=messages,
+    ) as stream:
+        for text in stream.text_stream:
+            print(text, end="", flush=True)
+            antwort_teile.append(text)
 
     antwort = "".join(antwort_teile)
-
-    # Cursor sauber positionieren nach dem Streaming (Windows-Problem)
     if antwort and not antwort.endswith("\n"):
         sys.stdout.write("\n")
     sys.stdout.write("\n")
     sys.stdout.flush()
-
     return antwort
 
 
-async def einzelanalyse_erstellen(
-    gespraech: list[dict],
+def einzelanalyse_erstellen(
+    messages: list[dict],
     kontext: str,
     basis: str,
     buch_autor: str,
@@ -424,7 +393,6 @@ async def einzelanalyse_erstellen(
 ) -> None:
     """Erstellt eine Einzelanalyse pro Quelle – NUR nach doppelter Bestätigung."""
 
-    # Quellennamen vom User abfragen
     print("\n  Welche Quelle soll analysiert werden?")
     print("  Beispiel: 'Reich 1933' oder 'Fanon 1969'")
     try:
@@ -437,7 +405,6 @@ async def einzelanalyse_erstellen(
         print("  Kein Name angegeben – abgebrochen.")
         return
 
-    # Dateiname ableiten: "Reich 1933" → "06_reich_1933.md"
     dateiname = "06_" + re.sub(r"[^a-z0-9]+", "_", quellen_name.lower()).strip("_") + ".md"
     sekundaer_dir = os.path.join(basis, SEKUNDAER_ORDNER)
     ausgabe_pfad = os.path.join(sekundaer_dir, dateiname)
@@ -452,19 +419,19 @@ async def einzelanalyse_erstellen(
         print("  Abgebrochen – wir diskutieren weiter.\n")
         return
 
-    # Qualitäts-Referenz laden
     beispiel = ""
     if os.path.exists(QUALITAETS_REFERENZ):
         with open(QUALITAETS_REFERENZ, "r", encoding="utf-8") as f:
             beispiel = f.read()
 
-    # Gesprächsverlauf einbauen
+    # Gesprächsverlauf aus den messages extrahieren (letzte 10 Einträge)
     gespraech_text = "\n\nGESPRÄCHSVERLAUF (Honzeles Fokus und Entscheidungen):\n"
-    for eintrag in gespraech:
-        gespraech_text += f"Honzele: {eintrag['frage']}\n"
-        gespraech_text += f"Analyst: {eintrag['antwort'][:800]}\n\n"
+    for msg in messages[-10:]:
+        rolle = "Honzele" if msg["role"] == "user" else "Analyst"
+        inhalt = msg["content"] if isinstance(msg["content"], str) else str(msg["content"])
+        gespraech_text += f"{rolle}: {inhalt[:600]}\n\n"
 
-    system_prompt = SYSTEM_PROMPT_BERICHT.format(
+    system_bericht = SYSTEM_PROMPT_BERICHT.format(
         kontext=kontext + gespraech_text,
         beispiel=beispiel,
         heute=str(date.today()),
@@ -474,13 +441,21 @@ async def einzelanalyse_erstellen(
     print(f"  ANALYSE WIRD ERSTELLT: {quellen_name}")
     print(f"{'='*60}\n")
 
-    analyse_prompt = (
-        f"Erstelle die Tiefenanalyse für '{quellen_name}' als Sekundärquelle "
-        f"von '{buch_titel}' ({buch_autor}). "
-        f"Berücksichtige den Gesprächsverlauf und Honzeles Fokus."
-    )
+    analyse_messages = [{
+        "role": "user",
+        "content": (
+            f"Erstelle die Tiefenanalyse für '{quellen_name}' als Sekundärquelle "
+            f"von '{buch_titel}' ({buch_autor}). "
+            f"Berücksichtige den Gesprächsverlauf und Honzeles Fokus."
+        )
+    }]
 
-    analyse_text = await _agent_fragen(analyse_prompt, system_prompt)
+    analyse_text = api_antwort(
+        analyse_messages,
+        system_bericht,
+        model="claude-opus-4-6",
+        max_tokens=8000,
+    )
 
     os.makedirs(sekundaer_dir, exist_ok=True)
     with open(ausgabe_pfad, "w", encoding="utf-8") as f:
@@ -489,21 +464,17 @@ async def einzelanalyse_erstellen(
     print(f"\n\nGespeichert: {ausgabe_pfad}")
     print(f"  Bitte in der Datei prüfen ob die Analyse vollständig ist.")
 
-    # Index aktualisieren
     index_aktualisieren(basis, quellen_name, dateiname)
 
-    # Wiki-Injektion anbieten
     print(f"\n{'─'*60}")
     print(f"  WIKI-INJEKTION")
     print(f"  Soll diese Analyse nach wiki/raw/ kopiert werden?")
-    print(f"  (Danach im Wiki-Projekt injizieren)")
     try:
         wiki_antwort = eingabe("  Ins Wiki? (j/n): ").strip().lower()
     except KeyboardInterrupt:
         return
 
     if wiki_antwort == "j":
-        # Wiki-Dateiname vorschlagen
         vorschlag = re.sub(r"[^a-zA-Z0-9]+", "_", quellen_name).strip("_")
         vorschlag = f"{vorschlag}_Sekundaeranalyse.md"
         print(f"  Vorgeschlagener Dateiname: {vorschlag}")
@@ -531,7 +502,7 @@ async def einzelanalyse_erstellen(
 #  HAUPTFUNKTION
 # ─────────────────────────────────────────────
 
-async def sekundaerquellen_analyst_starten() -> None:
+def sekundaerquellen_analyst_starten() -> None:
     """Startet die interaktive Quellendiskussion."""
 
     print(f"\n{'='*60}")
@@ -541,7 +512,6 @@ async def sekundaerquellen_analyst_starten() -> None:
 
     buecher = bibliothek_laden()
 
-    # Nur Bücher mit 05_quellen.md anzeigen
     buecher_mit_quellen = []
     for b in buecher:
         basis = os.path.dirname(b["lektor_pfad"])
@@ -558,14 +528,16 @@ async def sekundaerquellen_analyst_starten() -> None:
         basis = os.path.dirname(b["lektor_pfad"])
         sekundaer_dir = os.path.join(basis, SEKUNDAER_ORDNER)
         hat_index = os.path.exists(os.path.join(sekundaer_dir, "06_index.md"))
-        # Anzahl fertiger Analysen zählen
         anzahl = 0
         if os.path.exists(sekundaer_dir):
             anzahl = len([
                 f for f in os.listdir(sekundaer_dir)
                 if f.startswith("06_") and f != "06_index.md" and f.endswith(".md")
             ])
-        status = f" [Index ✓, {anzahl} Analyse(n)]" if hat_index else (" [kein Index]" if anzahl == 0 else f" [{anzahl} Analyse(n)]")
+        status = (
+            f" [Index ✓, {anzahl} Analyse(n)]" if hat_index
+            else (" [kein Index]" if anzahl == 0 else f" [{anzahl} Analyse(n)]")
+        )
         print(f"    {i}. {b['autor']}: {b['titel']}{status}")
     print()
 
@@ -580,7 +552,6 @@ async def sekundaerquellen_analyst_starten() -> None:
             break
         print(f"  Bitte eine Zahl zwischen 1 und {len(buecher_mit_quellen)} eingeben.")
 
-    # Index automatisch generieren wenn noch keiner existiert
     basis = os.path.dirname(buch["lektor_pfad"])
     sekundaer_dir_check = os.path.join(basis, SEKUNDAER_ORDNER)
     hat_index = os.path.exists(os.path.join(sekundaer_dir_check, "06_index.md"))
@@ -599,8 +570,7 @@ async def sekundaerquellen_analyst_starten() -> None:
 
     print(f"  Bereit! ({len(kontext):,} Zeichen geladen)\n")
 
-    basis = os.path.dirname(buch["lektor_pfad"])
-    system_prompt_diskussion = SYSTEM_PROMPT_DISKUSSION.format(kontext=kontext)
+    system_diskussion = SYSTEM_PROMPT_DISKUSSION.format(kontext=kontext)
 
     print(f"{'='*60}")
     print("  Diskutiere mit dem Quellenanalyst.")
@@ -608,17 +578,20 @@ async def sekundaerquellen_analyst_starten() -> None:
     print("  'exit' → Beenden")
     print(f"{'='*60}\n")
 
-    # Eröffnung: Agent startet vom Index
-    print("Analyst: ", end="", flush=True)
-    eroeffnung = await _agent_fragen(
+    # Echter Multi-Turn Verlauf – eine Konversation, keine neuen Sessions
+    messages: list[dict] = []
+
+    eroeffnungs_prompt = (
         f"Schaue in den Prioritäts-Index (06_index.md) für '{buch['titel']}' von {buch['autor']}. "
         f"Präsentiere Honzele die 2–3 wichtigsten noch offenen Quellen (★★★★★ zuerst). "
         f"Kurz und konkret mit Stern-Bewertung, dann warte auf seine Reaktion. "
-        f"Falls kein Index vorhanden: analysiere die 05_quellen.md und schlage die wichtigsten vor.",
-        system_prompt_diskussion
+        f"Falls kein Index vorhanden: analysiere die 05_quellen.md und schlage die wichtigsten vor."
     )
+    messages.append({"role": "user", "content": eroeffnungs_prompt})
 
-    gespraech = [{"frage": "[Eröffnung]", "antwort": eroeffnung}]
+    print("Analyst: ", end="", flush=True)
+    eroeffnung = api_antwort(messages, system_diskussion)
+    messages.append({"role": "assistant", "content": eroeffnung})
 
     while True:
         try:
@@ -634,30 +607,21 @@ async def sekundaerquellen_analyst_starten() -> None:
             print("\nAuf Wiedersehen, Honzele!")
             break
 
-        # Analyse-Trigger
         if benutzer_eingabe.upper() == "B":
-            await einzelanalyse_erstellen(
-                gespraech, kontext, basis, buch["autor"], buch["titel"]
+            einzelanalyse_erstellen(
+                messages, kontext, basis, buch["autor"], buch["titel"]
             )
-            # Kontext neu laden – neue Analyse ist jetzt drin
+            # Kontext + System-Prompt neu laden (neue Analyse ist jetzt drin)
             kontext = kontext_laden(buch)
-            system_prompt_diskussion = SYSTEM_PROMPT_DISKUSSION.format(kontext=kontext)
+            system_diskussion = SYSTEM_PROMPT_DISKUSSION.format(kontext=kontext)
             continue
 
-        # Gesprächskontext aufbauen (letzte 4 Einträge)
-        kontext_verlauf = ""
-        if gespraech:
-            kontext_verlauf = "\n\nBisheriger Gesprächsverlauf:\n"
-            for eintrag in gespraech[-4:]:
-                kontext_verlauf += f"Honzele: {eintrag['frage']}\n"
-                kontext_verlauf += f"Analyst: {eintrag['antwort'][:500]}\n\n"
-
-        prompt = f"{kontext_verlauf}Honzele sagt jetzt: {benutzer_eingabe}"
+        messages.append({"role": "user", "content": benutzer_eingabe})
 
         print("\nAnalyst: ", end="", flush=True)
-        antwort = await _agent_fragen(prompt, system_prompt_diskussion)
-        gespraech.append({"frage": benutzer_eingabe, "antwort": antwort})
+        antwort = api_antwort(messages, system_diskussion)
+        messages.append({"role": "assistant", "content": antwort})
 
 
 if __name__ == "__main__":
-    asyncio.run(sekundaerquellen_analyst_starten())
+    sekundaerquellen_analyst_starten()
