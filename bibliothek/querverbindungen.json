@@ -538,6 +538,139 @@
         "Geopolitische Neuordnung und multipolare Weltordnung"
       ],
       "staerke": 3
+    },
+    {
+      "von": "schmalz_eiszeit",
+      "zu": "kant_grundlegung",
+      "themen": [
+        "Ethik der Außenpolitik",
+        "Rationale Prinzipien internationaler Beziehungen"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "luders_krieg",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Deutsche Außenpolitik und internationale Geopolitik",
+        "Kritik an westlicher Narrativbildung und Mediendiskurs",
+        "Hinterfragung der Gültigkeit von Staatsräson als Rechtfertigung für außenpolitische Positionen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "arendt_freiheit",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Revolution und politischer Wandel",
+        "Freiheit und Selbstbestimmung von Völkern",
+        "Geopolitische Machtverhältnisse und deren Neugestaltung"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Westliche Hegemonie und Geopolitik",
+        "Ideologische Manipulation und Medienpropaganda",
+        "Feindbild-Konstruktion (Russland als Feind des Westens)",
+        "Geschichtsrevisionismus und narrative Kontrolle",
+        "NATO-Expansion und geopolitische Spannungen",
+        "Kritik an westlicher Außenpolitik und Doppelstandards",
+        "Bewusstseinskontrolle durch Massenmedien"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Illegale/völkerrechtswidrige militärische Interventionen westlicher Mächte",
+        "NATO-Außenpolitik und geopolitische Strategie",
+        "US-amerikanische und westliche Hegemonialpolitik",
+        "Russland als Gegengewicht und Konfliktpunkt",
+        "Ukraine als Brennpunkt geopolitischer Konflikte",
+        "Verletzung internationalen Rechts und der UNO-Charta",
+        "Mediendarstellung und Narrativbildung in Konflikten",
+        "Georgienkrieg 2008 und NATO-Osterweiterung",
+        "Vertrauensbruch und Destabilisierung post-sowjetischer Staaten"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Medienkritik und Manipulation des öffentlichen Diskurses",
+        "Kritik an westlicher Außenpolitik und geopolitischen Strategien",
+        "Analyse von Demokratiedefiziten und Elitenherrschaft",
+        "Propagandamechanismen und Desinformation in Massenmedien",
+        "Kritische Hinterfragung von offiziellen Narrativen",
+        "Geopolitische Konflikte und ihre mediale Darstellung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Macht und ihre Kontrolle/Limitierung",
+        "Geopolitische Machtverhältnisse und internationale Ordnung",
+        "Élitenkontrolle und Herrschaftsstrukturen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Imperialismus und Großmachtpolitik (USA/Israel vs. Russland)",
+        "Außenpolitische Konflikte und Narrativkontrolle im Globalen Süden/Osten",
+        "Kritik an westlicher Interventionspolitik und Mediendarstellung"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "kant_ewigen",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Internationale Beziehungen und Staatensystem",
+        "Friedenssicherung und Konfliktprävention",
+        "Vertrauen zwischen Nationen und geopolitische Stabilität"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "ukraine_lange",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Russland-Westen-Konflikt",
+        "NATO-Osterweiterung und ihre Folgen",
+        "Ukraine als Zentrum geopolitischer Spannungen",
+        "Entstehungsgeschichte des Krieges / Eskalationsdynamik",
+        "Westliche Außenpolitik gegenüber Russland",
+        "Mediendarstellung und politische Narrative",
+        "Georgienkrieg 2008 als Präzedenzfall",
+        "Farbrevolutionen und externe Einflussnahme",
+        "Historische Tiefenanalyse statt Emotionalisierung",
+        "Multipolare Weltordnung vs. westliche Hegemonie"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "sachs_diplomatie",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Russland-Westen-Konflikt",
+        "NATO-Osterweiterung und Sicherheitsbedenken",
+        "Ukraine-Krise und Diplomatie",
+        "Westliche Außenpolitik und neokonservative Strategien",
+        "Mediennarrative und politische Propaganda",
+        "Friedensverhandlungen vs. Eskalation",
+        "Historische Tiefenanalyse geopolitischer Spannungen"
+      ],
+      "staerke": 3
     }
   ]
 }
