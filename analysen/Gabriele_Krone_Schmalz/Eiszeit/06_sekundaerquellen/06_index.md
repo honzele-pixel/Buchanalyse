@@ -1,7 +1,7 @@
 # Sekundärquellen-Index: Eiszeit
 **Primärautorin:** Gabriele Krone-Schmalz
 **Erstellt:** 2026-05-06
-**Stand:** 2026-05-06
+**Stand:** 2026-05-06 (Update: Kotz/Weir hinzugefügt)
 
 ---
 
@@ -10,6 +10,7 @@
 | Quelle | Priorität | Status | Wiki-Potenzial | Notiz |
 |---|---|---|---|---|
 | Katchanovski: *The Maidan Massacre in Ukraine* (2021) | ★★★★★ | ✓ analysiert | hoch | Forensische Rekonstruktion des Maidan-Massakers; belegt Krone-Schmalz' Verdacht (Ebene 4); False-Flag-These mit Gerichtsmaterial |
+| Kotz / Weir: *Russia's Path from Gorbachev to Putin* (2007) | ★★★★☆ | ✓ analysiert | hoch | Elite-gesteuerte Systemtransformation; Schocktherapie als Oligarchisierungsinstrument; strukturell-ökonomische Untermauerung von These 3 (Eiszeit) |
 
 ---
 
