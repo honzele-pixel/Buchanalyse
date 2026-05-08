@@ -12,6 +12,16 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 ## Arbeitsverzeichnis
 `E:\Claude_Projekte\Buchanalysen\`
 
+## Skill-Fokus fuer dieses Repo
+
+Dieses Projekt nutzt nur einen kleinen, bewusst eingegrenzten Skill-Satz.
+
+- Globale Skills nur fuer allgemeine Python-, Test-, Git- und Verifikationsarbeit
+- Projektspezifische Regeln nur lokal fuer dieses Buchanalyse-Repo
+- Andere installierte Skills nicht automatisch als relevant behandeln
+
+Die verbindliche Einordnung steht in `docs/skill-strategie.md`.
+
 ## PDF-Bibliothek
 `E:\Bucher\` – mit Unterordnern: Michael_Luders, Daniele_Ganser, Hannah_Arendt, Ukraine, u.a.
 
@@ -27,11 +37,26 @@ Keine Geheimarchiv-Sprache, keine Dossier-Ästhetik, keine Gamification-Elemente
 | 6 – Sekundärquellen-Analyst | `agents/sekundaerquellen_analyst.py` | Index-gestützte Tiefenanalyse von Sekundärquellen + Diskussion + Wiki-Injektion |
 
 ## Starten
+
+### Empfohlener Workflow (kostenoptimiert – Stand 2026-05-08)
+
+```
+python main.py   ← Agenten 1 + 2 + 4 (Lektor, Inhaltsanalyst, Berichterstatter)
+```
+
+Dann in Claude Code: *"Vernetze [Autor] – [Buchtitel]"*
+→ Agent 3 (Vernetzer) läuft kostenlos über das Abo statt über die API
+
+**Warum:** Der Vernetzer liest das gesamte Archiv und war der größte Kostentreiber.
+Als Claude Code Skill läuft er über das Abo – gleiche Qualität, kein API-Billing.
+System-Prompt: `Prompt/System_Prompt_Vernetzer.md`
+
+### Vollautomatisch (höhere Kosten)
 ```
 python main.py
 ```
-- **Modus 1:** Buch analysieren – alle 4 Agenten laufen automatisch nacheinander durch, danach werden die Vernetzungen **aller anderen Bücher automatisch aktualisiert**, danach startet automatisch der **Wiki-Kurator** (Entscheidung ob das Buch ins Wiki kommt)
-- **Modus 2:** Über ein Buch diskutieren – Buchauswahl, dann freies Gespräch
+- **Modus 1:** Alle 4 Agenten + automatische Archiv-Aktualisierung + Wiki-Kurator
+- **Modus 2:** Über ein Buch diskutieren
 **Wichtig:** Immer nur ein Terminal, nie parallel – wegen bibliothek/index.json
 
 ## Analyse-Ausgabe

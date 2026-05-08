@@ -453,7 +453,7 @@ def einzelanalyse_erstellen(
     analyse_text = api_antwort(
         analyse_messages,
         system_bericht,
-        model="claude-opus-4-6",
+        model="claude-sonnet-4-6",
         max_tokens=8000,
     )
 

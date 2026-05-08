@@ -14,7 +14,7 @@ QUERVERBINDUNGEN_JSON = os.path.join(BASE_DIR, "bibliothek", "querverbindungen.j
 LOGS_DIR       = os.path.join(BASE_DIR, "logs")
 
 # --- Modell ---
-MODEL = "claude-opus-4-6"
+MODEL = "claude-sonnet-4-6"
 
 # --- Agent-Einstellungen ---
 MAX_TURNS = 20
