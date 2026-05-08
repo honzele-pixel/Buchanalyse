@@ -1,11 +1,13 @@
 """
 Buchanalyse-System - Hauptprogramm
 
-Kostenoptimierter Standard:
-  1. Standardanalyse - Lektor + Inhaltsanalyst (01 + 02)
+Workflow (kostenoptimiert):
+  1. Lektorieren (Ollama lokal, gratis) -> 01_lektor.md + index.json
 
-Optionale teurere Wege:
-  6. Vollanalyse - Lektor + Inhaltsanalyst + Vernetzer + Berichterstatter
+  Danach in Claude Code:
+    "Analysiere [Autor] - [Titel]"       -> 02_inhaltsanalyse.md (gratis, Abo)
+    "Vernetze [Autor] - [Titel]"         -> 03_vernetzung.md    (gratis, Abo)
+    "Erstelle Bericht [Autor] - [Titel]" -> 04_bericht.md       (gratis, Abo)
 
 Verwendung: python main.py
 """
@@ -13,20 +15,16 @@ Verwendung: python main.py
 from __future__ import annotations
 
 import asyncio
-import json
 import os
-import subprocess
 import sys
 
 from dotenv import load_dotenv
 
-from agents.berichterstatter import berichterstatter_erstellen
 from agents.gespraechspartner import gespraechspartner_starten
-from agents.inhaltsanalyst import inhaltsanalyst_analysieren
 from agents.lektor import lektor_analysieren
 from agents.quellenextraktor import quellenextraktor_starten
 from agents.sekundaerquellen_analyst import sekundaerquellen_analyst_starten
-from agents.vernetzer import vernetzer_analysieren, vernetzer_delta_aktualisieren
+from agents.vernetzer import buch_in_bibliothek_registrieren
 from config import settings
 from status_report import main as status_report_main
 
@@ -36,14 +34,7 @@ load_dotenv()
 
 BUCHER_DIR = settings.BIBLIOTHEK_DIR
 ANALYSEN_DIR = settings.ANALYSEN_DIR
-BIBLIOTHEK_INDEX = settings.BIBLIOTHEK_JSON
 
-SCHRITT_LABELS = {
-    "lektor": "LEKTOR",
-    "analyse": "INHALTSANALYST",
-    "vernetzung": "VERNETZER",
-    "bericht": "BERICHTERSTATTER",
-}
 
 _neuanalyse = False
 
@@ -151,74 +142,23 @@ def neuanalyse_entscheidung_setzen(buch: dict, pfade: dict) -> None:
 
 
 def standard_hinweise_anzeigen() -> None:
-    print("\n  Standardanalyse erzeugt nur:")
+    print("\n  Lektorierung erzeugt:")
     print("    - 01_lektor.md")
-    print("    - 02_inhaltsanalyse.md")
-    print("\n  Vernetzung und Bericht sind jetzt bewusst optional.")
-    print("  Empfohlener Weg fuer beides: Claude-Code-Skills im Repo.")
+    print("    - Eintrag in bibliothek/index.json")
+    print("\n  Danach in Claude Code:")
+    print("    'Analysiere [Autor] - [Titel]'     -> 02_inhaltsanalyse.md")
+    print("    'Vernetze [Autor] - [Titel]'        -> 03_vernetzung.md")
+    print("    'Erstelle Bericht [Autor] - [Titel]' -> 04_bericht.md")
 
-
-async def vernetzungen_aktualisieren(neuer_autor: str, neuer_titel: str) -> None:
-    """Aktualisiert die Vernetzung aller anderen Buecher im Archiv (Delta-Modus)."""
-    with open(BIBLIOTHEK_INDEX, "r", encoding="utf-8") as handle:
-        bibliothek = json.load(handle)
-
-    andere = [
-        b for b in bibliothek["buecher"] if not (b["autor"] == neuer_autor and b["titel"] == neuer_titel)
-    ]
-
-    if not andere:
-        print("  Keine anderen Buecher im Archiv - Delta-Vernetzung nicht noetig.")
-        return
-
-    neuer_lektor_pfad = None
-    neue_inhaltsanalyse_pfad = None
-    for buch in bibliothek["buecher"]:
-        if buch["autor"] == neuer_autor and buch["titel"] == neuer_titel:
-            neuer_lektor_pfad = buch["lektor_pfad"]
-            neue_inhaltsanalyse_pfad = buch.get("inhaltsanalyse_pfad", "")
-            break
-
-    if not neuer_lektor_pfad:
-        print("  [Fehler] Neues Buch nicht im Index gefunden - Delta-Vernetzung abgebrochen.")
-        return
-
-    print(f"\n{'=' * 60}")
-    print(f"  DELTA-VERNETZUNG: {len(andere)} Buecher werden geprueft...")
-    print("  (Haiku-Check -> nur bei Verbindung wird Sonnet geschrieben)")
-    print(f"{'=' * 60}")
-
-    uebersprungen = 0
-    ergaenzt = 0
-
-    for i, buch in enumerate(andere, start=1):
-        print(f"\n  [{i}/{len(andere)}] {buch['autor']} - {buch['titel']}")
-
-        wurde_ergaenzt = await vernetzer_delta_aktualisieren(
-            bestehendes_buch=buch,
-            neuer_autor=neuer_autor,
-            neuer_titel=neuer_titel,
-            neuer_lektor_pfad=neuer_lektor_pfad,
-            neue_inhaltsanalyse_pfad=neue_inhaltsanalyse_pfad,
-        )
-        if wurde_ergaenzt:
-            ergaenzt += 1
-        else:
-            uebersprungen += 1
-
-    print(f"\n{'=' * 60}")
-    print("  DELTA-VERNETZUNG ABGESCHLOSSEN!")
-    print(f"  Ergaenzt: {ergaenzt} Buecher | Uebersprungen: {uebersprungen} Buecher")
-    print(f"{'=' * 60}\n")
 
 
 async def standardanalyse_ausfuehren(buch: dict) -> None:
-    """Fuehrt die kostenoptimierte Standardanalyse aus."""
+    """Fuehrt die Lektorierung aus und registriert das Buch im Index."""
     pfade = pfade_erstellen(buch)
     vorhanden = bereits_analysiert(pfade)
 
     print(f"\n{'=' * 60}")
-    print(f"  STARTE STANDARDANALYSE: {buch['autor']} - {buch['titel']}")
+    print(f"  STARTE LEKTORIERUNG: {buch['autor']} - {buch['titel']}")
     print(f"{'=' * 60}")
 
     if vorhanden:
@@ -227,90 +167,26 @@ async def standardanalyse_ausfuehren(buch: dict) -> None:
             print("  Nur fehlende Schritte werden ausgefuehrt.\n")
 
     if "lektor" not in vorhanden or antwort_ist_ja():
-        print("\n  [1/2] LEKTOR startet...")
+        print("\n  [1/1] LEKTOR startet...")
         await lektor_analysieren(buch["pdf_pfad"], pfade["lektor"])
     else:
-        print("\n  [1/2] Lektor - bereits vorhanden, wird uebersprungen.")
+        print("\n  [1/1] Lektor - bereits vorhanden, wird uebersprungen.")
 
-    if "analyse" not in vorhanden or antwort_ist_ja():
-        print("\n  [2/2] INHALTSANALYST startet...")
-        await inhaltsanalyst_analysieren(pfade["lektor"], pfade["analyse"])
-    else:
-        print("\n  [2/2] Inhaltsanalyst - bereits vorhanden, wird uebersprungen.")
+    print("\n  Index wird aktualisiert...")
+    buch_in_bibliothek_registrieren(
+        autor=buch["autor"],
+        titel=buch["titel"],
+        lektor_pfad=pfade["lektor"],
+        analyse_pfad=pfade["analyse"],
+    )
 
     print(f"\n{'=' * 60}")
-    print("  STANDARDANALYSE ABGESCHLOSSEN!")
+    print("  LEKTORIERUNG ABGESCHLOSSEN!")
     print(f"  Ergebnis: {pfade['basis']}")
-    print("  Optional: Vernetzung und Bericht nur bei Bedarf erzeugen.")
+    print("\n  Weiter in Claude Code:")
+    print(f"    'Analysiere {buch['autor']} - {buch['titel']}'")
     print(f"{'=' * 60}\n")
 
-
-async def vollanalyse_ausfuehren(buch: dict) -> None:
-    """Fuehrt den Legacy-Vollpfad 01-04 aus."""
-    pfade = pfade_erstellen(buch)
-    vorhanden = bereits_analysiert(pfade)
-
-    print(f"\n{'=' * 60}")
-    print(f"  STARTE VOLLANALYSE: {buch['autor']} - {buch['titel']}")
-    print(f"{'=' * 60}")
-
-    if vorhanden:
-        print(f"\n  Bereits vorhanden: {', '.join(vorhanden)}")
-        if not antwort_ist_ja():
-            print("  Nur fehlende Schritte werden ausgefuehrt.\n")
-
-    if "lektor" not in vorhanden or antwort_ist_ja():
-        print("\n  [1/4] LEKTOR startet...")
-        await lektor_analysieren(buch["pdf_pfad"], pfade["lektor"])
-    else:
-        print("\n  [1/4] Lektor - bereits vorhanden, wird uebersprungen.")
-
-    if "analyse" not in vorhanden or antwort_ist_ja():
-        print("\n  [2/4] INHALTSANALYST startet...")
-        await inhaltsanalyst_analysieren(pfade["lektor"], pfade["analyse"])
-    else:
-        print("\n  [2/4] Inhaltsanalyst - bereits vorhanden, wird uebersprungen.")
-
-    if "vernetzung" not in vorhanden or antwort_ist_ja():
-        print("\n  [3/4] VERNETZER startet...")
-        await vernetzer_analysieren(
-            autor=buch["autor"],
-            titel=buch["titel"],
-            lektor_pfad=pfade["lektor"],
-            inhaltsanalyse_pfad=pfade["analyse"],
-            ausgabe_pfad=pfade["vernetzung"],
-        )
-    else:
-        print("\n  [3/4] Vernetzer - bereits vorhanden, wird uebersprungen.")
-
-    if "bericht" not in vorhanden or antwort_ist_ja():
-        print("\n  [4/4] BERICHTERSTATTER startet...")
-        await berichterstatter_erstellen(
-            autor=buch["autor"],
-            titel=buch["titel"],
-            lektor_pfad=pfade["lektor"],
-            inhaltsanalyse_pfad=pfade["analyse"],
-            vernetzung_pfad=pfade["vernetzung"],
-            ausgabe_pfad=pfade["bericht"],
-        )
-    else:
-        print("\n  [4/4] Berichterstatter - bereits vorhanden, wird uebersprungen.")
-
-    print(f"\n{'=' * 60}")
-    print("  VOLLANALYSE ABGESCHLOSSEN!")
-    print(f"  Ergebnis: {pfade['basis']}")
-    print(f"{'=' * 60}\n")
-
-    if settings.AUTO_DELTA_VERNETZUNG:
-        await vernetzungen_aktualisieren(buch["autor"], buch["titel"])
-
-    if settings.AUTO_WIKI_KURATOR:
-        wiki_dir = r"E:\Claude_Projekte\Wiki_Honzele"
-        nachricht = f"Kuratiere {buch['titel']} von {buch['autor']}"
-        print(f"\n{'=' * 60}")
-        print("  WIKI-KURATOR startet...")
-        print(f"{'=' * 60}\n")
-        subprocess.run(["claude", nachricht], cwd=wiki_dir)
 
 
 async def quellen_extrahieren_modus() -> None:
@@ -397,12 +273,12 @@ async def main() -> None:
         print("  BUCHANALYSE-SYSTEM - HAUPTMENUE")
         print("=" * 60)
         print("\n  Was moechtest du tun?\n")
-        print("    1.  Standardanalyse (01+02, kostenoptimiert)")
+        print("    1.  Lektorieren (Lektor lokal, gratis)")
+        print("        -> danach in Claude Code: Analysiere / Vernetze / Erstelle Bericht")
         print("    2.  Ueber Buecher diskutieren")
         print("    3.  Quellen erkunden (Sekundaerquellen-Analyst)")
         print("    4.  Quellen extrahieren (aus PDF -> 05_quellen.md)")
         print("    5.  Statusbericht / Arbeitsliste")
-        print("    6.  Vollanalyse (01-04, teurer)")
         print("    q.  Beenden")
         print()
 
@@ -417,8 +293,6 @@ async def main() -> None:
             break
 
         if modus == "1":
-            if not anthropic_api_key_pruefen():
-                continue
             standard_hinweise_anzeigen()
             buch = buch_auswaehlen()
             if not buch:
@@ -445,18 +319,8 @@ async def main() -> None:
         elif modus == "5":
             status_report_main([])
 
-        elif modus == "6":
-            if not anthropic_api_key_pruefen():
-                continue
-            buch = buch_auswaehlen()
-            if not buch:
-                continue
-            pfade = pfade_erstellen(buch)
-            neuanalyse_entscheidung_setzen(buch, pfade)
-            await vollanalyse_ausfuehren(buch)
-
         else:
-            print("\n  Bitte 1, 2, 3, 4, 5, 6 oder q eingeben.")
+            print("\n  Bitte 1, 2, 3, 4, 5 oder q eingeben.")
 
 
 if __name__ == "__main__":

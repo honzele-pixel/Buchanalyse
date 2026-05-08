@@ -40,24 +40,29 @@ Die verbindliche Einordnung steht in `docs/skill-strategie.md`.
 
 ### Empfohlener Workflow (kostenoptimiert – Stand 2026-05-08)
 
+**Schritt 1: Lektorieren** (Ollama lokal, gratis)
 ```
-python main.py   ← Agenten 1 + 2 + 4 (Lektor, Inhaltsanalyst, Berichterstatter)
+python main.py   ← Modus 1: Lektorieren
 ```
+→ erzeugt `01_lektor.md` + aktualisiert `bibliothek/index.json`
 
-Dann in Claude Code: *"Vernetze [Autor] – [Buchtitel]"*
-→ Agent 3 (Vernetzer) läuft kostenlos über das Abo statt über die API
+**Schritt 2–4: Analyse, Vernetzung, Bericht** (Claude Code Abo, gratis)
 
-**Warum:** Der Vernetzer liest das gesamte Archiv und war der größte Kostentreiber.
-Als Claude Code Skill läuft er über das Abo – gleiche Qualität, kein API-Billing.
-System-Prompt: `Prompt/System_Prompt_Vernetzer.md`
+In Claude Code:
+- *"Analysiere [Autor] – [Titel]"* → `02_inhaltsanalyse.md`
+- *"Vernetze [Autor] – [Titel]"* → `03_vernetzung.md`
+- *"Erstelle Bericht [Autor] – [Titel]"* → `04_bericht.md`
 
-### Vollautomatisch (höhere Kosten)
-```
-python main.py
-```
-- **Modus 1:** Alle 4 Agenten + automatische Archiv-Aktualisierung + Wiki-Kurator
-- **Modus 2:** Über ein Buch diskutieren
-**Wichtig:** Immer nur ein Terminal, nie parallel – wegen bibliothek/index.json
+System-Prompts:
+- `Prompt/System_Prompt_Inhaltsanalyst.md`
+- `Prompt/System_Prompt_Vernetzer.md`
+- `Prompt/System_Prompt_Berichterstatter.md`
+
+**Warum:** Inhaltsanalyst, Vernetzer und Berichterstatter lesen nur vorhandene Markdown-Dateien
+und schreiben neue – das kann Claude Code direkt, ohne API-Billing.
+Nur der Lektor braucht PyMuPDF (PDF lesen) + Ollama (lokal verarbeiten).
+
+**Wichtig:** Immer nur ein Terminal, nie parallel – wegen `bibliothek/index.json`
 
 ## Analyse-Ausgabe
 Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
