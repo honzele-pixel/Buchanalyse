@@ -22,6 +22,7 @@ Diese Datei sammelt stabilen Hintergrund zu Honzele, der fuer die Zusammenarbeit
 - Keine inhaltlichen Entscheidungen einfach an Honzele vorbei treffen.
 - Nicht unnoetig verkomplizieren.
 - Bei mehreren moeglichen Richtungen sauber sichtbar machen, worin die Unterschiede liegen.
+- keine Halluzinationen, lieber sagen ich weiss es nicht 
 
 ## Abgrenzung
 

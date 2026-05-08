@@ -671,6 +671,295 @@
         "Historische Tiefenanalyse geopolitischer Spannungen"
       ],
       "staerke": 3
+    },
+    {
+      "von": "luders_armageddon",
+      "zu": "kant_grundlegung",
+      "themen": [
+        "Kategorischer Imperativ als Maßstab westlicher Außenpolitik"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "luders_krieg",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Nahost-Konflikt und regionale Instabilität",
+        "Rolle der USA in der Nahostpolitik",
+        "Saudi-Arabien und regionale Machtdynamiken",
+        "Israel-Politik und internationale Beziehungen",
+        "Kritik an westlicher Außenpolitik und Doppelstandards",
+        "Destabilisierung durch externe Mächte",
+        "Autoren-Perspektive: Nahost-Expertise und kritische Analyse",
+        "Zeitgenössische politische Entwicklungen (2015-2024)"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "arendt_freiheit",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Freiheit und politische Ordnung",
+        "Revolutionäre Umbruch und Neuordnung",
+        "Macht und ihre Legitimation"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Westliche Hegemonie und deren Krise",
+        "Ideologische Manipulation und Kontrolle des öffentlichen Bewusstseins",
+        "Medienmanipulation und Geschichtsumschreibung",
+        "Geopolitische Machtkämpfe und imperiale Außenpolitik",
+        "USA als globale Hegemonalmacht und deren Interventionspolitik",
+        "Konstruktion von Feindbildern und Narrativen",
+        "Nahost-Politik als Symptom westlicher Hegemonialstrategien",
+        "Kritik an westlichen Wertedeklarationen vs. realer Praxis"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Illegale Kriege und militärische Interventionen im Nahen Osten",
+        "Syrien als Kriegsschauplatz (Ganser Kap. 17, Lüders Kap. 10-11)",
+        "Jemen-Konflikt und Saudi-Arabien (Ganser Kap. 16, Lüders Kap. 9)",
+        "US-amerikanische Außenpolitik und Destabilisierung",
+        "Rolle von Großmächten in regionalen Konflikten",
+        "Verstöße gegen Völkerrecht und internationale Regelwerke",
+        "Iran als Konfliktgegenstand (Ganser Kap. 5, Lüders Kap. 3, 5, 11)",
+        "Geopolitische Machtstrukturen und Allianzpolitik"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Elitenkontrolle und Machtstrukturen",
+        "Massenmediale Manipulation und Informationskontrolle",
+        "Kriegsverbrechen und moralische Normverletzungen",
+        "Geopolitische Destabilisierung durch westliche Außenpolitik",
+        "Verborgenheit von Herrschaftsmechanismen vor der Bevölkerung",
+        "Kritik an repräsentativer Demokratie als Kontrollinstrument",
+        "USA-geführte Interventionspolitik im Nahen Osten",
+        "Neoliberale und imperiale Interessensdurchsetzung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Machtstrukturen und ihre Kontrolle",
+        "Elitenkontrolle und institutionelle Mechanismen",
+        "Geopolitische Destabilisierung und Machtverhältnisse",
+        "Kritische Analyse von Herrschaftssystemen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Naher Osten - US-amerikanische und israelische Außenpolitik",
+        "Iran - nukleare Frage und Konflikte",
+        "Saudi-Arabien - regionale Machtkämpfe und Destabilisierung",
+        "Israel - imperiale Expansion und Kriegsführung",
+        "Kritik an westlichem imperialem Größenwahn",
+        "Waffendeals und geopolitische Allianzen",
+        "Destabilisierung durch externe Mächte",
+        "Menschenrechtsverletzungen und Völkerrecht",
+        "Atomkonflikte und Sicherheitsdoktrin"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "kant_ewigen",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Internationale Beziehungen und Staatenkonflikte",
+        "Frage nach Friedenserhaltung und Kriegsprävention"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "ukraine_lange",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Westliche Außenpolitik und deren Konsequenzen",
+        "Geopolitische Destabilisierung durch Großmächte",
+        "Kritische Analyse von etablierten politischen Narrativen"
+      ],
+      "staerke": 1
+    },
+    {
+      "von": "sachs_diplomatie",
+      "zu": "luders_armageddon",
+      "themen": [
+        "US-amerikanische Außenpolitik und deren destabilisierende Auswirkungen",
+        "Neokonservative Strategien und Interventionismus",
+        "Diplomatie vs. militärische Eskalation als Lösungsansätze",
+        "Regionale Konflikte und Großmachtinteressen (Russland, Iran, Saudi-Arabien)"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "schmalz_eiszeit",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Geopolitische Spannungen und Machtverschiebungen",
+        "Kritische Analyse westlicher Außenpolitik und ihrer Folgen",
+        "Rol­le der USA in globalen Konflikten und regionalen Destabilisierungen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_krieg",
+      "zu": "luders_wind",
+      "themen": [
+        "Westliche Interventionspolitik im Nahen Osten",
+        "Israelisch-palästinensischer Konflikt und regionale Destabilisierung",
+        "Langfristige Konsequenzen westlicher Außenpolitik",
+        "Ideologische Rechtfertigung von Außenpolitik",
+        "Historische Kontinuität von Konflikten im Orient",
+        "Kritik an deutschen/westlichen Außenpolitik-Paradigmen"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "arendt_freiheit",
+      "zu": "luders_wind",
+      "themen": [
+        "Revolution und politischer Wandel",
+        "Westliche Politik und ihre Konsequenzen",
+        "Freiheit vs. Unfreiheit als politische Realität"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "mausfeld_hegemonie",
+      "zu": "luders_wind",
+      "themen": [
+        "Westliche Hegemonie und deren Krise",
+        "Ideologische Manipulation und Kontrolle des öffentlichen Bewusstseins",
+        "Westliche Interventionspolitik und deren Konsequenzen",
+        "Historische Umschreibung und Neubewertung von Ereignissen",
+        "Macht- und Geopolitische Analyse des globalen Systems",
+        "Kritik an westlichen Außenpolitik-Narrativen"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "ganser_illegale",
+      "zu": "luders_wind",
+      "themen": [
+        "Illegale/völkerrechtswidrige Interventionen des Westens",
+        "US-Außenpolitik und Imperialismus",
+        "Naher und Mittlerer Osten (Iran 1953, Irak 2003, Syrien, Jemen)",
+        "Destabilisierung durch westliche Militärinterventionen",
+        "Unerwartete Konsequenzen und Blowback-Effekte westlicher Politik",
+        "Verstoß gegen Völkerrecht und UNO-Charta",
+        "Entstehung von Terrororganisationen als Folge westlicher Politik (Al-Qaida, IS)"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_warum",
+      "zu": "luders_wind",
+      "themen": [
+        "Kritik an westlicher Außenpolitik und Interventionismus",
+        "Manipulierung der öffentlichen Meinung durch Eliten und Medien",
+        "Verdeckung von Kriegsverbrechen und moralischen Normverletzungen",
+        "Systemic Power und Kontrolle durch herrschende Klassen",
+        "Folgen ideologischer Indoktrination für Bevölkerung und Gesellschaft",
+        "Neoliberale und imperiale Machtsicherung"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "mausfeld_hybris",
+      "zu": "luders_wind",
+      "themen": [
+        "Machtstrukturen und deren Missbrauch",
+        "Westliche Außenpolitik und ihre Konsequenzen",
+        "Elitenkontrolle und demokratische Prinzipien"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_drecksarbeit",
+      "zu": "luders_wind",
+      "themen": [
+        "Westliche Interventionspolitik im Nahen Osten",
+        "US-amerikanische Außenpolitik und deren Konsequenzen",
+        "Israelische Politik und regionale Konflikte",
+        "Iranische Außenpolitik und westliche Reaktionen",
+        "Unbeabsichtigte Konsequenzen militärischer Interventionen (Blowback)",
+        "Kritik an imperialem Machtverhalten westlicher Staaten",
+        "Historische Kausalität: Ursachen gegenwärtiger Konflikte im Orient"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "kant_ewigen",
+      "zu": "luders_wind",
+      "themen": [
+        "Friedenssicherung und internationale Beziehungen",
+        "Kritik an staatlicher Außenpolitik und deren Konsequenzen",
+        "Spannungsfeld zwischen theoretischen Idealen und praktischer Realpolitik"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "ukraine_lange",
+      "zu": "luders_wind",
+      "themen": [
+        "Westliche Außenpolitik und deren Konsequenzen",
+        "Geopolitische Eskalation und Konfliktdynamiken",
+        "Kritische Analyse von Interventionspolitik und deren Langzeitfolgen"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "sachs_diplomatie",
+      "zu": "luders_wind",
+      "themen": [
+        "Westliche Außenpolitik und ihre Konsequenzen",
+        "Neokonservative Interventionspolitik und geopolitische Fehlentscheidungen",
+        "Russland-USA-Konflikt und Eskalationsdynamiken",
+        "Diplomatie vs. militärische Konfrontation",
+        "Langfristige Destabilisierung durch politische Fehlentscheidungen",
+        "Kritik an US-geführter Interventionspolitik"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "schmalz_eiszeit",
+      "zu": "luders_wind",
+      "themen": [
+        "Westliche Außenpolitik und ihre geopolitischen Konsequenzen",
+        "Kritik an westlichen Interventionen und deren unbeabsichtigte Langzeitfolgen",
+        "Sicherheitspolitische Destabilisierung von Regionen durch externe Mächte"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_armageddon",
+      "zu": "luders_wind",
+      "themen": [
+        "Westliche Interventionspolitik im Nahen Osten",
+        "Saudi-Arabien und US-amerikanische Außenpolitik",
+        "Destabilisierung und Konsequenzen westlicher Politik",
+        "Iran und regionale Konflikte",
+        "Folgen geopolitischer Fehlentscheidungen (Kausalitätskette)",
+        "Islamistischer Extremismus als Resultat westlicher Interventionen",
+        "Syrien und regionale Machtkämpfe"
+      ],
+      "staerke": 3
     }
   ]
 }

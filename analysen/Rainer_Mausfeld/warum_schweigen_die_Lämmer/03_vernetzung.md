@@ -425,3 +425,69 @@ Beide Bücher bilden eine epistemisch belastbare Einheit, weil sie verschiedene 
 **Krone-Schmalz ohne Mausfeld** bleibt in der Gefahr des Partikularen: Ihre Medienkritik ist fallbezogen und überzeugend, aber ohne theoretischen Unterbau läuft sie Gefahr, als Parteinahme für Russland missverstanden zu werden – was ihre Kritiker ihr auch vorwerfen. Mausfeld liefert den strukturellen Rahmen, der zeigt, dass dasselbe Muster – Unsichtbarmachung durch Fragmentierung, Delegitimierung von Dissens durch Denunziationsbegriffe – kein russlandspezifisches Phänomen ist, sondern ein allgemeines Funktionsprinzip des westlichen Meinungsmanagements. Krone-Schmalz' Einzelfall wird bei Mausfeld zur Instanz eines allgemeinen Gesetzes.
 
 Die produktivste Lektüreschichtung ist deshalb: **Mausfeld als theoretisches Vorbereitungsinstrument, Krone-Schmalz als Anwendungsfall**. Wer Mausfelds Kategorien internalisiert hat – Aktualindoktrination, kognitive Unsichtbarkeit, Denunziationsbegriff –, liest Krone-Schmalz nicht mehr als politischen Kommentar, sondern als strukturanalytisches Protokoll. Und wer Krone-Schmalz' konkretes Material kennt, erkennt bei Mausfeld, dass seine abstrakte Theorie nicht Spekulation, sondern Destillat aus einer rekonstruierbaren Realität ist.
+
+---
+
+## Neue Verbindung: Michael Luders – Armageddon im Orient (ergänzt 2026-05-08)
+
+### Thematische Querverbindungen
+
+Beide Bücher kreisen um dieselbe Grundoperation westlicher Machtausübung: die **systematische Unsichtbarmachung von Verantwortung**. Was Mausfeld auf der Ebene kognitiver Strukturen analysiert – die Unterscheidung zwischen *kognitiver* und *moralischer Unsichtbarkeit* von Kriegsverbrechen (S. 21–80) –, liefert Lüders als empirisches Fallmaterial: Dass 15 der 19 Attentäter vom 11. September aus Saudi-Arabien stammten, der Iran aber 2018 zu sechs Milliarden Dollar Entschädigung verurteilt wurde (Lüders, S. 95ff.), ist ein Lehrstück jener moralischen Asymmetrie, die Mausfeld theoretisch beschreibt. Das Schweigen der Leitmedien zum Jemen-Krieg – 22,2 Millionen ohne Nahrungssicherheit, bis zu 85.000 verhungerte Kinder, britische Rüstungsexporte +11.000 Prozent (Lüders, S. 162–188) – ist die exakte Entsprechung des Abu-Ghraib-Mechanismus, den Mausfeld als Paradigma moralischer Unsichtbarkeit anführt.
+
+Eine zweite Schnittstelle bildet die **Architektur verdeckter Eliteninteressen**. Mausfelds Analyse des Council on Foreign Relations und des Congress for Cultural Freedom als organisatorisches Rückgrat der Tiefenindoktrination (S. 81–111) findet in Lüders' Carlyle Group (Bush sen., Baker, Major, Carlucci, S. 58–70) ihr operatives Pendant: Hier zeigt sich nicht das diskursive, sondern das ökonomisch-militärische Geflecht derselben transatlantischen Elite. Mausfelds Kennan-Memo von 1948 – Sicherung des überproportionalen US-Ressourcenverbrauchs – wird bei Lüders durch Roosevelts Executive Order 8926 (1943) ergänzt; beide Dokumente stammen aus demselben strategischen Augenblick und benennen, was die offizielle Narration verschweigt.
+
+Drittens deckt sich das **Denunziationsvokabular**: Was Mausfeld als „Antiamerikanismus" und „Populismus" als Delegitimationsbegriffe analysiert, taucht bei Lüders als „Mullah-Regime" und „Achse des Bösen" wieder – semantische Container, die eine Auseinandersetzung mit Realpolitik ersetzen.
+
+### Argumentative Brücken
+
+Lüders' Buch bestätigt **Mausfelds These 2** (Meinungsmanagement als tragende Säule) auf einem Feld, das Mausfeld selbst nur streift: der Nahost-Berichterstattung. Das DIA-Memo vom 12.08.2012 zur gewollten salafistischen Eskalation in Syrien (Lüders, S. 191) ist genau jene Art von Primärquelle, mit der Mausfeld arbeitet – das System wird mit seinen eigenen Stimmen überführt. Lüders erweitert Mausfelds **These 3** (Neoliberalismus als Herrschaftsprojekt) um eine außenpolitische Dimension: Der Trump/Kushner/MBS-Komplex (Kushners 666 Fifth Avenue, Katar-Boykott-Timing, Adelsons Wahlkampfmillionen) zeigt, dass die „Revolution der Reichen gegen die Armen" nicht nur innergesellschaftlich operiert, sondern als Privatisierung der Außenpolitik auch zwischenstaatlich.
+
+Eine echte argumentative Brücke schlägt Lüders' Kausalformel „Ohne Putsch 1953 keine Revolution 1979" (S. 47) zu Mausfelds **These 1** (Wahloligarchie): Beide Autoren zeigen, dass demokratische Fassaden nach außen wie nach innen funktionieren – Mossadeghs gewählte Regierung wurde gestürzt, weil Demokratie auch im globalen Maßstab nur geduldet wird, solange sie Eigentumsordnungen nicht antastet.
+
+Wo sich die Argumente **ergänzen statt überschneiden**: Mausfeld liefert die strukturelle Mechanik, Lüders die geopolitische Empirie. Mausfeld erklärt, *warum* die Bevölkerung schweigt; Lüders dokumentiert, *worüber* sie schweigt. Eine **Spannung** besteht in der Erklärungstiefe: Mausfeld neigt zur strukturalistischen Ableitung (Kontinuität von Kennan 1948 bis heute als Setzung), während Lüders kontingenter argumentiert – Trumps Iran-Politik wird primär durch Privatschulden und Adelson-Geld erklärt, nicht durch Systemnotwendigkeit. Hier korrigiert Lüders Mausfelds funktionalistische Tendenz: Auch im Eliten-Apparat wirken Zufall, Inkompetenz und persönliche Geldnot.
+
+### Empfohlene Lesekombination
+
+Beide Bücher gemeinsam zu lesen heißt, **Theorie und Phänomenologie desselben Gegenstands** zu verbinden. Mausfeld liefert das begriffliche Instrumentarium – Aktualindoktrination versus Tiefenindoktrination, kognitive versus moralische Unsichtbarkeit, Hard Power versus Soft Power –, ohne das Lüders' Materialfülle in journalistischer Anekdotik zerfallen würde. Umgekehrt verleiht Lüders Mausfelds abstrakter Strukturanalyse jene konkrete Anschauung, die theoretischer Ideologiekritik oft fehlt: Man versteht erst nach der Lektüre der Jemen- und Syrien-Kapitel, wie die von Mausfeld beschriebenen Mechanismen *aktuell* operieren, mit welchen Toten, welchen Verträgen, welchen Bankkonten.
+
+Mausfeld leistet, was Lüders nicht leisten kann: die **psychologisch-politische Tiefenanalyse** der Frage, warum ein aufgeklärtes Publikum Daten zur Kenntnis nimmt, ohne in Bewegung zu geraten. Seine Ausarbeitung der Lippmann-Dewey-Kontroverse und der Folter-Frage als Prüfstein des Rechtsstaates hat eine philosophische Dichte, die im Reportage-Genre nicht erreichbar wäre.
+
+Lüders leistet, was Mausfeld nicht leisten kann: die **regional-historische Detailrekonstruktion** eines konkreten geopolitischen Komplexes. Der Pakt von Diriya, das Sykes-Picot-Abkommen, das Mossadegh-Trauma, die Carlyle-Verflechtungen, das Kushner-Timing – diese empirische Granularität ist Mausfelds Sache nicht und wäre in seinem analytischen Register auch fehl am Platz.
+
+Die produktivste Reihenfolge: erst Mausfeld, dann Lüders. Wer Mausfelds Kategorien internalisiert hat, liest Lüders nicht mehr als Nahost-Reportage, sondern als **Fallstudie zur Pathologie der Wahloligarchie unter realen geopolitischen Bedingungen**. Umgekehrt wirkt Lüders rückwirkend als empirisches Validierungsverfahren für Mausfelds theoretische Behauptungen – eine Bestätigung, die der strukturalistischen Demokratiekritik die Abstraktheit nimmt, ohne ihre Schärfe zu mildern.
+
+---
+
+## Neue Verbindung: Michael Luders – Wer den Wind sät (ergänzt 2026-05-08)
+
+### Thematische Querverbindungen
+
+Beide Bücher kreisen um den Mechanismus, mit dem westliche Gewaltpolitik vor ihrem eigenen Publikum unsichtbar gemacht wird – Mausfeld liefert die theoretische Anatomie, Lüders das empirische Operationsfeld. Drei thematische Achsen verbinden die Werke besonders eng:
+
+**Erstens die Unsichtbarmachung von Kriegsverbrechen.** Mausfelds zentrales Begriffspaar – *kognitive* und *moralische Unsichtbarkeit* (S. 21–80) – findet in Lüders' Material seine konkrete Bestätigung. Madeleine Albrights berüchtigtes Diktum, die 500.000 toten irakischen Kinder seien „den Preis wert" (Lüders S. 46), ist genau jener Fall, den Mausfeld am Beispiel Abu Ghraib theoretisch durchleuchtet: Die Fakten liegen offen, erzeugen aber kein gesellschaftliches Unbehagen, weil sie nicht in Sinnzusammenhänge gestellt werden. Lüders' Beobachtung, dass die zwei Millionen toten Iraker seit 1990 im westlichen Bewusstsein keine moralische Resonanz haben, ist die empirische Probe auf Mausfelds These vom verwalteten Empörungspotenzial.
+
+**Zweitens die Dichotomie von „guten" und „bösen" Akteuren als Herrschaftstechnik.** Was Mausfeld als *Fragmentierung, Dekontextualisierung und Rekontextualisierung* (S. 21–80) beschreibt, demonstriert Lüders an der westlichen Unterscheidung zwischen „guten" und „bösen" Dschihadisten (S. 58–110) sowie an der seriellen Hitler-Analogie (Mossadegh → Nasser → Saddam → Assad → Putin). Beide Autoren identifizieren denselben Vorgang: das systematische Lostrennen einzelner Episoden aus ihrem Ursachenzusammenhang, um sie für eine moralisch eindeutige Gegenwartserzählung verfügbar zu machen.
+
+**Drittens die Realpolitik hinter der Werterhetorik.** Mausfelds Kennan-Memo von 1948 (S. 85) – die nüchterne interne Begründung amerikanischer Außenpolitik mit der Sicherung des überproportionalen Ressourcenverbrauchs – findet bei Lüders seine Fortsetzung im CNN-Befund vom 13. April 2003, „Big Oil" sei der Gewinner des Irakkriegs (S. 52), und in der von Brzezinski offen eingestandenen Provokation der sowjetischen Afghanistan-Intervention (S. 26). Die strukturelle Kontinuität, die Mausfeld behauptet, aber argumentativ kaum durchdekliniert, wird bei Lüders über sieben Jahrzehnte konkret nachgezeichnet.
+
+### Argumentative Brücken
+
+Lüders' Buch funktioniert für Mausfelds Theoriegebäude wie ein **empirischer Belastungstest** – und es besteht ihn in den meisten, nicht in allen Punkten.
+
+**Bestätigt** wird vor allem Mausfelds These 4 (Aktual- und Tiefenindoktrination ersetzen Zwang). Lüders zeigt, dass die regelmäßige Hitler-Analogie und die Einteilung in „gute" und „böse" Konfliktparteien keine journalistischen Einzelfehler sind, sondern eine über Jahrzehnte stabile Wahrnehmungsschablone. Damit liefert er das Material, das Mausfelds eher abstrakte Behauptung tragfähig macht: Tiefenindoktrination ist nicht nachweisbar als Ideologie, sondern als wiederkehrendes Deutungsmuster über alle Konfliktanlässe hinweg.
+
+**Erweitert** wird Mausfelds These 1 (Wahloligarchie) durch Lüders' aussenpolitische Beobachtungen. Während Mausfeld die antidemokratische Substanz westlicher „Demokratie" innenpolitisch herleitet, demonstriert Lüders ihre außenpolitische Komplementärfigur: Demokratie wird exportiert oder annulliert je nach Genehmigkeit des Wahlergebnisses (FIS Algerien 1992, Hamas 2006, Mursi 2013 – S. 117–124). Die Wahloligarchie der Zentren stützt sich auf eine **Anti-Demokratie-Praxis an der Peripherie**; das ist eine Pointe, die Mausfelds Analyse strukturell ergänzt.
+
+**Bestätigt und zugleich verschärft** wird Mausfelds These 3 (Neoliberalismus als Herrschaftsprojekt). Lüders' Schilderung der Privatisierung der irakischen Ölvorkommen unter Bremer (S. 53–55) und der Einführung neoliberaler Strukturreformen unter Bajonetten ist die außenpolitische Variante dessen, was Mausfeld am Beispiel Chiles und Griechenlands intern beschreibt: der Griff zur Gewalt, sobald die sanfte Indoktrination versagt. Die „Revolution der Reichen gegen die Armen" hat bei Lüders ein imperiales Komplement.
+
+**Reibung** entsteht punktuell beim ideologischen Fundament. Mausfelds strukturalistisch-humanistische Position behandelt Akteure als weitgehend austauschbar in vorgegebenen Strukturen; Lüders dagegen arbeitet mit individueller Schuldzurechnung – Brzezinski, Wolfowitz, Bremer, Albright sind benannte Verantwortliche. Wo Mausfeld die These vertritt, *es brauche keine Verschwörung*, weil das System sich selbst reproduziere, dokumentiert Lüders durchaus geplante, namentlich zurechenbare Eingriffe (CIA/MI-6 Operation TPAJAX). Hier widersprechen sich die Bücher nicht, aber sie balancieren die Frage *Struktur versus Akteur* unterschiedlich aus – ein produktiver Spannungsbogen für den kritischen Leser.
+
+### Empfohlene Lesekombination
+
+Wer beide Bücher gemeinsam liest, gewinnt etwas, das jedes Werk für sich nicht leisten kann: die Verbindung von **Strukturanalyse und Fallhistorie**. Mausfeld erklärt, *warum* die Bevölkerung schweigt; Lüders dokumentiert, *worüber* sie schweigt. Ohne Mausfeld bliebe Lüders' Empörung ein Katalog skandalöser Einzelereignisse, deren systemische Wiederholbarkeit unklar bleibt; ohne Lüders bliebe Mausfelds Theorie eine elegante Architektur ohne genügend gefüllte Räume.
+
+Mausfeld leistet, was Lüders nicht kann: eine **kognitionspsychologisch und ideengeschichtlich fundierte Theorie** der Meinungsmanipulation, die von Lippmann über Bernays bis zur Gegenwart reicht und das Schweigen der Mehrheit als Resultat planvoller Bewusstseinsarchitektur erklärt. Er liefert das Begriffsinstrumentarium – Aktual-/Tiefenindoktrination, kognitive/moralische Unsichtbarkeit, Soft Power, Empörungsmanagement –, mit dem die Lüders'schen Befunde überhaupt erst eingeordnet werden können.
+
+Lüders leistet umgekehrt, was Mausfeld nicht kann: die **konkrete regionale Tiefenkenntnis** eines Islamwissenschaftlers, der die Genealogie Wahhabismus → Mudschahedin → Al-Qaida → IS nicht behauptet, sondern philologisch und historisch herleitet. Wo Mausfeld auf die Kennan-Memo verweist und auf strukturelle Kontinuität setzt, liefert Lüders die siebzigjährige Beweiskette dafür, dass diese Kontinuität tatsächlich existiert.
+
+Die ideale Reihenfolge wäre: Lüders zuerst, um den moralischen Schock der konkreten Faktenlage zu erleben – und Mausfeld danach, um zu verstehen, warum dieser Schock im öffentlichen Bewusstsein systematisch ausbleibt. Gemeinsam ergeben beide Bücher ein **vollständiges Diagnoseinstrument**: Lüders zeigt die Wunden, Mausfeld die Anästhesie, mit der sie betäubt werden.
