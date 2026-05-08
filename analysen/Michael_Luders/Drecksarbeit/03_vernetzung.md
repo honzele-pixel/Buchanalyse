@@ -440,3 +440,23 @@ Beide Bücher teilen ein dichtes Netz wiederkehrender Schlüsselereignisse, das 
 ### Empfohlene Lesekombination
 
 Beide Bücher bilden ein zusammengehöriges Diptychon, das nur gemeinsam seine volle analytische Kraft entfaltet. *Wer den Wind sät* leistet, was *Drecksarbeit* nicht mehr leisten kann: die **panoramische Genealogie** des gesamten Krisenbogens von Algerien bis Pakistan, die ruhige Rekonstruktion der Kausalketten von 1953 über 1979, 1990, 2003, 2011 bis 2014. Es ist das Grundlagenwerk, das den Leser mit dem historischen Repertoire ausstattet, ohne das die spätere Argumentation in der Luft hinge. *Drecksarbeit* hingegen leistet, was das frühere Buch nicht leisten konnte: die **Anwendung der Blowback-Methode auf die Eskalation 2024/25** – Iran-Krieg, „Operation Rising Lion", „Operation Mitternachtshammer", Gaza-Genozid-Debatte, deutsche Komplizenschaft. Es ist das Aktualisierungswerk, das die strukturanalytischen Befunde von 2015 in die Zuspitzung der Gegenwart übersetzt. Methodisch fungiert *Wer den Wind sät* als breite, fast lehrbuchhafte Einführung in Lüders' Denkbewegung, während *Drecksarbeit* als zugespitzte Streitschrift mit moralischem Grundton operiert. Wer nur das spätere Buch liest, erlebt den Zorn ohne den vollen historischen Unterbau; wer nur das frühere liest, sieht die Diagnose ohne die jüngste Bestätigung. In Kombination ergibt sich ein **Längsschnitt von zehn Jahren konsistenter Außenpolitikkritik** – ein seltener Glücksfall, weil sich an dieser Doppelung empirisch prüfen lässt, ob die anti-interventionistische These von 2015 durch die Ereignisse von 2025 gedeckt oder dementiert wurde. Lüders' Antwort ist eindeutig; die Lesekombination erlaubt es Honzele, sie selbst zu prüfen.
+
+---
+
+## Neue Verbindung: Michael Luders – Die den Sturm ernten (ergänzt 2026-05-08)
+
+### Thematische Querverbindungen
+
+*Die den Sturm ernten* (2017) und *Drecksarbeit* (2025) klammern dasselbe regionale Konfliktfeld von zwei Zeitpunkten aus: Syrien als Eskalationszentrum (2011–2017) und der breitere Krisenbogen als Eskalationshöhepunkt (2024/25). Das Scharnier zwischen beiden Büchern ist die **Iran-Frage**: In *Die den Sturm ernten* taucht der Iran als regionaler Machtakteur im syrischen Stellvertreterkonflikt auf – er stützt Assad, weil Syrien die Landverbindung zur Hisbollah sichert; in *Drecksarbeit* ist der Iran zum Hauptgegenstand westlicher Feindbildkonstruktion geworden, der mit denselben rhetorischen Mitteln dämonisiert wird wie zuvor Assad.
+
+Beide Bücher teilen die **Sanktionskritik als analytische Kernkategorie**: *Die den Sturm ernten* zeigt, wie Sanktionen gegen Syrien die Zivilbevölkerung treffen, aber das Regime stabilisieren, weil die internationale Isolation Oppositionskoalitionen zerstört; *Drecksarbeit* führt denselben Mechanismus für den Iran durch. Die Struktur des Argumentes – Sanktionen als moralische Selbsttäuschung, die reale Leiden erzeugt ohne politische Ziele zu erreichen – ist in beiden Büchern identisch.
+
+Schließlich behandeln beide Bücher den **IS als westliches Blowback-Produkt**: *Die den Sturm ernten* dokumentiert die Entstehung des IS aus westlicher Waffenlieferung, türkischer Grenzöffnung und saudischer Finanzierung; *Drecksarbeit* verwendet dieselbe Genealogie als Hintergrundfolie für die Frage, warum der Westen aus dieser Erfahrung keine Lehren gezogen hat.
+
+### Argumentative Brücken
+
+*Die den Sturm ernten* liefert das **syrische Vorkapitel** zu *Drecksarbeit*: Die Verschiebung der regionalen Machtbalance durch den syrischen Krieg (iranischer Einflussgewinn, Hisbollah-Stärkung, türkische Expansion) ist der unmittelbare Kontext, in dem die Iran-Eskalation von *Drecksarbeit* verständlich wird. Wer nur *Drecksarbeit* liest, erfährt den Iran als isolierten Konflikt; wer *Die den Sturm ernten* kennt, sieht ihn als Konsequenz einer regionalen Logik, die Syrien erzeugte.
+
+### Empfohlene Lesekombination
+
+*Die den Sturm ernten* → *Drecksarbeit*: chronologisch zwingend. Das frühere Buch liefert die syrische Vorgeschichte und den IS als regionalen Akteur; das spätere zieht die Konsequenz für den Iran und die deutschen Waffenlieferungen. Zusammen ergibt sich eine lückenlose Blowback-Kette von 2011 bis 2025.

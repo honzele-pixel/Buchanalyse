@@ -273,3 +273,27 @@ Beide Bücher teilen einen identischen Grundstock historischer Schlüsselereigni
 ### Empfohlene Lesekombination
 
 Wer Lüders' Nahost-Diagnose vollständig erfassen will, kommt um die parallele Lektüre nicht herum, weil beide Bücher **methodisch verschieden operieren**. *Wer den Wind sät* ist die **kausal-kumulative Chronik** – ein chronologisch fortschreitendes Tableau von 1953 bis zum IS, das den Leser in die Tiefenzeit der Region zwingt und dabei das Grundvokabular liefert: Sündenfall, Stellvertreterkrieg, gute und böse Dschihadisten, Wind und Sturm. Es leistet, was *Armageddon im Orient* nicht mehr leisten muss: die elementare historische Pädagogik. *Armageddon im Orient* hingegen ist die **strukturanalytische Fokussierung** – kein Rundgang mehr durch die Region, sondern eine Tiefenbohrung an der entscheidenden Stelle: dem saudisch-amerikanischen Sonderverhältnis und seiner Trump-Kushner-MBS-Aktualisierung. Hier liefert Lüders das forensische Material – Carlyle Group, BCCI, Adelson-Geld, 110-Mrd.-Dollar-Rüstungsdeal von Mai 2017 –, das den älteren Band in seiner These radikalisiert: Es geht nicht mehr um einzelne westliche Fehlentscheidungen, sondern um eine kohärente, jahrzehntelang stabile Interessenstruktur. Wer nur *Wer den Wind sät* liest, versteht die historische Entstehung des Krisenbogens; wer nur *Armageddon im Orient* liest, hat die Strukturthese, aber nicht die genealogische Kette. Erst beide zusammen ergeben Lüders' vollständiges Argument: dass der Nahe Osten weder am Islam noch an inneren Pathologien zerbricht, sondern an einer historisch sedimentierten Verflechtung westlicher Hegemonie- und saudischer Klientelinteressen, die sich seit 1943 reproduziert und in der Trump-Ära ihre offenste Gestalt angenommen hat.
+
+---
+
+## Neue Verbindung: Michael Luders – Die den Sturm ernten (ergänzt 2026-05-08)
+
+### Thematische Querverbindungen
+
+*Die den Sturm ernten* (2017) ist das direkte Vorläuferwerk von *Armageddon im Orient* (2019) – das Mittelstück der Lüders-Nahost-Trilogie. Lüders zitiert den Titel des mittleren Bandes explizit im späteren Buch: „Teheran hat verstanden zu ernten, was andere gesät haben" (S. 89) – die Trilogie als geplantes argumentatives Kontinuum tritt damit offen zutage.
+
+Das Zentralthema von *Die den Sturm ernten* ist der **Syrienkrieg als westlich ko-produzierter Destabilisierungskonflikt** (2011–2017). Exakt diese Analyse wird in *Armageddon im Orient* aufgegriffen und durch das DIA-Memo vom 12. August 2012 als dokumentarischen Schlüsselbeleg verschärft (S. 191): Die USA wussten, dass die Unterstützung der „gemäßigten Opposition" eine salafistische Eskalation förderte. Was *Die den Sturm ernten* als deskriptive Kriegsanalyse entfaltet, verdichtet *Armageddon im Orient* zur dokumentierten Systemthese.
+
+Beide Bücher teilen die **Sunniten-Schiiten-Achse als geopolitisches Betriebssystem**: *Die den Sturm ernten* entfaltet den internen Konfessionskonflikt im syrischen Kontext; *Armageddon im Orient* zieht die Linie zurück zum saudisch-amerikanischen Pakt von Quincy 1945 und zeigt, wie die Spaltung als westliches Steuerungsinstrument gegen den Iran eingesetzt wird. Das mittlere Buch liefert die Fallstudie, das spätere die Strukturtheorie.
+
+Schließlich verbinden beide Bücher die **Kritik an Sanktionspolitik als moralische Selbsttäuschung**: *Die den Sturm ernten* zeigt, wie Sanktionen gegen Syrien die Zivilbevölkerung treffen, aber das Regime stabilisieren; *Armageddon im Orient* führt dasselbe Argument für den Iran durch.
+
+### Argumentative Brücken
+
+*Die den Sturm ernten* leistet für *Armageddon im Orient*, was *Wer den Wind sät* für *Die den Sturm ernten* leistet: die **empirische Fallstudie**, auf der der nachfolgende Band seine Strukturthese errichtet. Die Blowback-Logik wird im mittleren Band am syrischen Bürgerkrieg konkretisiert und im späteren als universelles Prinzip der gesamten Nahostpolitik kanonisiert.
+
+Der **Iran** ist der entscheidende Unterschied: In *Die den Sturm ernten* erscheint er als regionaler Akteur im syrischen Stellvertreterkrieg; in *Armageddon im Orient* wird er zum Hauptgegenstand einer Untersuchung, die zeigt, wie die anti-iranische Rhetorik des Westens die eigentliche strukturelle Destabilisierungsmacht – Saudi-Arabien – systematisch aus dem Blickfeld rückt. Wer *Die den Sturm ernten* nicht kennt, liest Armageddons Iran-These als isolierte These; wer es kennt, liest sie als Schlussfolgerung aus der syrischen Fallstudie.
+
+### Empfohlene Lesekombination
+
+Die Trilogie-Logik schreibt die Lesereihenfolge vor: *Wer den Wind sät* → *Die den Sturm ernten* → *Armageddon im Orient*. Das mittlere Buch ist nicht optional – es ist das empirische Bindeglied zwischen dem historischen Panorama des ersten und der Systemanalyse des dritten Bandes. Wer es überspringt, verliert das syrische Konkretum, das Armageddons Iran-Strukturthese erst vollständig trägt.

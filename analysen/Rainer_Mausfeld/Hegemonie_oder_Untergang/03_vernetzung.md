@@ -439,3 +439,23 @@ Die gemeinsame Lektüre beider Bücher ist deshalb lohnend, weil sie die zwei H�
 **Mausfeld leistet, was Lüders nicht kann:** die theoretische Generalisierung der Einzelbefunde zu einem ideologiekritischen System. Seine Begriffe – Pseudorealität, hermetisches ideologisches Gewölbe, Endspielmodus, parasitäre Lebensform – stellen Werkzeuge bereit, mit denen man Lüders' Material *zweimal* lesen kann: einmal als Ereignisgeschichte, einmal als Symptomatik einer Herrschaftsform. Mausfelds Kapitel 4 fungiert dabei gleichsam als Lesebrille, die Lüders' Detailbefunde in ein erklärendes Raster überführt.
 
 Empfehlenswert ist die Reihenfolge **Lüders zuerst, Mausfeld danach**: Lüders erzeugt die kognitive Erschütterung durch konkrete Fakten – der Mossadegh-Putsch, die Albright-Aussage, die deutsche Korvetten-Subvention –, Mausfeld liefert anschließend das theoretische Gerüst, das diese Erschütterung in eine systemische Erkenntnis überführt, statt sie zu moralischer Empörung verkümmern zu lassen. Wer beide Bücher in dieser Sequenz liest, kommt nicht mehr umhin, westliche Außenpolitik als das zu sehen, was sie laut beider Autoren ist: nicht eine Reihe bedauerlicher Einzelfehler, sondern eine kohärente, ideologisch abgesicherte Praxis im Dienst struktureller Interessen.
+
+---
+
+## Neue Verbindung: Michael Luders – Die den Sturm ernten (ergänzt 2026-05-08)
+
+### Thematische Querverbindungen
+
+*Die den Sturm ernten* (2017) ist für *Hegemonie oder Untergang* das, was ein Einzelfall für eine Systemtheorie ist: die **präziseste empirische Fallstudie** im Archiv zu Mausfelds zentraler These, dass das ideologische Gewölbe des Westens systematisch verhindert, dass die Bevölkerung die wahren Ursachen von Konflikten erkennt.
+
+Die stärkste Verbindung liegt in der **IS-These**: Mausfeld behauptet strukturell, dass westliche Machtpolitik ihre eigenen Feinde produziert, weil die Herrschaftslogik des Kapitals externe Destabilisierung systematisch generiert. Lüders dokumentiert für den IS genau diesen Mechanismus: CIA-Waffenlieferungen an die „gemäßigte Opposition", türkische Grenzöffnung, saudische Finanzierung, westliche Toleranz gegenüber IS-Ölexporten – all das ist bei Lüders belegbar, und all das ist exakt das, was Mausfelds ideologisches Gewölbe in der öffentlichen Wahrnehmung unsichtbar machen muss.
+
+Ein zweites gemeinsames Terrain ist die **Kriegserzählungskritik**: Mausfeld analysiert, wie Kriege durch konstruierte Feindbilder und moralische Rahmungen legitimiert werden; Lüders zeigt konkret, wie die Assad-Hitler-Vergleiche und die Chemiewaffen-Narrative genau diese Rahmungsstrategie umsetzten, bevor Untersuchungen abgeschlossen waren. Beide Bücher kommen zur gleichen Schlussfolgerung: Sprache ist kein neutrales Medium der Beschreibung, sondern ein Herrschaftsinstrument.
+
+### Argumentative Brücken
+
+Mausfelds Theorie **erklärt**, warum Lüders' Befunde in der Öffentlichkeit so wenig ankommen: Das ideologische Gewölbe, das Mausfeld als strukturelles Phänomen analysiert, ist genau der Mechanismus, der verhindert, dass die syrischen Interventionsfakten bei Lüders als das wahrgenommen werden, was sie sind. Lüders liefert umgekehrt den **empirischen Spiegel**, in dem Mausfelds abstrakte Theorie ihr konkretes Gesicht bekommt: Hier sind die Lügen, hier sind die Täter, hier ist das Schweigen der Medien – und Mausfeld erklärt, warum das so strukturell stabil möglich war.
+
+### Empfohlene Lesekombination
+
+Mausfeld zuerst (Systemtheorie), dann Lüders' *Die den Sturm ernten* (Fallstudie): Wer Mausfelds Kategorien – ideologisches Gewölbe, Pseudorealität, hergestellte Unsichtbarkeit – verinnerlicht hat, liest Lüders' Syrien-Analyse als lebendiges Lehrstück, das jeden Schritt von Mausfelds Theorie empirisch ausfüllt.

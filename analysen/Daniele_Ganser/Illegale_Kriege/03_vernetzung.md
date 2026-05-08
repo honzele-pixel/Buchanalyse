@@ -491,3 +491,29 @@ Beide Bücher gemeinsam zu lesen heißt, **zwei unterschiedliche Erkenntnisappar
 Was **Ganser leistet, Lüders aber nicht kann**: die globale Vergleichbarkeit. Ganser stellt Vietnam, Nicaragua, Serbien, Libyen und Jemen in eine analytische Reihe und macht damit das *System* sichtbar, das einzelnen Regionalstudien notwendig entgeht. Was **Lüders leistet, Ganser aber nicht kann**: die kulturhistorische und ideengeschichtliche Tiefe – die Genese des Wahhabismus, die Stammes- und Clanstrukturen Syriens, die ägyptische Sisi-Pathologie, die israelische Ethnokratie-Drift. Lüders' methodische Signatur, *westliche Akteure gegen sich selbst sprechen zu lassen* (Brzezinski, Albright, Weisglass), ergänzt Gansers dekassifizierte Dokumentenlast um ein rhetorisch-immunisierendes Element.
 
 Die ideale Lesereihenfolge ist **Lüders zuerst, Ganser danach**: Lüders sensibilisiert für die historische Tiefe einzelner Regionen, Ganser ordnet diese Tiefen in das globale Muster ein. Wer beide Bücher liest, verlässt sie nicht mit der Frage, *ob* westliche Politik im Nahen Osten gescheitert ist, sondern mit der schärferen Frage, *warum* dieses Scheitern ein strukturell wiederholbares ist – und wer von ihm profitiert.
+
+---
+
+## Neue Verbindung: Michael Luders – Die den Sturm ernten (ergänzt 2026-05-08)
+
+### Thematische Querverbindungen
+
+*Die den Sturm ernten* (2017) ist das spezifischste Buch im Archiv zu dem Konflikt, dem Gansers umfangreichstes Einzelkapitel gilt: dem **Syrienkrieg**. Gansers Kapitel 17 (S. 295–339) und Lüders' gesamtes Buch analysieren dieselben Ereignisse – aber mit charakteristisch verschiedenen Instrumenten.
+
+Die stärkste Quellen-Konvergenz zeigt sich beim **DIA-Memo vom 12. August 2012**: Ganser zitiert dieses freigegebene Dokument als Beleg dafür, dass westliche Geheimdienste die IS-Entstehung als strategische Gegenoption gegen Assad antizipierten; Lüders legt dasselbe Memo als Kernstück seiner Analyse zugrunde (Kap. 5) und zeigt, wie der Westen salafistische Eskalation kalkuliert in Kauf nahm. Beide gelangen zur gleichen Schlussfolgerung: Der IS ist kein islamisches Phänomen, sondern ein politisches Blowback-Produkt.
+
+Eng verwandt ist auch die **Katar-Pipeline-These**: Ganser identifiziert die geplante Erdgasleitung von Katar über syrisches Territorium nach Europa als zentrales wirtschaftsgeopolitisches Motiv für den Regime-Change-Versuch (S. 303–307). Lüders analysiert dasselbe Motiv (Kap. 3) und zeigt, wie die saudisch-katarische Rivalität um Exportrouten die konfessionelle Kriegslogik instrumentalisiert. Beide rekonstruieren den Syrienkrieg als **Ressourcenkonflikt im islamistischen Gewand**.
+
+Drittes gemeinsames Terrain ist die **Medienkritik**: Gansers Diagnose, dass Kriege als „Bürgerkrieg" oder „Terrorbekämpfung" gerahmt werden, um die westliche Mitverantwortung zu verschleiern, findet ihr konkretes Äquivalent in Lüders' Analyse der Assad-Hitler-Vergleiche und der selektiven Berichterstattung über Chemiewaffenanschläge, bei denen die Täterschaft systematisch vorgefasst wurde, bevor Untersuchungen vorlagen.
+
+### Argumentative Brücken
+
+Gansers **Blowback-These** – dass westliche Interventionen strukturell die Phänomene erzeugen, die sie später bekämpfen – erhält durch *Die den Sturm ernten* ihre präziseste Fallstudie im Archiv. Lüders zeigt für den IS den genauen Mechanismus: CIA-Waffenlieferungen, türkische Grenzöffnung, saudische Finanzierung, US-Toleranz gegenüber IS-Ölverkäufen. Was Ganser als historisches Muster über sieben Jahrzehnte dokumentiert, liefert Lüders als zeitgenössische Detailrekonstruktion.
+
+Gansers **Vetomachts-Argument** – die UNO ist als Kontrollinstanz strukturell gelähmt, sobald USA oder ihre Verbündeten die Täter sind – wird durch Lüders' Analyse des UN-Sicherheitsrats in der Syrienfrage bestätigt: Russland und China blockierten westliche Resolutionen, der Westen blockierte russische Gegenresolutionen. Die institutionelle Symmetrie des Scheiterns, die Ganser als systemisch beschreibt, zeigt Lüders im konkreten Abstimmungsgeschehen.
+
+Ein produktiver **Unterschied** liegt in der Tiefendimension: Ganser behandelt Syrien im Weitwinkel des 13-Konflikte-Tribunals – die innere Logik des syrischen Bürgerkriegs, die Stammesstrukturen, die Alaviten-Sunniten-Dynamik, die Rolle des Militärs als Assad-Stütze, bleiben im Hintergrund. Lüders operiert im Teleobjektiv und macht genau diese kulturhistorische Tiefenstruktur sichtbar. Wer beide Bücher kennt, versteht Syrien als gleichzeitig systemisches Muster *und* singuläre historische Konstellation.
+
+### Empfohlene Lesekombination
+
+Für Syrien als Einzelfall ist *Die den Sturm ernten* das dichtere, genauere Buch. Gansers Stärke liegt in der Einbettung: Erst wer *Illegale Kriege* gelesen hat, sieht, dass der Syrienkonflikt kein Ausnahmefall ist, sondern das aktuelle Kapitel einer sehr langen Geschichte – von Guatemala 1954 bis Libyen 2011 läuft dasselbe Grundmuster. Die ideale Lesereihenfolge für Syrien-Interessierte: Ganser zuerst (für das Muster), dann Lüders (für den Fall). Für den Systemüberblick: Ganser allein genügt; für das tiefere Verständnis eines einzelnen Konflikts ersetzt Lüders Ganser nicht, sondern vertieft ihn.

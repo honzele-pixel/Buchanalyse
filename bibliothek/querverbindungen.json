@@ -960,6 +960,150 @@
         "Syrien und regionale Machtkämpfe"
       ],
       "staerke": 3
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "luders_wind",
+      "themen": [
+        "Nahost-Trilogie: Scharnier zwischen Genealogie (1953→IS) und Saudi-Connection",
+        "Blowback: Westliche Interventionen erzeugen die Feinde, die sie bekämpfen",
+        "Syrien als Fallstudie der in Wer den Wind sät entwickelten These",
+        "Schiiten-Sunniten-Konflikt als geopolitisches Betriebssystem",
+        "Dschihadismus als westlich-saudisches Produkt (CIA → Mudschahedin → IS → Nusra)"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "luders_armageddon",
+      "themen": [
+        "Nahost-Trilogie: Syrien-Analyse als Grundlage für Saudi-Connection-These",
+        "Schiiten-Sunniten-Konflikt: von Aleppo (Sturm) bis Sanaa (Armageddon)",
+        "Armageddon zitiert direkt: 'Teheran verstand zu ernten, was andere zuvor gesät hatten'",
+        "Saudi-Wahhabismus als Destabilisierungsfaktor – Stufe 1 (Syrien) und Stufe 2 (Iran)",
+        "DIA-Memo 12.08.2012: strategische Dschihadisierung als Wissen, nicht Versehen"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "ganser_illegale",
+      "themen": [
+        "Syrien als Fallstudie: Lüders historisch-genetisch, Ganser juristisch-völkerrechtlich",
+        "Blowback-Mechanismus durch westliche Stellvertreteroperationen belegt",
+        "Qatari-Pipeline-Hypothese als materielles Interessenmotiv (paralleler Befund)",
+        "CIA-Putsch Syrien 1949 (TAPLINE) als Kausalknoten",
+        "Sanktionen als Machtinstrument ohne humanitären Effekt"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "luders_krieg",
+      "themen": [
+        "Strukturelle Identität: Blowback-Logik auf Gaza/Israel (Krieg) vs. Syrien (Sturm)",
+        "Hamas als Produkt israelischer Strategie = IS als Produkt westlicher Interventionen",
+        "Sanktionen als Werkzeug ohne humanitäre Wirkung – von Syrien auf Gaza übertragen",
+        "Binäre Medienlogik: Opposition=gut in Syrien / Hamas=böse in Gaza – dieselbe Konstruktion"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "luders_drecksarbeit",
+      "themen": [
+        "Blowback-Kette: Syrien-Dschihadismus (Sturm) → Iranisches Engagement → US-Bombardierung 2025 (Drecksarbeit)",
+        "Sanktionen als moralische Selbsttäuschung: Syrien (Sturm) und Gaza (Drecksarbeit)",
+        "Stellvertreterlogik verlängert: syrischer Bürgerkrieg → Iran-Krieg 2025",
+        "Geopolitik schlägt Moral: identische These, neue Eskalationsstufe"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "mausfeld_hegemonie",
+      "themen": [
+        "Lüders' Syrien-Analyse als dichtester empirischer Beweis für Mausfelds Theorie des parasitären Westens",
+        "Kriegserzählungen (These 4) = Mausfelds 'Pseudorealität' in Praxis",
+        "Sanktionspolitik: Einzelfall (Lüders) und Globalstatistik 27 Mio. Tote (Mausfeld)",
+        "Demokratierhetorik als Legitimationsfolie: Lüders empirisch, Mausfeld strukturell"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "mausfeld_warum",
+      "themen": [
+        "Kriegserzählungen als Machtwerkzeug (Lüders These 4) = Meinungsmanagement (Mausfeld)",
+        "Konstruierter Giftgas-Diskurs: Phänomen (Lüders) und Mechanismus (Mausfeld)",
+        "Binäre Medienlogik Assad=böse/Opposition=gut: kognitive Unsichtbarkeit nach Mausfeld",
+        "Empörung als Steuerungsgut: 'Ich empöre mich, also sind wir' (Lüders S. 160)"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "mausfeld_hybris",
+      "themen": [
+        "Hybris westlicher Interventionspolitik in Syrien → Nemesis durch IS und Flüchtlingswelle",
+        "Blowback als empirische Form des griechischen Nemesis-Prinzips",
+        "Westliche Überheblichkeit: Regime-Change durch Stellvertreter als Hybris-Moment"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "sachs_diplomatie",
+      "themen": [
+        "Blowback-Mechanismus: Nahost (Lüders) und Ukraine (Sachs) – gleiche Logik, zwei Schauplätze",
+        "Geopolitik schlägt Moral: Kissinger-Zitat (Lüders) = Wolfowitz-Doktrin (Sachs)",
+        "Diplomatie vs. Eskalation: Lüders für Nahost-Diplomatie, Sachs für Ukraine-Diplomatie",
+        "Syrienkonflikt in Sachs' Katastrophenkette: 'Serbien, Afghanistan, Irak, Syrien, Libyen, Ukraine'"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "kant_ewigen",
+      "themen": [
+        "Präliminarartikel 5 (Verbot der Einmischung in fremde Staatsverfassungen) – systematisch verletzt",
+        "CIA-Putsch Syrien 1949, westliche FSA-Finanzierung, Türkei-Saudi-Dschihadisten-Transfer",
+        "Lüders als impliziter Kantianer mit nahöstlicher Aktenlage",
+        "Ehrlose Kriegsmittel (Art. 6): Giftgas-Instrumentalisierung als Prätext"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "arendt_freiheit",
+      "themen": [
+        "Arabischer Frühling Syrien 2011: Befreiung von Assad versprochen – Freiheit nie eingelöst",
+        "Institutionelles Vakuum ermöglicht IS und Nusra-Front – Arendts Strukturargument bestätigt",
+        "Soziale Frage (Dürre, Wirtschaftskrise) überwältigte politische Freiheitsversprechen",
+        "Arendts Kategorien erklären, warum die syrische Opposition scheiterte"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "schmalz_eiszeit",
+      "themen": [
+        "Medienparallelstruktur: binäre Logik Syrien (Lüders) und Russland (Krone-Schmalz)",
+        "Feindbildkonstruktion durch Weglassen: gleicher Mechanismus in verschiedenen Konflikten",
+        "Westliche Arroganz ignoriert Sicherheitsinteressen anderer Akteure – Syrien und Russland",
+        "Sanktionskritik als gemeinsamer Nenner: wirkungslos gegen Machtelite, zerstörerisch für Bevölkerung"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_sturm",
+      "zu": "ukraine_lange",
+      "themen": [
+        "Stellvertreterlogik: Syrien (Lüders) und Ukraine (Verheugen/Erler) als Schachbrettkonflikte",
+        "Westliche Interventionsmuster ohne Rücksicht auf regionale Bevölkerung",
+        "Historische Kontextualisierung statt Emotionalisierung – gleicher methodischer Ansatz"
+      ],
+      "staerke": 2
     }
   ]
 }

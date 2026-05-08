@@ -466,3 +466,23 @@ Beide Bücher gemeinsam zu lesen heißt, den **Übergang von der Diagnose zur An
 *Krieg ohne Ende?* (2024) leistet umgekehrt, was Buch X nicht kann: die forensische **Tiefenbohrung in einem einzigen Konflikt**. Die archivkritische Arbeit zu Plan Dalet, Tantura, Malmab, die juristische Aufarbeitung des IGH-Verfahrens und die diskursanalytische Sezierung der deutschen Staatsräson sind in Buch X bestenfalls angedeutet. Wer Buch A allein liest, riskiert, die israelisch-palästinensische Tragödie als historischen Sonderfall zu verstehen; wer Buch X allein liest, erhält die Struktur ohne die moralische Schärfe der Aktualität.
 
 Die ideale Lesereihenfolge ist chronologisch: Buch X liefert die Genese und das System, Buch A die Eskalation und das Verdikt. Zusammengenommen entsteht ein bemerkenswertes intellektuelles Längsschnittprojekt – Lüders' eigene zehnjährige Beweissammlung, in der die früheren Beobachtungen die späteren Anklagen vorbereiten und die späteren Anklagen die früheren Beobachtungen rückwirkend legitimieren.
+
+---
+
+## Neue Verbindung: Michael Luders – Die den Sturm ernten (ergänzt 2026-05-08)
+
+### Thematische Querverbindungen
+
+*Die den Sturm ernten* (2017) und *Krieg ohne Ende* (2024) beleuchten zwei verschiedene Kriegsschauplätze derselben regionalen Krisendynamik: Syrien und Israel/Palästina. Das verbindende Prinzip ist identisch: westliche Außenpolitik produziert die Phänomene, die sie später als unverantwortliche Eskalation bekämpft.
+
+Die stärkste inhaltliche Überschneidung liegt in der **Analyse des regionalen Stellvertreterkriegsystems**: *Die den Sturm ernten* zeigt, wie die saudisch-westlich-türkische Instrumentalisierung des syrischen Bürgerkriegs aus Iran-Einfluss-Eindämmung und Ressourceninteressen resultiert. *Krieg ohne Ende* zeigt denselben Mechanismus für Gaza: Israel als Verlängerung einer US-Nahoststrategie, in der humanitäre Begründungen strategische Interessen verdecken. Beide Bücher verwenden die identische **Blowback-Logik** – Syrien erzeugt den IS, Gaza erzeugt den 7. Oktober – und beide zeigen, dass der Westen die Ursprungsbedingungen dieser Reaktionen bewusst in Kauf nahm oder aktiv herbeiführte.
+
+Ein zweites gemeinsames Terrain ist die **Medienkritik als analytische Kategorie**: In *Die den Sturm ernten* analysiert Lüders, wie die Assad-Hitler-Gleichsetzung Kriegsnarrative immunisiert; in *Krieg ohne Ende* zeigt er dieselbe Technik für die Hamas-Dämonisierung. Das rhetorische Muster – Feindbildkonstruktion durch historischen Hitler-Vergleich – ist in beiden Büchern exakt identisch und erlaubt den Lesern, das Prinzip fallübergreifend zu erkennen.
+
+### Argumentative Brücken
+
+*Die den Sturm ernten* liefert das **syrische Vorkapitel** zum Gaza-Krieg: Der Zusammenbruch syrischer Staatlichkeit, der iranische Einflussgewinn durch Assad-Stützung, und die Stärkung der Hisbollah durch den Syrienkonflikt sind direkte Voraussetzungen für die regionale Eskalationsdynamik, die *Krieg ohne Ende* für 2023/24 analysiert. Wer *Die den Sturm ernten* gelesen hat, versteht, warum der 7. Oktober 2023 keine regionale Überraschung war – die Strukturbedingungen waren seit 2011 im Entstehen.
+
+### Empfohlene Lesekombination
+
+*Die den Sturm ernten* → *Krieg ohne Ende*: chronologisch und regional optimal. Das frühere Buch liefert die syrische Vorgeschichte, das spätere die palästinensische Eskalation – zusammen ergeben sie das vollständige Bild der westlichen Nahoststrategie zwischen 2011 und 2024.
