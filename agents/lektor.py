@@ -16,10 +16,7 @@ import os
 import shutil
 import sys
 
-import anthropic
 import fitz  # PyMuPDF
-from claude_agent_sdk import ClaudeAgentOptions, query
-from claude_agent_sdk.types import AssistantMessage, ResultMessage, TextBlock
 from dotenv import load_dotenv
 
 from config import settings
@@ -142,84 +139,28 @@ def lokale_synthese(alle_teile: list[str], buch_titel: str) -> str:
     )
 
 
-async def cloud_abschnitt_analysieren(abschnitt: str, teil_nr: int, gesamt: int) -> str:
-    """Cloud-Fallback fuer einen Textabschnitt."""
-    prompt = lokaler_abschnitt_prompt(abschnitt, teil_nr, gesamt)
-
-    options = ClaudeAgentOptions(
-        system_prompt=SYSTEM_PROMPT_ABSCHNITT,
-        allowed_tools=[],
-        permission_mode="acceptEdits",
-        max_turns=2,
-    )
-
-    ergebnis_teile = []
-    kosten = 0.0
-
-    async for message in query(prompt=prompt, options=options):
-        if isinstance(message, AssistantMessage):
-            for block in message.content:
-                if isinstance(block, TextBlock):
-                    ergebnis_teile.append(block.text)
-        elif isinstance(message, ResultMessage):
-            if message.is_error:
-                print(f"  [Fehler bei Abschnitt {teil_nr}]")
-            elif message.total_cost_usd is not None:
-                kosten = message.total_cost_usd
-
-    ergebnis = "".join(ergebnis_teile)
-    print(f"  Abschnitt {teil_nr}/{gesamt} fertig (${kosten:.4f}, Cloud-Fallback)")
+async def abschnitt_analysieren(abschnitt: str, teil_nr: int, gesamt: int) -> str:
+    """Fuehrt eine Abschnittsanalyse lokal ueber Ollama aus."""
+    if not lokaler_lektor_aktiv():
+        raise SystemExit(
+            "\n  [FEHLER] Ollama nicht erreichbar oder LEKTOR_PROVIDER != 'ollama'.\n"
+            "  Bitte Ollama starten und Modell pruefen (settings.py: LEKTOR_MODEL).\n"
+            "  Kein Cloud-Fallback – der Lektor laeuft ausschliesslich lokal."
+        )
+    ergebnis = lokale_abschnitt_analyse(abschnitt, teil_nr, gesamt)
+    print(f"  Abschnitt {teil_nr}/{gesamt} fertig (lokal)")
     return ergebnis
 
 
-def cloud_synthese_erstellen(alle_teile: list[str], buch_titel: str) -> str:
-    """Cloud-Fallback fuer die Gesamtsynthese (direkte Anthropic-API)."""
-    client = anthropic.Anthropic()
-    ergebnis_teile = []
-
-    with client.messages.stream(
-        model=settings.LEKTOR_FALLBACK_MODEL,
-        max_tokens=8192,
-        system=SYSTEM_PROMPT_SYNTHESE,
-        messages=[
-            {
-                "role": "user",
-                "content": lokaler_synthese_prompt(alle_teile, buch_titel),
-            }
-        ],
-    ) as stream:
-        for text in stream.text_stream:
-            print(text, end="", flush=True)
-            ergebnis_teile.append(text)
-
-    print()
-    return "".join(ergebnis_teile)
-
-
-async def abschnitt_analysieren(abschnitt: str, teil_nr: int, gesamt: int) -> str:
-    """Fuehrt eine Abschnittsanalyse lokal aus, mit Cloud-Fallback."""
-    if lokaler_lektor_aktiv():
-        try:
-            ergebnis = lokale_abschnitt_analyse(abschnitt, teil_nr, gesamt)
-            print(f"  Abschnitt {teil_nr}/{gesamt} fertig (lokal)")
-            return ergebnis
-        except LocalLLMError as exc:
-            print(f"  [Warnung] Lokaler Lektor fuer Abschnitt {teil_nr} fehlgeschlagen: {exc}")
-
-    return await cloud_abschnitt_analysieren(abschnitt, teil_nr, gesamt)
-
-
 def synthese_erstellen(alle_teile: list[str], buch_titel: str) -> str:
-    """Fuehrt die Buchsynthese lokal aus, mit Cloud-Fallback."""
-    if lokaler_lektor_aktiv():
-        try:
-            print("  Synthese laeuft lokal ueber Ollama...")
-            return lokale_synthese(alle_teile, buch_titel)
-        except LocalLLMError as exc:
-            print(f"  [Warnung] Lokale Synthese fehlgeschlagen: {exc}")
-
-    print("  Synthese faellt auf Anthropic zurueck...")
-    return cloud_synthese_erstellen(alle_teile, buch_titel)
+    """Fuehrt die Buchsynthese lokal ueber Ollama aus."""
+    if not lokaler_lektor_aktiv():
+        raise SystemExit(
+            "\n  [FEHLER] Ollama nicht erreichbar fuer Synthese.\n"
+            "  Kein Cloud-Fallback – der Lektor laeuft ausschliesslich lokal."
+        )
+    print("  Synthese laeuft lokal ueber Ollama...")
+    return lokale_synthese(alle_teile, buch_titel)
 
 
 async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
