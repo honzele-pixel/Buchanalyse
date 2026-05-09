@@ -25,7 +25,7 @@ VERNETZUNG_RELEVANZ_MODEL = "claude-haiku-4-5-20251001"
 LEKTOR_PROVIDER = "ollama"
 LEKTOR_MODEL = "gemma4:latest"
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
-OLLAMA_TIMEOUT_SECONDS = int(os.getenv("OLLAMA_TIMEOUT_SECONDS", "180"))
+OLLAMA_TIMEOUT_SECONDS = int(os.getenv("OLLAMA_TIMEOUT_SECONDS", "600"))
 OLLAMA_NUM_CTX = int(os.getenv("OLLAMA_NUM_CTX", "32768"))
 
 # --- Agent-Einstellungen ---
