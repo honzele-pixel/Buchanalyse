@@ -25,16 +25,21 @@ Die verbindliche Einordnung steht in `docs/skill-strategie.md`.
 ## PDF-Bibliothek
 `E:\Bucher\` – mit Unterordnern: Michael_Luders, Daniele_Ganser, Hannah_Arendt, Ukraine, u.a.
 
-## Fertige Agenten (Stand 27.04.2026)
+## Fertige Agenten (Stand 2026-05-09)
 
-| Agent | Datei | Aufgabe |
+| Agent | Startweg | Aufgabe |
 |---|---|---|
-| 1 – Lektor | `agents/lektor.py` | PDF vollständig lesen, in Abschnitte aufteilen, strukturieren |
-| 2 – Inhaltsanalyst | `agents/inhaltsanalyst.py` | Kernthesen, Argumentation, Methodik, blinde Flecken |
-| 3 – Vernetzer | `agents/vernetzer.py` | Querverbindungen zur Bibliothek, Archiv-Index pflegen |
-| 4 – Berichterstatter | `agents/berichterstatter.py` | Finales Gesamtdossier aus allen 3 Analysen |
-| 5 – Gesprächspartner | `agents/gespraechspartner.py` | Interaktive Buchdiskussion auf Basis aller 4 Analysen |
-| 6 – Sekundärquellen-Analyst | `agents/sekundaerquellen_analyst.py` | Index-gestützte Tiefenanalyse von Sekundärquellen + Diskussion + Wiki-Injektion |
+| 1 – Lektor | `python main.py` → Modus 1 | PDF vollständig lesen, in Abschnitte aufteilen, strukturieren |
+| 2 – Inhaltsanalyst | Claude Code: *"Analysiere ..."* | Kernthesen, Argumentation, Methodik, blinde Flecken |
+| 3 – Vernetzer | Claude Code: *"Vernetze ..."* | Querverbindungen zur Bibliothek, Archiv-Index pflegen |
+| 4 – Berichterstatter | Claude Code: *"Erstelle Bericht ..."* | Finales Gesamtdossier aus allen 3 Analysen |
+| 5 – Gesprächspartner | Claude Code: *"Diskutiere ..."* | Interaktive Buchdiskussion auf Basis aller Analysen |
+| 6 – Quellenextraktor | Claude Code: *"Extrahiere Quellen ..."* | Quellen aus 01_lektor.md extrahieren + Prioritätsbewertung |
+| 7 – Sekundärquellen-Analyst | Claude Code: *"Sekundärquellen ..."* | Index-gestützte Tiefenanalyse + Diskussion + Wiki-Injektion |
+
+**Alle Python-Agenten ausser Lektor und Gesprächspartner wurden entfernt.**
+Schritte 2–4 und 6–7 laufen nur noch über die Prompt-Dateien in `Prompt/`.
+Fuer diese Schritte gibt es keinen Python-Startpfad mehr.
 
 ## Starten
 
@@ -52,17 +57,26 @@ In Claude Code:
 - *"Analysiere [Autor] – [Titel]"* → `02_inhaltsanalyse.md`
 - *"Vernetze [Autor] – [Titel]"* → `03_vernetzung.md`
 - *"Erstelle Bericht [Autor] – [Titel]"* → `04_bericht.md`
+- *"Extrahiere Quellen [Autor] – [Titel]"* → `05_quellen.md`
+- *"Sekundärquellen [Autor] – [Titel]"* → Diskussion + `06_sekundaerquellen/`
+- *"Diskutiere [Autor] – [Titel]"* → Interaktive Diskussion + optionaler Abschlussbericht
 
 System-Prompts:
 - `Prompt/System_Prompt_Inhaltsanalyst.md`
 - `Prompt/System_Prompt_Vernetzer.md`
 - `Prompt/System_Prompt_Berichterstatter.md`
+- `Prompt/System_Prompt_Quellenextraktor.md`
+- `Prompt/System_Prompt_Sekundaerquellen_Analyst.md`
+- `Prompt/System_Prompt_Gespraechspartner.md`
 
-**Warum:** Inhaltsanalyst, Vernetzer und Berichterstatter lesen nur vorhandene Markdown-Dateien
-und schreiben neue – das kann Claude Code direkt, ohne API-Billing.
-Nur der Lektor braucht PyMuPDF (PDF lesen) + Ollama (lokal verarbeiten).
+**Warum:** Alle Schritte ausser dem Lektor lesen nur vorhandene Markdown-Dateien und
+schreiben neue – das kann Claude Code direkt, ohne API-Billing.
+Nur der Lektor braucht Python (PyMuPDF + Ollama lokal).
 
 **Wichtig:** Immer nur ein Terminal, nie parallel – wegen `bibliothek/index.json`
+
+**Kostenregel:** Alle Schritte ausser Lektor (Modus 1) laufen ausschliesslich über
+Claude Code. Es gibt dafuer keinen Python-Startpfad mehr.
 
 ## Analyse-Ausgabe
 Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
@@ -70,6 +84,9 @@ Jedes Buch bekommt einen eigenen Ordner unter `analysen/<Autor>/<Buchtitel>/`:
 - `02_inhaltsanalyse.md` – Tiefenanalyse
 - `03_vernetzung.md` – Querverbindungen
 - `04_bericht.md` – Finales Gesamtdossier
+- `05_quellen.md` – Extrahierte Quellen + Prioritätsbewertung
+- `06_sekundaerquellen/06_index.md` – Prioritätsliste für Sekundäranalysen
+- `06_sekundaerquellen/06_*.md` – Einzelne Sekundärquellen-Tiefenanalysen
 
 ## Bereits analysierte Bücher
 - Michael Lüders: Krieg ohne Ende (04.04.2026)

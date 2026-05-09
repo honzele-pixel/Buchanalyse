@@ -20,11 +20,8 @@ import sys
 
 from dotenv import load_dotenv
 
-from agents.gespraechspartner import gespraechspartner_starten
 from agents.lektor import lektor_analysieren
-from agents.quellenextraktor import quellenextraktor_starten
-from agents.sekundaerquellen_analyst import sekundaerquellen_analyst_starten
-from agents.vernetzer import buch_in_bibliothek_registrieren
+from bibliothek.index_utils import buch_in_bibliothek_registrieren
 from config import settings
 from status_report import main as status_report_main
 
@@ -39,17 +36,6 @@ ANALYSEN_DIR = settings.ANALYSEN_DIR
 _neuanalyse = False
 
 
-def anthropic_api_key_vorhanden() -> bool:
-    return bool(os.getenv("ANTHROPIC_API_KEY"))
-
-
-def anthropic_api_key_pruefen() -> bool:
-    if anthropic_api_key_vorhanden():
-        return True
-    print("\n  FEHLER: Kein API-Schluessel gefunden!")
-    print("  Bitte in .env eintragen: ANTHROPIC_API_KEY=dein_schluessel")
-    return False
-
 
 def buecher_scannen() -> list[dict]:
     """Scannt E:\\Bucher\\ nach allen PDF-Dateien und gibt eine strukturierte Liste zurueck."""
@@ -59,7 +45,7 @@ def buecher_scannen() -> list[dict]:
         if eintrag.is_dir():
             autor = eintrag.name.replace("_", " ")
             for datei in os.scandir(eintrag.path):
-                if datei.name.lower().endswith(".pdf"):
+                if datei.name.lower().endswith((".pdf", ".epub")):
                     titel = os.path.splitext(datei.name)[0].replace("_", " ").replace("-", " ")
                     buecher.append(
                         {
@@ -70,7 +56,7 @@ def buecher_scannen() -> list[dict]:
                             "pdf_pfad": datei.path,
                         }
                     )
-        elif eintrag.name.lower().endswith(".pdf"):
+        elif eintrag.name.lower().endswith((".pdf", ".epub")):
             titel = os.path.splitext(eintrag.name)[0].replace("_", " ").replace("-", " ")
             buecher.append(
                 {
@@ -189,61 +175,6 @@ async def standardanalyse_ausfuehren(buch: dict) -> None:
 
 
 
-async def quellen_extrahieren_modus() -> None:
-    """Extrahiert Quellen aus einem PDF -> 05_quellen.md."""
-    buecher = buecher_scannen()
-
-    buecher_info = []
-    for buch in buecher:
-        pfade = pfade_erstellen(buch)
-        hat_quellen = os.path.exists(os.path.join(pfade["basis"], "05_quellen.md"))
-        buecher_info.append((buch, pfade, hat_quellen))
-
-    print(f"\n{'=' * 60}")
-    print("  QUELLENEXTRAKTOR - Buchauswahl")
-    print(f"{'=' * 60}")
-    print(f"\n  Alle Buecher in E:\\Bucher\\ ({len(buecher)} PDFs):\n")
-
-    aktueller_autor = ""
-    for i, (buch, pfade, hat_quellen) in enumerate(buecher_info, start=1):
-        if buch["autor"] != aktueller_autor:
-            print(f"\n  [{buch['autor']}]")
-            aktueller_autor = buch["autor"]
-        status = "hat 05_quellen.md" if hat_quellen else "noch keine Quellen"
-        print(f"    {i:2}. {buch['titel']}  [{status}]")
-
-    print()
-
-    try:
-        eingabe = input("  Nummer eingeben (oder 'q' fuer Hauptmenue): ").strip()
-    except (EOFError, KeyboardInterrupt):
-        print("\n\n  Auf Wiedersehen, Honzele!")
-        return
-
-    if eingabe.lower() == "q":
-        return
-
-    if not eingabe.isdigit() or not (1 <= int(eingabe) <= len(buecher_info)):
-        print("\n  Ungueltige Eingabe.")
-        return
-
-    buch, pfade, hat_quellen = buecher_info[int(eingabe) - 1]
-    ausgabe_pfad = os.path.join(pfade["basis"], "05_quellen.md")
-
-    if hat_quellen:
-        try:
-            antwort = input(
-                f"\n  '{buch['titel']}' hat bereits eine 05_quellen.md.\n"
-                "  Neu extrahieren und ueberschreiben? (j/n): "
-            ).strip().lower()
-        except (EOFError, KeyboardInterrupt):
-            return
-        if antwort != "j":
-            print("  Abgebrochen.")
-            return
-
-    quellenextraktor_starten(buch, ausgabe_pfad)
-
 
 def buch_auswaehlen() -> dict | None:
     buecher = buecher_scannen()
@@ -275,11 +206,16 @@ async def main() -> None:
         print("\n  Was moechtest du tun?\n")
         print("    1.  Lektorieren (Lektor lokal, gratis)")
         print("        -> danach in Claude Code: Analysiere / Vernetze / Erstelle Bericht")
-        print("    2.  Ueber Buecher diskutieren")
-        print("    3.  Quellen erkunden (Sekundaerquellen-Analyst)")
-        print("    4.  Quellen extrahieren (aus PDF -> 05_quellen.md)")
-        print("    5.  Statusbericht / Arbeitsliste")
+        print("    2.  Statusbericht / Arbeitsliste")
         print("    q.  Beenden")
+        print()
+        print("  In Claude Code (alle gratis, kein API-Billing):")
+        print("    'Analysiere [Autor] - [Titel]'         -> 02_inhaltsanalyse.md")
+        print("    'Vernetze [Autor] - [Titel]'           -> 03_vernetzung.md")
+        print("    'Erstelle Bericht [Autor] - [Titel]'   -> 04_bericht.md")
+        print("    'Extrahiere Quellen [Autor] - [Titel]' -> 05_quellen.md")
+        print("    'Sekundaerquellen [Autor] - [Titel]'   -> Diskussion + 06_sekundaerquellen/")
+        print("    'Diskutiere [Autor] - [Titel]'         -> Interaktive Diskussion")
         print()
 
         try:
@@ -302,21 +238,6 @@ async def main() -> None:
             await standardanalyse_ausfuehren(buch)
 
         elif modus == "2":
-            if not anthropic_api_key_pruefen():
-                continue
-            await gespraechspartner_starten()
-
-        elif modus == "3":
-            if not anthropic_api_key_pruefen():
-                continue
-            await sekundaerquellen_analyst_starten()
-
-        elif modus == "4":
-            if not anthropic_api_key_pruefen():
-                continue
-            await quellen_extrahieren_modus()
-
-        elif modus == "5":
             status_report_main([])
 
         else:

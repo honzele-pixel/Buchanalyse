@@ -17,6 +17,7 @@ import shutil
 import sys
 
 import fitz  # PyMuPDF
+from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 from config import settings
@@ -75,8 +76,34 @@ def pdf_lesen(pdf_pfad: str) -> tuple[str, int]:
     return "\n\n".join(text_teile), seitenanzahl
 
 
+def epub_lesen(epub_pfad: str) -> tuple[str, int]:
+    """Liest ein EPUB und gibt den Rohtext plus Kapitelanzahl zurueck."""
+    import zipfile
+    import re
+
+    text_teile = []
+    kapitel_nr = 0
+
+    with zipfile.ZipFile(epub_pfad, "r") as zf:
+        html_dateien = sorted(
+            [n for n in zf.namelist() if re.search(r"\.(html|xhtml|htm)$", n, re.I)]
+        )
+        for dateiname in html_dateien:
+            try:
+                inhalt = zf.read(dateiname).decode("utf-8", errors="replace")
+            except Exception:
+                continue
+            soup = BeautifulSoup(inhalt, "html.parser")
+            text = soup.get_text(separator="\n").strip()
+            if len(text) > 100:
+                kapitel_nr += 1
+                text_teile.append(f"[Kapitel {kapitel_nr}]\n{text}")
+
+    return "\n\n".join(text_teile), kapitel_nr
+
+
 def text_aufteilen(text: str, zeichen_pro_teil: int) -> list[str]:
-    """Teilt den Text in gleichmaessige Abschnitte auf - an Seitengrenzen."""
+    """Teilt den Text in gleichmaessige Abschnitte auf - an Seiten- oder Kapitelgrenzen."""
     teile = []
     start = 0
 
@@ -87,9 +114,15 @@ def text_aufteilen(text: str, zeichen_pro_teil: int) -> list[str]:
             teile.append(text[start:])
             break
 
-        naechste_seite = text.find("\n\n[Seite ", ende)
-        if naechste_seite != -1 and naechste_seite < ende + 5000:
-            ende = naechste_seite
+        naechste_grenze = -1
+        for marker in ("\n\n[Seite ", "\n\n[Kapitel "):
+            pos = text.find(marker, ende)
+            if pos != -1 and pos < ende + 5000:
+                if naechste_grenze == -1 or pos < naechste_grenze:
+                    naechste_grenze = pos
+
+        if naechste_grenze != -1:
+            ende = naechste_grenze
 
         teile.append(text[start:ende])
         start = ende
@@ -164,9 +197,11 @@ def synthese_erstellen(alle_teile: list[str], buch_titel: str) -> str:
 
 
 async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
-    """Liest das gesamte PDF und laesst es vollstaendig aufbereiten."""
+    """Liest das gesamte PDF oder EPUB und laesst es vollstaendig aufbereiten."""
 
     buch_name = os.path.splitext(os.path.basename(pdf_pfad))[0]
+    ist_epub = pdf_pfad.lower().endswith(".epub")
+
     print(f"\n{'=' * 60}")
     print(f"LEKTOR startet: {buch_name}")
     print(f"{'=' * 60}\n")
@@ -179,9 +214,15 @@ async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
             f"({settings.LEKTOR_FALLBACK_PROVIDER}:{settings.LEKTOR_FALLBACK_MODEL})"
         )
 
-    print("Schritt 1: PDF wird gelesen...")
-    rohtext, seitenanzahl = pdf_lesen(pdf_pfad)
-    print(f"  {seitenanzahl} Seiten | {len(rohtext):,} Zeichen gesamt\n")
+    if ist_epub:
+        print("Schritt 1: EPUB wird gelesen...")
+        rohtext, seitenanzahl = epub_lesen(pdf_pfad)
+        einheit = "Kapitel"
+    else:
+        print("Schritt 1: PDF wird gelesen...")
+        rohtext, seitenanzahl = pdf_lesen(pdf_pfad)
+        einheit = "Seiten"
+    print(f"  {seitenanzahl} {einheit} | {len(rohtext):,} Zeichen gesamt\n")
 
     abschnitte = text_aufteilen(rohtext, ZEICHEN_PRO_ABSCHNITT)
     print(f"Schritt 2: Text in {len(abschnitte)} Abschnitte aufgeteilt")
@@ -220,7 +261,7 @@ async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
     with open(ausgabe_pfad, "w", encoding="utf-8") as handle:
         handle.write(f"# Lektor-Aufbereitung: {buch_name}\n\n")
         handle.write(f"**Quelle:** {pdf_pfad}  \n")
-        handle.write(f"**Seiten:** {seitenanzahl}  \n")
+        handle.write(f"**{einheit.capitalize()}:** {seitenanzahl}  \n")
         handle.write(f"**Abschnitte verarbeitet:** {len(abschnitte)}  \n\n")
         handle.write("---\n\n")
         handle.write(finale_analyse)
