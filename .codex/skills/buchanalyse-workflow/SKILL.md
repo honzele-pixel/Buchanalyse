@@ -34,35 +34,18 @@ Hauptablauf fuer ein Buch:
 
 1. Buch aus `E:\Bucher` auswaehlen
 2. `agents/lektor.py` ausfuehren
+   - **WICHTIG:** Alle Rohtext-Chunks (Chunks des PDF-Inhalts vor der Analyse) MÜSSEN im Unterordner `01_lektor_rohtext/` des Buchordners abgespeichert werden. Dieser extrahierte Text ist extrem wertvoll und muss vollständig verfügbar bleiben!
 3. `02_inhaltsanalyse.md` erzeugen
 4. `03_vernetzung.md` erzeugen
 5. `04_bericht.md` erzeugen
-6. Vernetzung anderer bereits analysierter Buecher im Delta-Modus aktualisieren
-
-Wichtig zur Ausfuehrung von Schritt 3-5:
-
-- Wenn kein API-Guthaben verbraucht werden darf, Schritt 3-5 nie ueber Python-Prozesse starten.
-- In diesem Fall Schritt 3-5 nur direkt in Claude Code anhand der Prompt-Dateien unter `Prompt/` ausfuehren.
-- Nur `agents/lektor.py` darf dann lokal ueber Ollama laufen.
-
-Wichtiger Ausgabeordner:
-
-- `analysen/<Autor>/<Buchtitel>/`
-
-Wichtige Ausgabedateien:
-
-- `01_lektor.md`
-- `02_inhaltsanalyse.md`
-- `03_vernetzung.md`
-- `04_bericht.md`
-
-Optionale spaetere Dateien bei manchen Buechern:
-
-- `05_quellen.md`
-- `06_index.md`
+6. `05_quellen.md` erzeugen
+   - **WICHTIG:** Sollten in `01_lektor.md` keine Quellen oder nur unzureichende Angaben gefunden werden, muss zwingend ein Python-Script (`tools/seiten_extrahieren.py`) genutzt werden, um die letzten 50 Seiten des Buches als Rohtext zu extrahieren. Dieser Text ist dann die Grundlage für die manuelle oder KI-gestützte Extraktion in `05_quellen.md`.
+7. Vernetzung anderer bereits analysierter Buecher im Delta-Modus aktualisieren
 
 ## Sicherheitsregeln
 
+- **Daten-Integrität:** Lösche niemals die Rohtext-Chunks in `01_lektor_rohtext/`. Sie sind die "Blackbox" und Versicherung des Projekts.
+- **Vollständigkeit der Quellen:** Akzeptiere niemals ein leeres `05_quellen.md`. Wenn die Lektor-Synthese versagt, nutze den 50-Seiten-Fallback.
 - Niemals davon ausgehen, dass parallele Ausfuehrung in diesem Repo sicher ist.
 - `bibliothek/index.json` als empfindlichen gemeinsamen Zustand behandeln.
 - Vor Aenderungen am Ablauf immer `CLAUDE.md` lesen.

@@ -230,6 +230,15 @@ async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
         print(f"  Abschnitt {i}: {len(abschnitt):,} Zeichen")
     print()
 
+    # Neu: Rohtext-Chunks speichern (extrem wertvoll!)
+    rohtext_dir = os.path.join(os.path.dirname(ausgabe_pfad), "01_lektor_rohtext")
+    os.makedirs(rohtext_dir, exist_ok=True)
+    for i, abschnitt in enumerate(abschnitte, start=1):
+        rohtext_pfad = os.path.join(rohtext_dir, f"raw_chunk_{i:02d}.txt")
+        with open(rohtext_pfad, "w", encoding="utf-8") as handle:
+            handle.write(abschnitt)
+    print(f"  Alle {len(abschnitte)} Rohtext-Chunks gespeichert in: {rohtext_dir}")
+
     cache_dir = os.path.join(os.path.dirname(ausgabe_pfad), ".chunk_cache")
     os.makedirs(cache_dir, exist_ok=True)
 
@@ -266,9 +275,14 @@ async def lektor_analysieren(pdf_pfad: str, ausgabe_pfad: str) -> None:
         handle.write("---\n\n")
         handle.write(finale_analyse)
 
-    shutil.rmtree(cache_dir, ignore_errors=True)
+    # Cache nicht loeschen, sondern als Detail-Ebene behalten
+    details_dir = os.path.join(os.path.dirname(ausgabe_pfad), "01_lektor_details")
+    if os.path.exists(details_dir):
+        shutil.rmtree(details_dir)
+    os.rename(cache_dir, details_dir)
 
     print(f"\nGespeichert: {ausgabe_pfad}")
+    print(f"Details gespeichert in: {details_dir}")
     print(f"{'=' * 60}\n")
 
 

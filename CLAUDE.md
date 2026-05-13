@@ -49,7 +49,7 @@ Fuer diese Schritte gibt es keinen Python-Startpfad mehr.
 ```
 python main.py   ← Modus 1: Lektorieren
 ```
-→ erzeugt `01_lektor.md` + aktualisiert `bibliothek/index.json`
+→ erzeugt `01_lektor.md` + **speichert Rohtext in `01_lektor_rohtext/`** + aktualisiert `bibliothek/index.json`
 
 **Schritt 2–4: Analyse, Vernetzung, Bericht** (Claude Code Abo, gratis)
 
@@ -58,6 +58,7 @@ In Claude Code:
 - *"Vernetze [Autor] – [Titel]"* → `03_vernetzung.md`
 - *"Erstelle Bericht [Autor] – [Titel]"* → `04_bericht.md`
 - *"Extrahiere Quellen [Autor] – [Titel]"* → `05_quellen.md`
+  - **Fallback:** Bei unzureichenden Quellen die letzten 50 Seiten via `python tools/seiten_extrahieren.py` prüfen.
 - *"Sekundärquellen [Autor] – [Titel]"* → Diskussion + `06_sekundaerquellen/`
 - *"Diskutiere [Autor] – [Titel]"* → Interaktive Diskussion + optionaler Abschlussbericht
 

@@ -10,7 +10,7 @@ BIBLIOTHEK_INDEX = r"E:\Claude_Projekte\Buchanalysen\bibliothek\index.json"
 
 def bibliothek_laden() -> dict:
     """Laedt den aktuellen Stand des Bibliotheksindex."""
-    with open(BIBLIOTHEK_INDEX, "r", encoding="utf-8") as handle:
+    with open(BIBLIOTHEK_INDEX, "r", encoding="utf-8-sig") as handle:
         return json.load(handle)
 
 

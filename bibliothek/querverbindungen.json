@@ -1104,6 +1104,56 @@
         "Historische Kontextualisierung statt Emotionalisierung – gleicher methodischer Ansatz"
       ],
       "staerke": 2
+    },
+    {
+      "von": "baumgarten_gaza",
+      "zu": "pappe_sauberung",
+      "themen": [
+        "Siedlerkolonialismus als analytischer Rahmen",
+        "Kontinuität der Vertreibungslogik (1948 bis heute)",
+        "Nakba als zentrales Trauma"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "baumgarten_gaza",
+      "zu": "luders_krieg",
+      "themen": [
+        "Kritik der westlichen 'Staatsräson'",
+        "7. Oktober als Folge struktureller Gewalt",
+        "Systematische Zerstörung der Lebensgrundlagen"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "baumgarten_gaza",
+      "zu": "ganser_illegale",
+      "themen": [
+        "Völkerrechtswidrigkeit der Besatzung",
+        "Bedeutung der UN-Charta und des Gewaltverbots",
+        "Instrumentalisierung des Rechts durch Machtpolitik"
+      ],
+      "staerke": 3
+    },
+    {
+      "von": "baumgarten_gaza",
+      "zu": "mausfeld_hegemonie",
+      "themen": [
+        "Entmachtung des Rechts durch hegemoniale Interessen",
+        "Ideologische Verschleierung von Kolonialismus",
+        "Krise der internationalen Rechtsordnung"
+      ],
+      "staerke": 2
+    },
+    {
+      "von": "luders_krieg",
+      "zu": "pappe_sauberung",
+      "themen": [
+        "Nachweis der geplanten Vertreibung (Plan Dalet)",
+        "Konzept des Memorizids und Urbanizids",
+        "Historiographische Grundlage der Siedlungskolonialismus-Diese"
+      ],
+      "staerke": 3
     }
   ]
 }

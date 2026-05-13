@@ -1,156 +1,172 @@
-﻿{
-    "buecher":  [
-                    {
-                        "autor":  "Michael LÃ¼ders",
-                        "titel":  "Krieg ohne Ende",
-                        "analysiert_am":  "2026-04-04",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Krieg_ohne_Ende\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Krieg_ohne_Ende\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n---\n\n### EinfÃ¼hrung: *Trauer, Leid und Denkverbote* (S. 11â€“18)\n\nLÃ¼ders erÃ¶ffnet mit der Diagnose, dass in Deutschland nach dem 7. Oktober 2023 ein System von Denkverboten und faktischer Zensur entstanden ist, das freie MeinungsÃ¤uÃŸerung zum Nahost-Konflikt unterdrÃ¼ckt...."
-                    },
-                    {
-                        "autor":  "Hannah Arendt",
-                        "titel":  "Die Freiheit frei zu sein",
-                        "analysiert_am":  "2026-04-04",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Hannah_Arendt\\Die-Freiheit_frei_zu_sein\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Hannah_Arendt\\Die-Freiheit_frei_zu_sein\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### 1.1 â€“ Revolutionen als Alltagsereignis (S. 4â€“6)\n\nArendt erÃ¶ffnet den Essay mit der Feststellung, dass Revolutionen nach dem Ende des Imperialismus zu einem globalen Normalzustand geworden sind. Alle diese Bewegungen â€“ ungeachtet ihrer oft antiwestlichen Rhetorik â€“..."
-                    },
-                    {
-                        "autor":  "Rainer Mausfeld",
-                        "titel":  "Hegemonie oder Untergang",
-                        "analysiert_am":  "2026-04-04",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\Hegemonie_oder_Untergang\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\Hegemonie_oder_Untergang\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### Einleitung: ErschÃ¼tterungen (S. 8â€“11)\n\nMausfeld erÃ¶ffnet mit der Diagnose einer tiefgreifenden, miteinander vernetzten Krisen- und Kriegsperiode im Westen, die kollektive Ohnmacht und Unsicherheit erzeugt. Er betont, dass die gegenwÃ¤rtige Krise keine Demokratiekri..."
-                    },
-                    {
-                        "autor":  "Daniele Ganser",
-                        "titel":  "Illegale Kriege",
-                        "analysiert_am":  "2026-04-04",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Daniele_Ganser\\Illegale_Kriege\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Daniele_Ganser\\Illegale_Kriege\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### Widmung \u0026 Epigraph (S. 3â€“4)\nDas Buch ist Gansers Eltern sowie all jenen gewidmet, die sich mutig und gewaltfrei fÃ¼r den Frieden einsetzen. Als Epigraph steht Artikel 2 der UNO-Charta mit dem zentralen Gewaltverbot â€“ die normative Grundlage des gesamten Werkes.\n\n--..."
-                    },
-                    {
-                        "autor":  "Rainer Mausfeld",
-                        "titel":  "warum schweigen die LÃ¤mmer",
-                        "analysiert_am":  "2026-04-05",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\warum_schweigen_die_LÃ¤mmer\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\warum_schweigen_die_LÃ¤mmer\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### Einleitung (S. 6â€“20)\n\nMausfeld erÃ¶ffnet mit einer doppelten Diagnose: Die Begriffe â€žDemokratie\" und â€žFreiheit\" wurden ihrer ursprÃ¼nglichen Bedeutung entleert und gegen jene gewandt, die sie vertreten. Was heute als Demokratie bezeichnet wird, ist in Wirklichkeit e..."
-                    },
-                    {
-                        "autor":  "Rainer Mausfeld",
-                        "titel":  "Hybris Nemesis",
-                        "analysiert_am":  "2026-04-05",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\Hybris_Nemesis\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\Hybris_Nemesis\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n---\n\n### Prolog\n\nMausfeld erÃ¶ffnet mit dem griechischen Mythos der Zeitalter nach Hesiod: Im Goldenen Zeitalter lebten Menschen in Eintracht; mit Eigennutz und Machtgier setzte der Verfall ein. Die GÃ¶ttinnen **AidÃµs** (Scham, gegenseitiger Respekt) und **Nemesis** (ge..."
-                    },
-                    {
-                        "autor":  "Michael Luders",
-                        "titel":  "Drecksarbeit",
-                        "analysiert_am":  "2026-04-10",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Drecksarbeit\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Drecksarbeit\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### Vorbemerkung / Apparat (S. 2â€“10)\n\nDas Buch reagiert auf die Ereignisse des Jahres 2025: den israelischen Raketenangriff auf den Iran (13. Juni 2025, Operation â€žRising Lion\") sowie die anschlieÃŸende US-Bombardierung iranischer Atomanlagen (22. Juni 2025, â€žOperation..."
-                    },
-                    {
-                        "autor":  "Immanuel Kant",
-                        "titel":  "Grundlegung zur Metaphysik der Sitten",
-                        "analysiert_am":  "2026-04-10",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Immanuel_Kant\\Grundlegung_zur_Metaphysik_der_Sitten\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Immanuel_Kant\\Grundlegung_zur_Metaphysik_der_Sitten\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n---\n\n### Einleitung I â€“ Die Entstehungsgeschichte der GMS (S. 8â€“14)\n\nDie *Grundlegung zur Metaphysik der Sitten* ist Kants erste rein moralphilosophische Schrift, erschienen 1785. Die EntstehungsumstÃ¤nde sind quellenmÃ¤ÃŸig fast ausschlieÃŸlich durch Briefe des Schriftst..."
-                    },
-                    {
-                        "autor":  "Immanuel Kant",
-                        "titel":  "Zum ewigen Frieden",
-                        "analysiert_am":  "2026-04-12",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Immanuel_Kant\\Zum_ewigen_Frieden\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Immanuel_Kant\\Zum_ewigen_Frieden\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### Vorrede (S. 2)\n\nDie Schrift erÃ¶ffnet mit einer satirischen Anspielung auf ein niederlÃ¤ndisches Gasthausschild mit der Aufschrift â€žZum ewigen Frieden\" Ã¼ber einem Kirchhof â€“ gemeint sein kÃ¶nnten StaatsmÃ¤nner, Menschen allgemein oder gar Philosophen. Kant verwahrt si..."
-                    },
-                    {
-                        "autor":  "Ukraine",
-                        "titel":  "Der lange Weg zum Krieg",
-                        "analysiert_am":  "2026-04-12",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Ukraine\\Der_lange_Weg_zum_Krieg\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Ukraine\\Der_lange_Weg_zum_Krieg\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### Vorwort (S. 8â€“14)\n\nDie Autoren â€“ beide mit jahrzehntelanger Erfahrung in der europÃ¤ischen Politik â€“ legen ihre Motivation dar: Sie haben den russischen Angriff vom 24. Februar 2022 als VÃ¶lkerrechtsbruch verurteilt, sich jedoch geweigert, in den dominierenden Emoti..."
-                    },
-                    {
-                        "autor":  "Jeffrey Sachs",
-                        "titel":  "Diplomatie oder Desaster",
-                        "analysiert_am":  "2026-04-27",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Jeffrey_Sachs\\Diplomatie_oder_Desaster\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Jeffrey_Sachs\\Diplomatie_oder_Desaster\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n---\n\n### 3.1 Frieden zwischen Deutschland und Russland *(S. 7â€“19, August 2024)*\n\nDie deutsch-russische Beziehung pendelt seit zwei Jahrhunderten zwischen Kooperation und Krieg â€“ stets mit verheerenden Folgen fÃ¼r beide Seiten, wenn Feindschaft die Oberhand gewann. Sach..."
-                    },
-                    {
-                        "autor":  "Gabriele Krone Schmalz",
-                        "titel":  "Eiszeit",
-                        "analysiert_am":  "2026-05-06",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Gabriele_Krone_Schmalz\\Eiszeit\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Gabriele_Krone_Schmalz\\Eiszeit\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n---\n\n### Eiszeit 2023 â€“ Neues Vorwort (S. 8â€“41)\n\nDer russische Einmarsch in die Ukraine am 24. Februar 2022 Ã¼berraschte auch die Autorin, obwohl sie das Buch 2017 Ã¼ber die wachsende Ost-West-Konfrontation geschrieben hatte. Krone-Schmalz lehnt die pauschale Deutung ab..."
-                    },
-                    {
-                        "autor":  "Michael Luders",
-                        "titel":  "Armageddon im Orient",
-                        "analysiert_am":  "2026-05-08",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Armageddon_im_Orient\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Armageddon_im_Orient\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### Vorwort (S. 8â€“10)\n\nLÃ¼ders erÃ¶ffnet mit dem konkreten Datum Juni 2019: Trump zog in letzter Minute einen Angriffsbefehl gegen den Iran zurÃ¼ck. Diese Episode dient als dramatischer Einstieg in die zentrale Fragestellung: Warum kÃ¼ndigte Washington 2018 das Atomabkomm..."
-                    },
-                    {
-                        "autor":  "Michael Luders",
-                        "titel":  "Wer den Wind sÃ¤t",
-                        "analysiert_am":  "2026-05-08",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Wer_den-Wind_sÃ¤t\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Wer_den-Wind_sÃ¤t\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "## 3. Kapitelzusammenfassungen\n\n### EinfÃ¼hrung: Wind sÃ¤en, StÃ¼rme ernten (S. 7â€“11)\n\nLÃ¼ders kÃ¼ndigt eine kritische Abrechnung mit westlicher Politik an, die sich nach auÃŸen werteorientiert gibt, im Nahen und Mittleren Osten jedoch verbrannte Erde hinterlÃ¤sst. Hauptakteure seiner Kritik sind die USA u..."
-                    },
-                    {
-                        "autor":  "Michael Luders",
-                        "titel":  "Die den Sturm ernten",
-                        "analysiert_am":  "2026-05-08",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Die-den-Sturm-ernten\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Die-den-Sturm-ernten\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "Geopolitische Analyse des Syrienkriegs. LÃ¼ders zeigt, wie westliche Interventionen seit 1949 (CIA-Putsch, TAPLINE) den Islamismus miterschaffen haben. Kernthese: Im Nahen Osten regieren Interessen, nicht Werte â€“ der Westen erntet den Sturm, den er selbst gesÃ¤t hat."
-                    },
-                    {
-                        "autor":  "Michael Luders",
-                        "titel":  "Moral uber alles",
-                        "analysiert_am":  "2026-05-09",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Moral_uber_alles\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Moral_uber_alles\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "# Lektor-Aufbereitung: Moral_uber_alles\n\n**Quelle:** E:\\Bucher\\Michael_Luders\\Moral_uber_alles.pdf  \n**Seiten:** 214  \n**Abschnitte verarbeitet:** 6  \n\n---\n\n# Literaturanalyse: Moralismus und die Geopolitik des Eigeninteresses\n\n**Einheitliches Gesamtdokument**\n\n---\n\n## ðŸ“š Bibliografische Daten (Infer..."
-                    },
-                    {
-                        "autor":  "Illan pappe",
-                        "titel":  "Die ethnische Sauberung Palastinas drm frei",
-                        "analysiert_am":  "2026-05-09",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Illan_pappe\\Die_ethnische_Sauberung_Palastinas\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Illan_pappe\\Die_ethnische_Sauberung_Palastinas\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "# Lektor-Aufbereitung: Die ethnische Sauberung Palastinas_drm_frei\n\n**Quelle:** E:\\Bucher\\Illan_pappe\\Die ethnische Sauberung Palastinas_drm_frei.epub  \n**Kapitel:** 27  \n**Abschnitte verarbeitet:** 11  \n\n---\n\n# Die ethnische SÃ¤uberung PalÃ¤stinas: Eine Analyse der Vertreibung und des Staates\n\n*(Synt..."
-                    },
-                    {
-                        "autor":  "Mary Elise Sarotte",
-                        "titel":  "Nicht einen Schritt weiter nach Osten",
-                        "analysiert_am":  "2026-05-10",
-                        "lektor_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Mary_Elise_Sarotte\\Nicht_einen_Schritt_weiter_nach_Osten\\01_lektor.md",
-                        "inhaltsanalyse_pfad":  "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Mary_Elise_Sarotte\\Nicht_einen_Schritt_weiter_nach_Osten\\02_inhaltsanalyse.md",
-                        "kurzbeschreibung":  "# Lektor-Aufbereitung: Nicht_einen_Schritt_weiter_nach_Osten\n\n**Quelle:** E:\\Bucher\\Mary_Elise_Sarotte\\Nicht_einen_Schritt_weiter_nach_Osten.pdf  \n**Seiten:** 589  \n**Abschnitte verarbeitet:** 8  \n\n---\n\n# ðŸ“– Gesamtanalyse: Nicht einen Schritt weiter nach Osten\n\n**Genre:** Geopolitische Geschichtsanal..."
-                    },
-                    {
-                        "autor":  "Pankaj Mishra",
-                        "titel":  "Die Welt nach Gaza",
-                        "analysiert_am":  "2026-05-10",
-                        "lektor_pfad":  "E:\\\\Claude_Projekte\\\\Buchanalysen\\\\analysen\\\\Rainer_Mausfeld\\\\Hegemonie_oder_Untergang\\\\06_sekundaerquellen\\\\06_mishra_2025.md",
-                        "inhaltsanalyse_pfad":  "E:\\\\Claude_Projekte\\\\Buchanalysen\\\\analysen\\\\Rainer_Mausfeld\\\\Hegemonie_oder_Untergang\\\\06_sekundaerquellen\\\\06_mishra_2025.md",
-                        "kurzbeschreibung":  "Sekundäranalyse zu Mausfeld. Gaza als moralischer Wendepunkt und Ende westlicher Führungshoheit. Dokumentiert die epistemische Revolte des Globalen Südens gegen westliche Doppelmoral."
-                    }
-                ]
+{
+  "buecher": [
+    {
+      "autor": "Michael LÃ¼ders",
+      "titel": "Krieg ohne Ende",
+      "analysiert_am": "2026-04-04",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Krieg_ohne_Ende\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Krieg_ohne_Ende\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n---\n\n### EinfÃ¼hrung: *Trauer, Leid und Denkverbote* (S. 11â€“18)\n\nLÃ¼ders erÃ¶ffnet mit der Diagnose, dass in Deutschland nach dem 7. Oktober 2023 ein System von Denkverboten und faktischer Zensur entstanden ist, das freie MeinungsÃ¤uÃŸerung zum Nahost-Konflikt unterdrÃ¼ckt...."
+    },
+    {
+      "autor": "Hannah Arendt",
+      "titel": "Die Freiheit frei zu sein",
+      "analysiert_am": "2026-04-04",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Hannah_Arendt\\Die-Freiheit_frei_zu_sein\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Hannah_Arendt\\Die-Freiheit_frei_zu_sein\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### 1.1 â€“ Revolutionen als Alltagsereignis (S. 4â€“6)\n\nArendt erÃ¶ffnet den Essay mit der Feststellung, dass Revolutionen nach dem Ende des Imperialismus zu einem globalen Normalzustand geworden sind. Alle diese Bewegungen â€“ ungeachtet ihrer oft antiwestlichen Rhetorik â€“..."
+    },
+    {
+      "autor": "Rainer Mausfeld",
+      "titel": "Hegemonie oder Untergang",
+      "analysiert_am": "2026-04-04",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\Hegemonie_oder_Untergang\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\Hegemonie_oder_Untergang\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### Einleitung: ErschÃ¼tterungen (S. 8â€“11)\n\nMausfeld erÃ¶ffnet mit der Diagnose einer tiefgreifenden, miteinander vernetzten Krisen- und Kriegsperiode im Westen, die kollektive Ohnmacht und Unsicherheit erzeugt. Er betont, dass die gegenwÃ¤rtige Krise keine Demokratiekri..."
+    },
+    {
+      "autor": "Daniele Ganser",
+      "titel": "Illegale Kriege",
+      "analysiert_am": "2026-04-04",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Daniele_Ganser\\Illegale_Kriege\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Daniele_Ganser\\Illegale_Kriege\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### Widmung & Epigraph (S. 3â€“4)\nDas Buch ist Gansers Eltern sowie all jenen gewidmet, die sich mutig und gewaltfrei fÃ¼r den Frieden einsetzen. Als Epigraph steht Artikel 2 der UNO-Charta mit dem zentralen Gewaltverbot â€“ die normative Grundlage des gesamten Werkes.\n\n--..."
+    },
+    {
+      "autor": "Rainer Mausfeld",
+      "titel": "warum schweigen die LÃ¤mmer",
+      "analysiert_am": "2026-04-05",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\warum_schweigen_die_LÃ¤mmer\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\warum_schweigen_die_LÃ¤mmer\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### Einleitung (S. 6â€“20)\n\nMausfeld erÃ¶ffnet mit einer doppelten Diagnose: Die Begriffe â€žDemokratie\" und â€žFreiheit\" wurden ihrer ursprÃ¼nglichen Bedeutung entleert und gegen jene gewandt, die sie vertreten. Was heute als Demokratie bezeichnet wird, ist in Wirklichkeit e..."
+    },
+    {
+      "autor": "Rainer Mausfeld",
+      "titel": "Hybris Nemesis",
+      "analysiert_am": "2026-04-05",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\Hybris_Nemesis\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Rainer_Mausfeld\\Hybris_Nemesis\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n---\n\n### Prolog\n\nMausfeld erÃ¶ffnet mit dem griechischen Mythos der Zeitalter nach Hesiod: Im Goldenen Zeitalter lebten Menschen in Eintracht; mit Eigennutz und Machtgier setzte der Verfall ein. Die GÃ¶ttinnen **AidÃµs** (Scham, gegenseitiger Respekt) und **Nemesis** (ge..."
+    },
+    {
+      "autor": "Michael Luders",
+      "titel": "Drecksarbeit",
+      "analysiert_am": "2026-04-10",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Drecksarbeit\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Drecksarbeit\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### Vorbemerkung / Apparat (S. 2â€“10)\n\nDas Buch reagiert auf die Ereignisse des Jahres 2025: den israelischen Raketenangriff auf den Iran (13. Juni 2025, Operation â€žRising Lion\") sowie die anschlieÃŸende US-Bombardierung iranischer Atomanlagen (22. Juni 2025, â€žOperation..."
+    },
+    {
+      "autor": "Immanuel Kant",
+      "titel": "Grundlegung zur Metaphysik der Sitten",
+      "analysiert_am": "2026-04-10",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Immanuel_Kant\\Grundlegung_zur_Metaphysik_der_Sitten\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Immanuel_Kant\\Grundlegung_zur_Metaphysik_der_Sitten\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n---\n\n### Einleitung I â€“ Die Entstehungsgeschichte der GMS (S. 8â€“14)\n\nDie *Grundlegung zur Metaphysik der Sitten* ist Kants erste rein moralphilosophische Schrift, erschienen 1785. Die EntstehungsumstÃ¤nde sind quellenmÃ¤ÃŸig fast ausschlieÃŸlich durch Briefe des Schriftst..."
+    },
+    {
+      "autor": "Immanuel Kant",
+      "titel": "Zum ewigen Frieden",
+      "analysiert_am": "2026-04-12",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Immanuel_Kant\\Zum_ewigen_Frieden\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Immanuel_Kant\\Zum_ewigen_Frieden\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### Vorrede (S. 2)\n\nDie Schrift erÃ¶ffnet mit einer satirischen Anspielung auf ein niederlÃ¤ndisches Gasthausschild mit der Aufschrift â€žZum ewigen Frieden\" Ã¼ber einem Kirchhof â€“ gemeint sein kÃ¶nnten StaatsmÃ¤nner, Menschen allgemein oder gar Philosophen. Kant verwahrt si..."
+    },
+    {
+      "autor": "Ukraine",
+      "titel": "Der lange Weg zum Krieg",
+      "analysiert_am": "2026-04-12",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Ukraine\\Der_lange_Weg_zum_Krieg\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Ukraine\\Der_lange_Weg_zum_Krieg\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### Vorwort (S. 8â€“14)\n\nDie Autoren â€“ beide mit jahrzehntelanger Erfahrung in der europÃ¤ischen Politik â€“ legen ihre Motivation dar: Sie haben den russischen Angriff vom 24. Februar 2022 als VÃ¶lkerrechtsbruch verurteilt, sich jedoch geweigert, in den dominierenden Emoti..."
+    },
+    {
+      "autor": "Jeffrey Sachs",
+      "titel": "Diplomatie oder Desaster",
+      "analysiert_am": "2026-04-27",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Jeffrey_Sachs\\Diplomatie_oder_Desaster\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Jeffrey_Sachs\\Diplomatie_oder_Desaster\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n---\n\n### 3.1 Frieden zwischen Deutschland und Russland *(S. 7â€“19, August 2024)*\n\nDie deutsch-russische Beziehung pendelt seit zwei Jahrhunderten zwischen Kooperation und Krieg â€“ stets mit verheerenden Folgen fÃ¼r beide Seiten, wenn Feindschaft die Oberhand gewann. Sach..."
+    },
+    {
+      "autor": "Gabriele Krone Schmalz",
+      "titel": "Eiszeit",
+      "analysiert_am": "2026-05-06",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Gabriele_Krone_Schmalz\\Eiszeit\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Gabriele_Krone_Schmalz\\Eiszeit\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n---\n\n### Eiszeit 2023 â€“ Neues Vorwort (S. 8â€“41)\n\nDer russische Einmarsch in die Ukraine am 24. Februar 2022 Ã¼berraschte auch die Autorin, obwohl sie das Buch 2017 Ã¼ber die wachsende Ost-West-Konfrontation geschrieben hatte. Krone-Schmalz lehnt die pauschale Deutung ab..."
+    },
+    {
+      "autor": "Michael Luders",
+      "titel": "Armageddon im Orient",
+      "analysiert_am": "2026-05-08",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Armageddon_im_Orient\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Armageddon_im_Orient\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### Vorwort (S. 8â€“10)\n\nLÃ¼ders erÃ¶ffnet mit dem konkreten Datum Juni 2019: Trump zog in letzter Minute einen Angriffsbefehl gegen den Iran zurÃ¼ck. Diese Episode dient als dramatischer Einstieg in die zentrale Fragestellung: Warum kÃ¼ndigte Washington 2018 das Atomabkomm..."
+    },
+    {
+      "autor": "Michael Luders",
+      "titel": "Wer den Wind sÃ¤t",
+      "analysiert_am": "2026-05-08",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Wer_den-Wind_sÃ¤t\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Wer_den-Wind_sÃ¤t\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "## 3. Kapitelzusammenfassungen\n\n### EinfÃ¼hrung: Wind sÃ¤en, StÃ¼rme ernten (S. 7â€“11)\n\nLÃ¼ders kÃ¼ndigt eine kritische Abrechnung mit westlicher Politik an, die sich nach auÃŸen werteorientiert gibt, im Nahen und Mittleren Osten jedoch verbrannte Erde hinterlÃ¤sst. Hauptakteure seiner Kritik sind die USA u..."
+    },
+    {
+      "autor": "Michael Luders",
+      "titel": "Die den Sturm ernten",
+      "analysiert_am": "2026-05-08",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Die-den-Sturm-ernten\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Die-den-Sturm-ernten\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "Geopolitische Analyse des Syrienkriegs. LÃ¼ders zeigt, wie westliche Interventionen seit 1949 (CIA-Putsch, TAPLINE) den Islamismus miterschaffen haben. Kernthese: Im Nahen Osten regieren Interessen, nicht Werte â€“ der Westen erntet den Sturm, den er selbst gesÃ¤t hat."
+    },
+    {
+      "autor": "Michael Luders",
+      "titel": "Moral uber alles",
+      "analysiert_am": "2026-05-09",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Moral_uber_alles\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Michael_Luders\\Moral_uber_alles\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "# Lektor-Aufbereitung: Moral_uber_alles\n\n**Quelle:** E:\\Bucher\\Michael_Luders\\Moral_uber_alles.pdf  \n**Seiten:** 214  \n**Abschnitte verarbeitet:** 6  \n\n---\n\n# Literaturanalyse: Moralismus und die Geopolitik des Eigeninteresses\n\n**Einheitliches Gesamtdokument**\n\n---\n\n## ðŸ“š Bibliografische Daten (Infer..."
+    },
+    {
+      "autor": "Illan pappe",
+      "titel": "Die ethnische Sauberung Palastinas drm frei",
+      "analysiert_am": "2026-05-09",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Illan_pappe\\Die_ethnische_Sauberung_Palastinas\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Illan_pappe\\Die_ethnische_Sauberung_Palastinas\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "# Lektor-Aufbereitung: Die ethnische Sauberung Palastinas_drm_frei\n\n**Quelle:** E:\\Bucher\\Illan_pappe\\Die ethnische Sauberung Palastinas_drm_frei.epub  \n**Kapitel:** 27  \n**Abschnitte verarbeitet:** 11  \n\n---\n\n# Die ethnische SÃ¤uberung PalÃ¤stinas: Eine Analyse der Vertreibung und des Staates\n\n*(Synt..."
+    },
+    {
+      "autor": "Mary Elise Sarotte",
+      "titel": "Nicht einen Schritt weiter nach Osten",
+      "analysiert_am": "2026-05-10",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Mary_Elise_Sarotte\\Nicht_einen_Schritt_weiter_nach_Osten\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Mary_Elise_Sarotte\\Nicht_einen_Schritt_weiter_nach_Osten\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "# Lektor-Aufbereitung: Nicht_einen_Schritt_weiter_nach_Osten\n\n**Quelle:** E:\\Bucher\\Mary_Elise_Sarotte\\Nicht_einen_Schritt_weiter_nach_Osten.pdf  \n**Seiten:** 589  \n**Abschnitte verarbeitet:** 8  \n\n---\n\n# ðŸ“– Gesamtanalyse: Nicht einen Schritt weiter nach Osten\n\n**Genre:** Geopolitische Geschichtsanal..."
+    },
+    {
+      "autor": "Pankaj Mishra",
+      "titel": "Die Welt nach Gaza",
+      "analysiert_am": "2026-05-10",
+      "lektor_pfad": "E:\\\\Claude_Projekte\\\\Buchanalysen\\\\analysen\\\\Rainer_Mausfeld\\\\Hegemonie_oder_Untergang\\\\06_sekundaerquellen\\\\06_mishra_2025.md",
+      "inhaltsanalyse_pfad": "E:\\\\Claude_Projekte\\\\Buchanalysen\\\\analysen\\\\Rainer_Mausfeld\\\\Hegemonie_oder_Untergang\\\\06_sekundaerquellen\\\\06_mishra_2025.md",
+      "kurzbeschreibung": "Sekundäranalyse zu Mausfeld. Gaza als moralischer Wendepunkt und Ende westlicher Führungshoheit. Dokumentiert die epistemische Revolte des Globalen Südens gegen westliche Doppelmoral."
+    },
+    {
+      "autor": "Helga Baumgarten",
+      "titel": "Völkermord in Gaza",
+      "analysiert_am": "2026-05-11",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Helga_Baumgarten\\Völkermord_in_Gaza\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Helga_Baumgarten\\Völkermord_in_Gaza\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "# Lektor-Aufbereitung: Völkermord_in_Gaza\n\n**Quelle:** E:\\Bucher\\Helga_Baumgarten\\Völkermord_in_Gaza.pdf  \n**Seiten:** 274  \n**Abschnitte verarbeitet:** 8  \n\n---\n\n# Völkermord in Gaza: Eine historische, völkerrechtliche und kulturelle Analyse\n\n*(Synthetisches Gesamtdokument)*\n\n---\n\n## 📚 Bibliografis..."
+    },
+    {
+      "autor": "Helga Baumgarten",
+      "titel": "Kein Frieden fuer Palaestina",
+      "analysiert_am": "2026-05-12",
+      "lektor_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Helga_Baumgarten\\Kein_Frieden_fuer_Palaestina\\01_lektor.md",
+      "inhaltsanalyse_pfad": "E:\\Claude_Projekte\\Buchanalysen\\analysen\\Helga_Baumgarten\\Kein_Frieden_fuer_Palaestina\\02_inhaltsanalyse.md",
+      "kurzbeschreibung": "# Lektor-Aufbereitung: Kein_Frieden_fuer_Palästina\n\n**Quelle:** E:\\Bucher\\Helga_Baumgarten\\Kein_Frieden_fuer_Palästina.pdf  \n**Seiten:** 181  \n**Abschnitte verarbeitet:** 5  \n\n---\n\n# Kein Frieden für Palästina: Ein umfassender Analysebericht\n\n**Einleitung:** Dieses Dokument ist eine strukturierte Sy..."
+    }
+  ]
 }
